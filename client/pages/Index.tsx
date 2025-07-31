@@ -155,7 +155,7 @@ export default function Index() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-amber-50">
+    <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header
         className="shadow-sm border-b border-orange-100"
