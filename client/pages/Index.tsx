@@ -157,10 +157,7 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header
-        className="shadow-sm border-b border-orange-100"
-        style={{ backgroundColor: "#D97706" }}
-      >
+      <header className="bg-gradient-to-r from-orange-600 to-amber-600 shadow-sm border-b border-orange-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-4">
