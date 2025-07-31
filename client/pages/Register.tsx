@@ -16,11 +16,15 @@ export default function Register() {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -31,7 +35,12 @@ export default function Register() {
     setIsLoading(true);
 
     // Basic validation
-    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.address.trim()) {
+    if (
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.phone.trim() ||
+      !formData.address.trim()
+    ) {
       setError("Please fill in all required fields");
       setIsLoading(false);
       return;
@@ -39,7 +48,7 @@ export default function Register() {
 
     // Register customer/supplier
     const result = registerCustomerSupplier(formData);
-    
+
     if (result.success) {
       setSuccess(result.message);
       // Reset form
@@ -51,7 +60,7 @@ export default function Register() {
         address: "",
         type: "customer",
       });
-      
+
       // Redirect after 2 seconds
       setTimeout(() => {
         navigate("/");
@@ -59,7 +68,7 @@ export default function Register() {
     } else {
       setError(result.message);
     }
-    
+
     setIsLoading(false);
   };
 
@@ -116,7 +125,10 @@ export default function Register() {
 
             {/* Name */}
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Full Name *
               </label>
               <input
@@ -133,7 +145,10 @@ export default function Register() {
 
             {/* Email */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Email Address *
               </label>
               <input
@@ -150,7 +165,10 @@ export default function Register() {
 
             {/* Phone */}
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="phone"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Phone Number *
               </label>
               <input
@@ -167,14 +185,17 @@ export default function Register() {
 
             {/* Company (Optional) */}
             <div>
-              <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                Company Name {formData.type === 'supplier' ? '*' : '(Optional)'}
+              <label
+                htmlFor="company"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Company Name {formData.type === "supplier" ? "*" : "(Optional)"}
               </label>
               <input
                 id="company"
                 name="company"
                 type="text"
-                required={formData.type === 'supplier'}
+                required={formData.type === "supplier"}
                 value={formData.company}
                 onChange={handleInputChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
@@ -184,7 +205,10 @@ export default function Register() {
 
             {/* Address */}
             <div>
-              <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="address"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Address *
               </label>
               <textarea
@@ -205,7 +229,9 @@ export default function Register() {
               disabled={isLoading}
               className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
-              {isLoading ? "Registering..." : `Register as ${formData.type === 'customer' ? 'Customer' : 'Supplier'}`}
+              {isLoading
+                ? "Registering..."
+                : `Register as ${formData.type === "customer" ? "Customer" : "Supplier"}`}
             </button>
           </form>
 

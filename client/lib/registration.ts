@@ -7,13 +7,13 @@ export interface CustomerSupplier {
   phone: string;
   company?: string;
   address: string;
-  type: 'customer' | 'supplier';
+  type: "customer" | "supplier";
   registrationDate: string;
-  status: 'active' | 'pending';
+  status: "active" | "pending";
 }
 
-const CUSTOMERS_KEY = 'sagar_hardware_customers';
-const SUPPLIERS_KEY = 'sagar_hardware_suppliers';
+const CUSTOMERS_KEY = "sagar_hardware_customers";
+const SUPPLIERS_KEY = "sagar_hardware_suppliers";
 
 /**
  * Generate unique ID for registration
@@ -73,41 +73,52 @@ export function storeSuppliers(suppliers: CustomerSupplier[]): void {
 /**
  * Check if email already exists
  */
-export function emailExists(email: string, type: 'customer' | 'supplier'): boolean {
-  const records = type === 'customer' ? getStoredCustomers() : getStoredSuppliers();
-  return records.some(record => record.email.toLowerCase() === email.toLowerCase());
+export function emailExists(
+  email: string,
+  type: "customer" | "supplier",
+): boolean {
+  const records =
+    type === "customer" ? getStoredCustomers() : getStoredSuppliers();
+  return records.some(
+    (record) => record.email.toLowerCase() === email.toLowerCase(),
+  );
 }
 
 /**
  * Register a new customer or supplier
  */
-export function registerCustomerSupplier(data: Omit<CustomerSupplier, 'id' | 'registrationDate' | 'status'>): { success: boolean; message: string; id?: string } {
+export function registerCustomerSupplier(
+  data: Omit<CustomerSupplier, "id" | "registrationDate" | "status">,
+): { success: boolean; message: string; id?: string } {
   // Validation
   if (!data.name.trim()) {
-    return { success: false, message: 'Name is required' };
+    return { success: false, message: "Name is required" };
   }
-  
+
   if (!data.email.trim()) {
-    return { success: false, message: 'Email is required' };
+    return { success: false, message: "Email is required" };
   }
 
   if (!data.phone.trim()) {
-    return { success: false, message: 'Phone number is required' };
+    return { success: false, message: "Phone number is required" };
   }
 
   if (!data.address.trim()) {
-    return { success: false, message: 'Address is required' };
+    return { success: false, message: "Address is required" };
   }
 
   // Email validation
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(data.email)) {
-    return { success: false, message: 'Please enter a valid email address' };
+    return { success: false, message: "Please enter a valid email address" };
   }
 
   // Check if email already exists
   if (emailExists(data.email, data.type)) {
-    return { success: false, message: `Email already registered as ${data.type}` };
+    return {
+      success: false,
+      message: `Email already registered as ${data.type}`,
+    };
   }
 
   // Create new record
@@ -115,11 +126,11 @@ export function registerCustomerSupplier(data: Omit<CustomerSupplier, 'id' | 're
     ...data,
     id: generateId(),
     registrationDate: new Date().toISOString(),
-    status: 'pending'
+    status: "pending",
   };
 
   // Store based on type
-  if (data.type === 'customer') {
+  if (data.type === "customer") {
     const customers = getStoredCustomers();
     customers.push(newRecord);
     storeCustomers(customers);
@@ -129,10 +140,10 @@ export function registerCustomerSupplier(data: Omit<CustomerSupplier, 'id' | 're
     storeSuppliers(suppliers);
   }
 
-  return { 
-    success: true, 
-    message: `${data.type === 'customer' ? 'Customer' : 'Supplier'} registered successfully`,
-    id: newRecord.id
+  return {
+    success: true,
+    message: `${data.type === "customer" ? "Customer" : "Supplier"} registered successfully`,
+    id: newRecord.id,
   };
 }
 
@@ -149,13 +160,13 @@ export function getAllRegistrations(): CustomerSupplier[] {
 export function getRegistrationStats() {
   const customers = getStoredCustomers();
   const suppliers = getStoredSuppliers();
-  
+
   return {
     totalCustomers: customers.length,
     totalSuppliers: suppliers.length,
-    activeCustomers: customers.filter(c => c.status === 'active').length,
-    activeSuppliers: suppliers.filter(s => s.status === 'active').length,
-    pendingCustomers: customers.filter(c => c.status === 'pending').length,
-    pendingSuppliers: suppliers.filter(s => s.status === 'pending').length,
+    activeCustomers: customers.filter((c) => c.status === "active").length,
+    activeSuppliers: suppliers.filter((s) => s.status === "active").length,
+    pendingCustomers: customers.filter((c) => c.status === "pending").length,
+    pendingSuppliers: suppliers.filter((s) => s.status === "pending").length,
   };
 }
