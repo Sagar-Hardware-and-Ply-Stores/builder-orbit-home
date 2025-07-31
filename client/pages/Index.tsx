@@ -179,13 +179,47 @@ export default function Index() {
               </div>
             </div>
 
+            {/* Navigation Menu */}
+            <nav className="hidden md:flex items-center space-x-8">
+              <Link
+                to="/"
+                className="text-white hover:text-orange-100 font-medium transition-colors"
+              >
+                HOME
+              </Link>
+              <Link
+                to="/register"
+                className="text-white hover:text-orange-100 font-medium transition-colors"
+              >
+                NETWORK
+              </Link>
+              <a
+                href="#about"
+                className="text-white hover:text-orange-100 font-medium transition-colors"
+              >
+                ABOUT
+              </a>
+              <a
+                href="#services"
+                className="text-white hover:text-orange-100 font-medium transition-colors"
+              >
+                SERVICES
+              </a>
+              <a
+                href="#contact"
+                className="text-white hover:text-orange-100 font-medium transition-colors"
+              >
+                CONTACT
+              </a>
+            </nav>
+
             <div className="flex items-center space-x-4">
-              <span className="text-sm text-gray-700">
+              <span className="text-sm text-white">
                 Welcome, <span className="font-medium">{user.username}</span>
               </span>
               <button
                 onClick={handleLogout}
-                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-colors"
+                className="inline-flex items-center px-4 py-2 border border-white text-sm font-medium rounded-lg text-white hover:bg-white hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors"
               >
                 Logout
               </button>
