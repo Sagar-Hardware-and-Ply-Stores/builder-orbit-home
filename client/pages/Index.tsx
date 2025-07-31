@@ -42,9 +42,9 @@ export default function Index() {
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-4">
               <img
-                src="https://via.placeholder.com/100x100?text=Logo"
+                src="https://cdn.builder.io/api/v1/image/assets%2F4fc264d2794b41bc8b3e094356cfa7f4%2F35ecaab49e544df4a62b1e71318bdbca?format=webp&width=800"
                 alt="Sagar Hardware and Ply Stores Logo"
-                className="h-10 w-10 rounded-lg bg-white shadow-sm"
+                className="h-10 w-10 rounded-lg bg-white shadow-sm object-contain"
               />
               <div>
                 <h1 className="text-xl font-bold text-gray-900">
