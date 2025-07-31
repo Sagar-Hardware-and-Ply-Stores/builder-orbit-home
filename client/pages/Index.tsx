@@ -5,12 +5,12 @@ import useEmblaCarousel from "embla-carousel-react";
 
 const FeaturesCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: 'start',
+    align: "start",
     slidesToScroll: 1,
     breakpoints: {
-      '(min-width: 768px)': { slidesToScroll: 2 },
-      '(min-width: 1024px)': { slidesToScroll: 3 }
-    }
+      "(min-width: 768px)": { slidesToScroll: 2 },
+      "(min-width: 1024px)": { slidesToScroll: 3 },
+    },
   });
 
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
@@ -20,23 +20,27 @@ const FeaturesCarousel = () => {
     {
       icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 7.172V5L8 4z",
       title: "Quality Tools",
-      description: "Professional-grade tools and equipment for all your projects."
+      description:
+        "Professional-grade tools and equipment for all your projects.",
     },
     {
       icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
       title: "Ply & Timber",
-      description: "Premium quality plywood and timber for construction and furniture."
+      description:
+        "Premium quality plywood and timber for construction and furniture.",
     },
     {
       icon: "M13 10V3L4 14h7v7l9-11h-7z",
       title: "Electrical Supplies",
-      description: "Complete range of electrical components and wiring solutions."
+      description:
+        "Complete range of electrical components and wiring solutions.",
     },
     {
       icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10",
       title: "Construction Materials",
-      description: "High-quality cement, bricks, steel, and building materials for all construction needs."
-    }
+      description:
+        "High-quality cement, bricks, steel, and building materials for all construction needs.",
+    },
   ];
 
   return (
@@ -44,7 +48,10 @@ const FeaturesCarousel = () => {
       <div className="embla overflow-hidden" ref={emblaRef}>
         <div className="embla__container flex">
           {features.map((feature, index) => (
-            <div key={index} className="embla__slide flex-none w-full md:w-1/2 lg:w-1/3 pl-4 first:pl-0">
+            <div
+              key={index}
+              className="embla__slide flex-none w-full md:w-1/2 lg:w-1/3 pl-4 first:pl-0"
+            >
               <div className="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow h-full">
                 <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
@@ -64,9 +71,7 @@ const FeaturesCarousel = () => {
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600">
-                  {feature.description}
-                </p>
+                <p className="text-gray-600">{feature.description}</p>
               </div>
             </div>
           ))}
@@ -79,8 +84,18 @@ const FeaturesCarousel = () => {
         className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow z-10"
         aria-label="Previous slide"
       >
-        <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
+        <svg
+          className="w-5 h-5 text-gray-600"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M15 19l-7-7 7-7"
+          ></path>
         </svg>
       </button>
 
@@ -89,8 +104,18 @@ const FeaturesCarousel = () => {
         className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow z-10"
         aria-label="Next slide"
       >
-        <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+        <svg
+          className="w-5 h-5 text-gray-600"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M9 5l7 7-7 7"
+          ></path>
         </svg>
       </button>
     </div>
