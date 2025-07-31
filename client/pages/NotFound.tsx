@@ -19,13 +19,16 @@ const NotFound = () => {
           alt="Sagar Hardware and Ply Stores Logo"
           className="mx-auto h-24 w-24 rounded-lg shadow-lg bg-white p-2 mb-8"
         />
-        
+
         <h1 className="text-6xl font-bold text-gray-900 mb-4">404</h1>
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Page Not Found</h2>
+        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+          Page Not Found
+        </h2>
         <p className="text-lg text-gray-600 mb-8 max-w-md mx-auto">
-          Sorry, the page you're looking for doesn't exist. Let's get you back to our store.
+          Sorry, the page you're looking for doesn't exist. Let's get you back
+          to our store.
         </p>
-        
+
         <div className="space-y-4">
           <Link
             to="/"
@@ -33,7 +36,7 @@ const NotFound = () => {
           >
             Return to Home
           </Link>
-          
+
           <p className="text-sm text-gray-500 mt-4">
             Sagar Hardware & Ply Stores - Your trusted hardware partner
           </p>
