@@ -210,6 +210,54 @@ export default function Index() {
         {/* Features Carousel */}
         <FeaturesCarousel />
 
+        {/* Registration Section */}
+        <div className="bg-gradient-to-r from-orange-600 to-amber-600 rounded-xl shadow-lg p-8 text-center text-white mb-12">
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-3xl font-bold mb-4">
+              Join Our Network
+            </h3>
+            <p className="text-lg mb-8 opacity-90">
+              Register as a customer to get exclusive deals or become a supplier to partner with us
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                  </svg>
+                </div>
+                <h4 className="text-xl font-semibold mb-2">Customer Registration</h4>
+                <p className="opacity-90 text-sm">
+                  Get access to exclusive prices, special offers, and priority service for all your hardware needs.
+                </p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2V6"></path>
+                  </svg>
+                </div>
+                <h4 className="text-xl font-semibold mb-2">Supplier Registration</h4>
+                <p className="opacity-90 text-sm">
+                  Partner with us to supply quality materials and expand your business reach in the hardware industry.
+                </p>
+              </div>
+            </div>
+
+            <Link
+              to="/register"
+              className="inline-flex items-center px-8 py-4 bg-white text-orange-600 font-semibold rounded-lg hover:bg-gray-50 transition-colors shadow-lg"
+            >
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
+              </svg>
+              Register Now
+            </Link>
+          </div>
+        </div>
+
         {/* CTA Section */}
         <div className="bg-white rounded-xl shadow-lg p-8 text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">
