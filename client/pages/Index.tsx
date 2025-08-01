@@ -241,8 +241,9 @@ export default function Index() {
             Welcome to Sagar Hardware & Ply Stores
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Your one-stop destination for all hardware and ply needs. Quality
-            products, competitive prices, and exceptional service.
+            Your one-stop destination for all hardware, construction
+            materials and ply needs. Quality products, competitive prices,
+            and exceptional service.
           </p>
         </div>
 
