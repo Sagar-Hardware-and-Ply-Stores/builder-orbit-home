@@ -361,7 +361,7 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col">
           <div className="text-center text-gray-600"></div>
           <p className="self-center">
-            &copy; 2024 Sagar Hardware & Ply Stores. All rights reserved.
+            &copy; 2025 Sagar Hardware &amp; Ply Stores. All rights reserved.
           </p>
         </div>
       </footer>
