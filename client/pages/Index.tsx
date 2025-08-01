@@ -347,10 +347,10 @@ export default function Index() {
               <h4 className="font-semibold text-white mb-2">Store Hours</h4>
               <p className="text-white">Sunday- Saturday: 8:00 AM - 8:00 PM</p>
             </div>
-            <div className="bg-orange-50 rounded-lg p-6">
-              <h4 className="font-semibold text-gray-900 mb-2">Contact Info</h4>
-              <p className="text-gray-700">Phone: +91 9846078267</p>
-              <p className="text-gray-700">Email: bhandarisagar512@gmail.com</p>
+            <div className="bg-gradient-to-r from-orange-600 to-amber-600 rounded-lg p-6">
+              <h4 className="font-semibold text-white mb-2">Contact Info</h4>
+              <p className="text-white">Phone: +91 9846078267</p>
+              <p className="text-white">Email: bhandarisagar512@gmail.com</p>
             </div>
           </div>
         </div>
