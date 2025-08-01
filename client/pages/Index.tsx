@@ -345,13 +345,11 @@ export default function Index() {
 
       {/* Footer */}
       <footer className="bg-white border-t border-orange-100 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center text-gray-600">
-            <p>&copy; 2024 Sagar Hardware & Ply Stores. All rights reserved.</p>
-            <p className="mt-2">
-              Your trusted partner for quality hardware solutions.
-            </p>
-          </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col">
+          <div className="text-center text-gray-600"></div>
+          <p className="self-center">
+            &copy; 2024 Sagar Hardware & Ply Stores. All rights reserved.
+          </p>
         </div>
       </footer>
     </div>
