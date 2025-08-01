@@ -166,13 +166,8 @@ export default function Index() {
                 alt="Sagar Hardware and Ply Stores Logo"
                 className="h-20 w-24 rounded-xl bg-white shadow-lg object-contain p-2 hover:shadow-xl transition-shadow"
               />
-              <div>
-                <h1 className="text-2xl lg:text-3xl font-bold text-white drop-shadow-sm">
-                  Sagar Hardware & Ply Stores
-                </h1>
-                <p className="text-base text-orange-100 mt-1 font-medium">
-                  Your trusted hardware partner since 1995
-                </p>
+              <div className="text-2xl lg:text-3xl font-bold text-white drop-shadow-sm">
+                Sagar Hardware & Ply Stores
               </div>
             </div>
 
