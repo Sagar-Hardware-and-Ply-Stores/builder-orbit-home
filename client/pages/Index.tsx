@@ -343,9 +343,9 @@ export default function Index() {
             hardware and construction needs.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <div className="bg-orange-50 rounded-lg p-6">
-              <h4 className="font-semibold text-gray-900 mb-2">Store Hours</h4>
-              <p className="text-gray-700">Sunday- Saturday: 8:00 AM - 8:00 PM</p>
+            <div className="bg-gradient-to-r from-orange-600 to-amber-600 rounded-lg p-6">
+              <h4 className="font-semibold text-white mb-2">Store Hours</h4>
+              <p className="text-white">Sunday- Saturday: 8:00 AM - 8:00 PM</p>
             </div>
             <div className="bg-orange-50 rounded-lg p-6">
               <h4 className="font-semibold text-gray-900 mb-2">Contact Info</h4>
