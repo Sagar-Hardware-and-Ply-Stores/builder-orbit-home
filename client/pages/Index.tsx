@@ -159,19 +159,19 @@ export default function Index() {
       {/* Header */}
       <header className="bg-gradient-to-r from-orange-600 to-amber-600 shadow-sm border-b border-orange-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <div className="flex items-center space-x-4">
+          <div className="flex justify-between items-center h-28 py-4">
+            <div className="flex items-center space-x-6">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F4fc264d2794b41bc8b3e094356cfa7f4%2F35ecaab49e544df4a62b1e71318bdbca?format=webp&width=800"
                 alt="Sagar Hardware and Ply Stores Logo"
-                className="h-16 w-20 rounded-lg bg-white shadow-sm object-contain p-1"
+                className="h-20 w-24 rounded-xl bg-white shadow-lg object-contain p-2 hover:shadow-xl transition-shadow"
               />
               <div>
-                <h1 className="text-xl font-bold text-gray-900">
+                <h1 className="text-2xl lg:text-3xl font-bold text-white drop-shadow-sm">
                   Sagar Hardware & Ply Stores
                 </h1>
-                <p className="text-sm text-gray-600">
-                  Your trusted hardware partner
+                <p className="text-base text-orange-100 mt-1 font-medium">
+                  Your trusted hardware partner since 1995
                 </p>
               </div>
             </div>
