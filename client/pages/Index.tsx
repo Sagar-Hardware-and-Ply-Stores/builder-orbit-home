@@ -241,7 +241,8 @@ export default function Index() {
           <div
             className="h-96 bg-cover bg-center bg-no-repeat rounded-xl mb-8 shadow-lg"
             style={{
-              backgroundImage: 'url(https://cdn.builder.io/api/v1/image/assets%2F4fc264d2794b41bc8b3e094356cfa7f4%2F09bd28e6a07a4535b5bec92ee45c891f?format=webp&width=800)'
+              backgroundImage:
+                "url(https://cdn.builder.io/api/v1/image/assets%2F4fc264d2794b41bc8b3e094356cfa7f4%2F09bd28e6a07a4535b5bec92ee45c891f?format=webp&width=800)",
             }}
           ></div>
 
@@ -252,8 +253,8 @@ export default function Index() {
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Your one-stop destination for all hardware, construction materials
-              and ply needs. Quality products, competitive prices, and exceptional
-              service.
+              and ply needs. Quality products, competitive prices, and
+              exceptional service.
             </p>
           </div>
         </div>
