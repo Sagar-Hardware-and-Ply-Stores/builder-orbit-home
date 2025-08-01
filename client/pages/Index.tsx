@@ -350,8 +350,8 @@ export default function Index() {
             </div>
             <div className="bg-orange-50 rounded-lg p-6">
               <h4 className="font-semibold text-gray-900 mb-2">Contact Info</h4>
-              <p className="text-gray-700">Phone: +91 98765 43210</p>
-              <p className="text-gray-700">Email: info@sagarhardware.com</p>
+              <p className="text-gray-700">Phone: +91 9846078267</p>
+              <p className="text-gray-700">Email: bhandarisagar512@gmail.com</p>
             </div>
           </div>
         </div>
