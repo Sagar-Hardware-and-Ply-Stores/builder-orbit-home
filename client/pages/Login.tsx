@@ -48,9 +48,9 @@ export default function Login() {
         {/* Logo and Header */}
         <div className="text-center">
           <img
-            src="https://via.placeholder.com/100x100?text=Logo"
+            src="https://cdn.builder.io/api/v1/image/assets%2F4fc264d2794b41bc8b3e094356cfa7f4%2F169353223ccd4854b126631ba764571b?format=webp&width=800"
             alt="Sagar Hardware and Ply Stores Logo"
-            className="mx-auto h-24 w-24 rounded-lg shadow-lg bg-white p-2"
+            className="mx-auto h-24 w-28 rounded-lg shadow-lg bg-white p-2 object-contain"
           />
           <h2 className="mt-6 text-3xl font-bold text-gray-900">
             Welcome Back
