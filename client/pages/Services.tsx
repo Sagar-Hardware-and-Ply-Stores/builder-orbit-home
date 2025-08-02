@@ -67,6 +67,14 @@ export default function Services() {
         "Engineered Wood",
         "Wood Preservatives",
       ],
+      colorScheme: {
+        bg: "bg-gradient-to-br from-green-50 to-emerald-100",
+        iconBg: "bg-gradient-to-r from-green-500 to-emerald-600",
+        iconColor: "text-white",
+        checkColor: "text-green-600",
+        borderColor: "border-green-200",
+        shadowColor: "hover:shadow-green-200/50"
+      }
     },
     {
       icon: "M13 10V3L4 14h7v7l9-11h-7z",
