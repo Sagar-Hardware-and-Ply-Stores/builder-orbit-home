@@ -124,7 +124,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/"
-                  className="text-gray-300 hover:text-orange-400 transition-colors"
+                  className="text-gray-300 hover:text-blue-300 transition-colors"
                 >
                   Home
                 </Link>
@@ -132,7 +132,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/about"
-                  className="text-gray-300 hover:text-orange-400 transition-colors"
+                  className="text-gray-300 hover:text-blue-300 transition-colors"
                 >
                   About Us
                 </Link>
@@ -140,7 +140,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/services"
-                  className="text-gray-300 hover:text-orange-400 transition-colors"
+                  className="text-gray-300 hover:text-blue-300 transition-colors"
                 >
                   Our Services
                 </Link>
@@ -148,7 +148,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/contact"
-                  className="text-gray-300 hover:text-orange-400 transition-colors"
+                  className="text-gray-300 hover:text-blue-300 transition-colors"
                 >
                   Contact Us
                 </Link>
@@ -156,7 +156,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/register"
-                  className="text-gray-300 hover:text-orange-400 transition-colors"
+                  className="text-gray-300 hover:text-blue-300 transition-colors"
                 >
                   Join Network
                 </Link>
