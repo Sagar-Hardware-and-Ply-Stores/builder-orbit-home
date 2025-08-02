@@ -399,99 +399,105 @@ export default function Services() {
         </div>
 
         {/* Quality Assurance */}
-        <div className="bg-gradient-to-r from-orange-600 to-amber-600 rounded-xl shadow-lg p-8 text-white mb-16">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold mb-4">Quality Assurance</h2>
-            <p className="text-lg opacity-90 max-w-3xl mx-auto">
-              We stand behind every product we sell with our commitment to
-              quality and customer satisfaction.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  ></path>
-                </svg>
-              </div>
-              <h3 className="font-semibold mb-2">Certified Products</h3>
-              <p className="text-sm opacity-90">
-                All products meet industry standards
+        <div className="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 rounded-2xl shadow-2xl p-10 text-white mb-16 relative overflow-hidden">
+          {/* Background decoration */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent"></div>
+          <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-gradient-to-br from-white/10 to-transparent transform translate-x-32 -translate-y-32"></div>
+
+          <div className="relative z-10">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold mb-6">Quality Assurance</h2>
+              <p className="text-xl opacity-90 max-w-3xl mx-auto leading-relaxed">
+                We stand behind every product we sell with our commitment to
+                quality and customer satisfaction.
               </p>
             </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  ></path>
-                </svg>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div className="text-center group hover:transform hover:scale-110 transition-all duration-300">
+                <div className="w-20 h-20 bg-gradient-to-r from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-2xl transition-shadow">
+                  <svg
+                    className="w-10 h-10 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2.5"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold mb-3 group-hover:text-green-200 transition-colors">Certified Products</h3>
+                <p className="text-sm opacity-90 leading-relaxed">
+                  All products meet industry standards
+                </p>
               </div>
-              <h3 className="font-semibold mb-2">Warranty</h3>
-              <p className="text-sm opacity-90">
-                Comprehensive warranty coverage
-              </p>
-            </div>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                  ></path>
-                </svg>
+              <div className="text-center group hover:transform hover:scale-110 transition-all duration-300">
+                <div className="w-20 h-20 bg-gradient-to-r from-red-400 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-2xl transition-shadow">
+                  <svg
+                    className="w-10 h-10 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2.5"
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold mb-3 group-hover:text-pink-200 transition-colors">Warranty</h3>
+                <p className="text-sm opacity-90 leading-relaxed">
+                  Comprehensive warranty coverage
+                </p>
               </div>
-              <h3 className="font-semibold mb-2">Expert Support</h3>
-              <p className="text-sm opacity-90">
-                Professional guidance available
-              </p>
-            </div>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
-                  ></path>
-                </svg>
+              <div className="text-center group hover:transform hover:scale-110 transition-all duration-300">
+                <div className="w-20 h-20 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-2xl transition-shadow">
+                  <svg
+                    className="w-10 h-10 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2.5"
+                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold mb-3 group-hover:text-cyan-200 transition-colors">Expert Support</h3>
+                <p className="text-sm opacity-90 leading-relaxed">
+                  Professional guidance available
+                </p>
               </div>
-              <h3 className="font-semibold mb-2">Best Prices</h3>
-              <p className="text-sm opacity-90">Competitive and fair pricing</p>
+
+              <div className="text-center group hover:transform hover:scale-110 transition-all duration-300">
+                <div className="w-20 h-20 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-2xl transition-shadow">
+                  <svg
+                    className="w-10 h-10 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2.5"
+                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
+                    ></path>
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold mb-3 group-hover:text-yellow-200 transition-colors">Best Prices</h3>
+                <p className="text-sm opacity-90 leading-relaxed">Competitive and fair pricing</p>
+              </div>
             </div>
           </div>
         </div>
