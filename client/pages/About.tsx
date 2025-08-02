@@ -63,7 +63,7 @@ export default function About() {
               </Link>
               <Link
                 to="/about"
-                className="text-orange-100 font-medium border-b-2 border-orange-100 pb-1"
+                className="text-blue-200 font-medium border-b-2 border-blue-200 pb-1"
               >
                 ABOUT
               </Link>
