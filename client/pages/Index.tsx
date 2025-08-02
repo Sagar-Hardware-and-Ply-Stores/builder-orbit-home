@@ -327,7 +327,7 @@ export default function Index() {
 
             <Link
               to="/register"
-              className="inline-flex items-center px-8 py-4 bg-white text-orange-600 font-semibold rounded-lg hover:bg-gray-50 transition-colors shadow-lg"
+              className="inline-flex items-center px-8 py-4 bg-white text-slate-800 font-semibold rounded-lg hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               <svg
                 className="w-5 h-5 mr-2"
