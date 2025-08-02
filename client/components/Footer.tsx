@@ -34,7 +34,7 @@ export default function Footer() {
             {/* Social Media Links */}
             <div className="flex space-x-4">
               <a
-                href="https://facebook.com/sagarhardware"
+                href="https://www.facebook.com/SAGAR345/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
