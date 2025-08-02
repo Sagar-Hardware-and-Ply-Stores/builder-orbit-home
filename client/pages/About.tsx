@@ -266,9 +266,7 @@ export default function About() {
 
             <div className="text-center">
               <div className="bg-gradient-to-r from-slate-600 to-blue-600 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <span className="text-2xl font-bold text-white">
-                  1000+
-                </span>
+                <span className="text-2xl font-bold text-white">1000+</span>
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Products</h3>
               <p className="text-gray-600 text-sm">
