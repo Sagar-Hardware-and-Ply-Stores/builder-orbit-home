@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { registerCustomerSupplier } from "@/lib/registration";
+import { getCurrentUser, clearCurrentUser, isLoggedIn } from "@/lib/auth";
 
 export default function Register() {
   const [formData, setFormData] = useState({
