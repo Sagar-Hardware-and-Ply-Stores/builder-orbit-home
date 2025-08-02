@@ -87,9 +87,98 @@ export default function Register() {
     setIsLoading(false);
   };
 
+  if (!user) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-slate-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Redirecting...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-2xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+      {/* Header */}
+      <header className="bg-gradient-to-r from-slate-800 via-blue-900 to-indigo-900 shadow-xl border-b border-slate-700">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-28 py-4">
+            <div className="flex items-center space-x-6">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F4fc264d2794b41bc8b3e094356cfa7f4%2F35ecaab49e544df4a62b1e71318bdbca?format=webp&width=800"
+                alt="Sagar Hardware and Ply Stores Logo"
+                className="h-20 w-24 rounded-xl bg-white shadow-lg object-contain p-2 hover:shadow-xl transition-shadow"
+              />
+              <div className="text-2xl lg:text-3xl font-bold text-white drop-shadow-sm">
+                Sagar Hardware & Ply Stores
+              </div>
+            </div>
+
+            <nav className="hidden md:flex items-center space-x-8">
+              <Link
+                to="/"
+                className="text-white hover:text-blue-200 font-medium transition-colors"
+              >
+                HOME
+              </Link>
+              <Link
+                to="/register"
+                className="text-blue-200 font-medium border-b-2 border-blue-200 pb-1"
+              >
+                NETWORK
+              </Link>
+              <Link
+                to="/about"
+                className="text-white hover:text-blue-200 font-medium transition-colors"
+              >
+                ABOUT
+              </Link>
+              <Link
+                to="/services"
+                className="text-white hover:text-blue-200 font-medium transition-colors"
+              >
+                SERVICES
+              </Link>
+              <Link
+                to="/contact"
+                className="text-white hover:text-blue-200 font-medium transition-colors"
+              >
+                CONTACT
+              </Link>
+            </nav>
+
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2 text-white">
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                  ></path>
+                </svg>
+                <span className="font-medium">{user.username}</span>
+              </div>
+              <button
+                onClick={handleLogout}
+                className="inline-flex items-center px-4 py-2 border border-white text-sm font-medium rounded-lg text-white hover:bg-white hover:text-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors"
+              >
+                Logout
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <Link to="/" className="inline-block mb-8">
@@ -326,16 +415,17 @@ export default function Register() {
           </div>
         </div>
 
-        {/* Back to Home */}
-        <div className="text-center mt-8">
-          <Link
-            to="/"
-            className="text-slate-600 hover:text-blue-600 transition-colors"
-          >
-            ← Back to Homepage
-          </Link>
+          {/* Back to Home */}
+          <div className="text-center mt-8">
+            <Link
+              to="/"
+              className="text-slate-600 hover:text-blue-600 transition-colors"
+            >
+              ← Back to Homepage
+            </Link>
+          </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 }
