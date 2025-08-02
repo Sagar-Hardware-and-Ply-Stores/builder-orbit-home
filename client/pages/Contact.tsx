@@ -465,7 +465,7 @@ export default function Contact() {
             </div>
 
             {/* Quick Contact Options */}
-            <div className="bg-gradient-to-r from-orange-600 to-amber-600 rounded-xl shadow-lg p-8 text-white">
+            <div className="bg-gradient-to-r from-slate-700 to-blue-800 rounded-xl shadow-2xl p-8 text-white border border-slate-600">
               <h2 className="text-2xl font-bold mb-6">Quick Contact</h2>
               <div className="space-y-4">
                 <a
