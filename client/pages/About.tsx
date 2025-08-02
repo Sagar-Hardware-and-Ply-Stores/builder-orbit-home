@@ -299,26 +299,29 @@ export default function About() {
         </div>
 
         {/* CTA Section */}
-        <div className="bg-gradient-to-r from-orange-600 to-amber-600 rounded-xl shadow-lg p-8 text-center text-white">
-          <h3 className="text-3xl font-bold mb-4">
-            Ready to Start Your Project?
-          </h3>
-          <p className="text-lg mb-8 opacity-90">
-            Visit our store today and experience the difference quality makes.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/contact"
-              className="inline-flex items-center px-8 py-4 bg-white text-orange-600 font-semibold rounded-lg hover:bg-gray-50 transition-colors shadow-lg"
-            >
-              Contact Us
-            </Link>
-            <Link
-              to="/services"
-              className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-orange-600 transition-colors"
-            >
-              View Services
-            </Link>
+        <div className="bg-gradient-to-r from-slate-700 via-blue-800 to-indigo-800 rounded-2xl shadow-2xl p-10 text-center text-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent"></div>
+          <div className="relative z-10">
+            <h3 className="text-3xl font-bold mb-4">
+              Ready to Start Your Project?
+            </h3>
+            <p className="text-lg mb-8 opacity-90">
+              Visit our store today and experience the difference quality makes.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/contact"
+                className="inline-flex items-center px-8 py-4 bg-white text-slate-800 font-semibold rounded-lg hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+              >
+                Contact Us
+              </Link>
+              <Link
+                to="/services"
+                className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-slate-800 transition-all"
+              >
+                View Services
+              </Link>
+            </div>
           </div>
         </div>
       </main>
