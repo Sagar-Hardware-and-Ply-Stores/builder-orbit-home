@@ -35,39 +35,87 @@ export default function Services() {
     {
       icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 7.172V5L8 4z",
       title: "Hardware Tools & Equipment",
-      description: "Professional-grade tools and equipment for all your construction and maintenance needs.",
-      features: ["Power Tools", "Hand Tools", "Safety Equipment", "Measuring Instruments", "Cutting Tools", "Fasteners & Hardware"]
+      description:
+        "Professional-grade tools and equipment for all your construction and maintenance needs.",
+      features: [
+        "Power Tools",
+        "Hand Tools",
+        "Safety Equipment",
+        "Measuring Instruments",
+        "Cutting Tools",
+        "Fasteners & Hardware",
+      ],
     },
     {
       icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
       title: "Plywood & Timber",
-      description: "Premium quality plywood, timber, and wood products for construction and furniture making.",
-      features: ["Marine Plywood", "Commercial Plywood", "Hardwood Timber", "Softwood Planks", "Engineered Wood", "Wood Preservatives"]
+      description:
+        "Premium quality plywood, timber, and wood products for construction and furniture making.",
+      features: [
+        "Marine Plywood",
+        "Commercial Plywood",
+        "Hardwood Timber",
+        "Softwood Planks",
+        "Engineered Wood",
+        "Wood Preservatives",
+      ],
     },
     {
       icon: "M13 10V3L4 14h7v7l9-11h-7z",
       title: "Electrical Supplies",
-      description: "Complete range of electrical components, wiring solutions, and lighting fixtures.",
-      features: ["Cables & Wires", "Switches & Sockets", "Circuit Breakers", "LED Lights", "Electrical Panels", "Conduits & Fittings"]
+      description:
+        "Complete range of electrical components, wiring solutions, and lighting fixtures.",
+      features: [
+        "Cables & Wires",
+        "Switches & Sockets",
+        "Circuit Breakers",
+        "LED Lights",
+        "Electrical Panels",
+        "Conduits & Fittings",
+      ],
     },
     {
       icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10",
       title: "Construction Materials",
-      description: "High-quality cement, bricks, steel, and other essential building materials.",
-      features: ["Portland Cement", "Steel Rods & Bars", "Bricks & Blocks", "Sand & Aggregates", "Roofing Materials", "Waterproofing"]
+      description:
+        "High-quality cement, bricks, steel, and other essential building materials.",
+      features: [
+        "Portland Cement",
+        "Steel Rods & Bars",
+        "Bricks & Blocks",
+        "Sand & Aggregates",
+        "Roofing Materials",
+        "Waterproofing",
+      ],
     },
     {
       icon: "M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4",
       title: "Plumbing & Sanitation",
-      description: "Complete plumbing solutions including pipes, fittings, and sanitary fixtures.",
-      features: ["PVC Pipes", "Metal Pipes", "Pipe Fittings", "Bathroom Fixtures", "Kitchen Sinks", "Water Pumps"]
+      description:
+        "Complete plumbing solutions including pipes, fittings, and sanitary fixtures.",
+      features: [
+        "PVC Pipes",
+        "Metal Pipes",
+        "Pipe Fittings",
+        "Bathroom Fixtures",
+        "Kitchen Sinks",
+        "Water Pumps",
+      ],
     },
     {
       icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
       title: "Paint & Finishing",
-      description: "Quality paints, primers, and finishing materials for interior and exterior applications.",
-      features: ["Interior Paints", "Exterior Paints", "Primers & Sealers", "Wood Stains", "Brushes & Rollers", "Spray Equipment"]
-    }
+      description:
+        "Quality paints, primers, and finishing materials for interior and exterior applications.",
+      features: [
+        "Interior Paints",
+        "Exterior Paints",
+        "Primers & Sealers",
+        "Wood Stains",
+        "Brushes & Rollers",
+        "Spray Equipment",
+      ],
+    },
   ];
 
   return (
@@ -152,16 +200,23 @@ export default function Services() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">Our Services</h1>
+          <h1 className="text-5xl font-bold text-gray-900 mb-6">
+            Our Services
+          </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover our comprehensive range of hardware, construction materials, and services designed to meet all your building and renovation needs.
+            Discover our comprehensive range of hardware, construction
+            materials, and services designed to meet all your building and
+            renovation needs.
           </p>
         </div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {services.map((service, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow">
+            <div
+              key={index}
+              className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow"
+            >
               <div className="flex items-start space-x-4">
                 <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
                   <svg
@@ -185,7 +240,10 @@ export default function Services() {
                   <p className="text-gray-600 mb-4">{service.description}</p>
                   <div className="grid grid-cols-2 gap-2">
                     {service.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center space-x-2">
+                      <div
+                        key={featureIndex}
+                        className="flex items-center space-x-2"
+                      >
                         <svg
                           className="w-4 h-4 text-orange-600 flex-shrink-0"
                           fill="none"
@@ -211,7 +269,9 @@ export default function Services() {
 
         {/* Additional Services */}
         <div className="bg-white rounded-xl shadow-lg p-8 mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-8">Additional Services</h2>
+          <h2 className="text-3xl font-bold text-gray-900 text-center mb-8">
+            Additional Services
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -229,9 +289,12 @@ export default function Services() {
                   ></path>
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Expert Consultation</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                Expert Consultation
+              </h3>
               <p className="text-gray-600">
-                Get professional advice from our experienced team for your construction and renovation projects.
+                Get professional advice from our experienced team for your
+                construction and renovation projects.
               </p>
             </div>
 
@@ -251,9 +314,12 @@ export default function Services() {
                   ></path>
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Bulk Orders</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                Bulk Orders
+              </h3>
               <p className="text-gray-600">
-                Special pricing and delivery arrangements for large quantity orders and commercial projects.
+                Special pricing and delivery arrangements for large quantity
+                orders and commercial projects.
               </p>
             </div>
 
@@ -273,9 +339,12 @@ export default function Services() {
                   ></path>
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Fast Delivery</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                Fast Delivery
+              </h3>
               <p className="text-gray-600">
-                Quick and reliable delivery service to get your materials to your project site on time.
+                Quick and reliable delivery service to get your materials to
+                your project site on time.
               </p>
             </div>
           </div>
@@ -286,7 +355,8 @@ export default function Services() {
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold mb-4">Quality Assurance</h2>
             <p className="text-lg opacity-90 max-w-3xl mx-auto">
-              We stand behind every product we sell with our commitment to quality and customer satisfaction.
+              We stand behind every product we sell with our commitment to
+              quality and customer satisfaction.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -307,7 +377,9 @@ export default function Services() {
                 </svg>
               </div>
               <h3 className="font-semibold mb-2">Certified Products</h3>
-              <p className="text-sm opacity-90">All products meet industry standards</p>
+              <p className="text-sm opacity-90">
+                All products meet industry standards
+              </p>
             </div>
 
             <div className="text-center">
@@ -327,7 +399,9 @@ export default function Services() {
                 </svg>
               </div>
               <h3 className="font-semibold mb-2">Warranty</h3>
-              <p className="text-sm opacity-90">Comprehensive warranty coverage</p>
+              <p className="text-sm opacity-90">
+                Comprehensive warranty coverage
+              </p>
             </div>
 
             <div className="text-center">
@@ -347,7 +421,9 @@ export default function Services() {
                 </svg>
               </div>
               <h3 className="font-semibold mb-2">Expert Support</h3>
-              <p className="text-sm opacity-90">Professional guidance available</p>
+              <p className="text-sm opacity-90">
+                Professional guidance available
+              </p>
             </div>
 
             <div className="text-center">
@@ -374,9 +450,12 @@ export default function Services() {
 
         {/* CTA Section */}
         <div className="bg-white rounded-xl shadow-lg p-8 text-center">
-          <h3 className="text-3xl font-bold text-gray-900 mb-4">Need Help Choosing?</h3>
+          <h3 className="text-3xl font-bold text-gray-900 mb-4">
+            Need Help Choosing?
+          </h3>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Our expert team is ready to help you find the right products and solutions for your specific project needs.
+            Our expert team is ready to help you find the right products and
+            solutions for your specific project needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

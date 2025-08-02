@@ -19,7 +19,7 @@ export default function Contact() {
     subject: "",
     message: "",
     projectType: "",
-    urgency: "medium"
+    urgency: "medium",
   });
 
   useEffect(() => {
@@ -35,11 +35,15 @@ export default function Contact() {
     navigate("/login");
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -48,10 +52,10 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
@@ -68,15 +72,16 @@ export default function Contact() {
           subject: "",
           message: "",
           projectType: "",
-          urgency: "medium"
+          urgency: "medium",
         });
       } else {
-        throw new Error('Failed to send message');
+        throw new Error("Failed to send message");
       }
     } catch (error) {
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again or call us directly.",
+        description:
+          "Failed to send message. Please try again or call us directly.",
         variant: "destructive",
       });
     } finally {
@@ -179,18 +184,25 @@ export default function Contact() {
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">Contact Us</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Get in touch with our team for expert advice, product inquiries, or project consultations. We're here to help with all your hardware and construction needs.
+            Get in touch with our team for expert advice, product inquiries, or
+            project consultations. We're here to help with all your hardware and
+            construction needs.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="bg-white rounded-xl shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              Send us a Message
+            </h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Full Name *
                   </label>
                   <Input
@@ -204,7 +216,10 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Email Address *
                   </label>
                   <Input
@@ -221,7 +236,10 @@ export default function Contact() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Phone Number
                   </label>
                   <Input
@@ -234,7 +252,10 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="projectType" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="projectType"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Project Type
                   </label>
                   <select
@@ -245,7 +266,9 @@ export default function Contact() {
                     className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                   >
                     <option value="">Select project type</option>
-                    <option value="residential">Residential Construction</option>
+                    <option value="residential">
+                      Residential Construction
+                    </option>
                     <option value="commercial">Commercial Building</option>
                     <option value="renovation">Renovation/Remodeling</option>
                     <option value="electrical">Electrical Work</option>
@@ -256,7 +279,10 @@ export default function Contact() {
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="subject"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Subject *
                 </label>
                 <Input
@@ -271,7 +297,10 @@ export default function Contact() {
               </div>
 
               <div>
-                <label htmlFor="urgency" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="urgency"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Urgency Level
                 </label>
                 <select
@@ -282,14 +311,23 @@ export default function Contact() {
                   className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                 >
                   <option value="low">Low - General inquiry</option>
-                  <option value="medium">Medium - Need response in 1-2 days</option>
-                  <option value="high">High - Need response within 24 hours</option>
-                  <option value="urgent">Urgent - Need immediate assistance</option>
+                  <option value="medium">
+                    Medium - Need response in 1-2 days
+                  </option>
+                  <option value="high">
+                    High - Need response within 24 hours
+                  </option>
+                  <option value="urgent">
+                    Urgent - Need immediate assistance
+                  </option>
                 </select>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Message *
                 </label>
                 <Textarea
@@ -324,7 +362,9 @@ export default function Contact() {
           <div className="space-y-8">
             {/* Store Information */}
             <div className="bg-white rounded-xl shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Visit Our Store</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                Visit Our Store
+              </h2>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <svg
@@ -349,8 +389,10 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold text-gray-900">Address</h3>
                     <p className="text-gray-600">
-                      Sagar Hardware & Ply Stores<br />
-                      Main Market Road<br />
+                      Sagar Hardware & Ply Stores
+                      <br />
+                      Main Market Road
+                      <br />
                       Kathmandu, Nepal
                     </p>
                   </div>
@@ -413,7 +455,8 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold text-gray-900">Store Hours</h3>
                     <p className="text-gray-600">
-                      Sunday - Saturday<br />
+                      Sunday - Saturday
+                      <br />
                       8:00 AM - 8:00 PM
                     </p>
                   </div>
@@ -493,9 +536,12 @@ export default function Contact() {
 
         {/* Emergency Contact */}
         <div className="mt-16 bg-white rounded-xl shadow-lg p-8 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Emergency? Need Immediate Help?</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            Emergency? Need Immediate Help?
+          </h2>
           <p className="text-gray-600 mb-6">
-            For urgent project needs or emergency supply requirements, call us directly.
+            For urgent project needs or emergency supply requirements, call us
+            directly.
           </p>
           <a
             href="tel:+9779846078267"
