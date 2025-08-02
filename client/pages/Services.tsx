@@ -45,6 +45,14 @@ export default function Services() {
         "Cutting Tools",
         "Fasteners & Hardware",
       ],
+      colorScheme: {
+        bg: "bg-gradient-to-br from-blue-50 to-indigo-100",
+        iconBg: "bg-gradient-to-r from-blue-500 to-indigo-600",
+        iconColor: "text-white",
+        checkColor: "text-blue-600",
+        borderColor: "border-blue-200",
+        shadowColor: "hover:shadow-blue-200/50"
+      }
     },
     {
       icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
