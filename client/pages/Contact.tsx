@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import Footer from "@/components/Footer";
 
 export default function Contact() {
   const [user, setUser] = useState(getCurrentUser());
@@ -517,6 +518,8 @@ export default function Contact() {
           </a>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 }

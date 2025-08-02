@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getCurrentUser, clearCurrentUser, isLoggedIn } from "@/lib/auth";
+import Footer from "@/components/Footer";
 
 export default function Services() {
   const [user, setUser] = useState(getCurrentUser());
@@ -406,6 +407,8 @@ export default function Services() {
           </div>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 }
