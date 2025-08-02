@@ -4,6 +4,7 @@ import { registerCustomerSupplier } from "@/lib/registration";
 import { getCurrentUser, clearCurrentUser, isLoggedIn } from "@/lib/auth";
 
 export default function Register() {
+  const [user, setUser] = useState(getCurrentUser());
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,6 +17,19 @@ export default function Register() {
   const [success, setSuccess] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isLoggedIn()) {
+      navigate("/login");
+      return;
+    }
+    setUser(getCurrentUser());
+  }, [navigate]);
+
+  const handleLogout = () => {
+    clearCurrentUser();
+    navigate("/login");
+  };
 
   const handleInputChange = (
     e: React.ChangeEvent<
