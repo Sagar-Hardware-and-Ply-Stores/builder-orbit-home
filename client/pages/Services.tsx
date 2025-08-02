@@ -316,15 +316,15 @@ export default function Services() {
         </div>
 
         {/* Additional Services */}
-        <div className="bg-white rounded-xl shadow-lg p-8 mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-8">
+        <div className="bg-gradient-to-r from-slate-50 to-gray-100 rounded-2xl shadow-xl p-10 mb-16 border border-gray-200">
+          <h2 className="text-4xl font-bold text-gray-900 text-center mb-12">
             Additional Services
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
+              <div className="w-24 h-24 bg-gradient-to-r from-teal-400 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-shadow">
                 <svg
-                  className="w-10 h-10 text-orange-600"
+                  className="w-12 h-12 text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -337,19 +337,19 @@ export default function Services() {
                   ></path>
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-teal-600 transition-colors">
                 Expert Consultation
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-700 leading-relaxed">
                 Get professional advice from our experienced team for your
                 construction and renovation projects.
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
+              <div className="w-24 h-24 bg-gradient-to-r from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-shadow">
                 <svg
-                  className="w-10 h-10 text-orange-600"
+                  className="w-12 h-12 text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -362,19 +362,19 @@ export default function Services() {
                   ></path>
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-purple-600 transition-colors">
                 Bulk Orders
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-700 leading-relaxed">
                 Special pricing and delivery arrangements for large quantity
                 orders and commercial projects.
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
+              <div className="w-24 h-24 bg-gradient-to-r from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-shadow">
                 <svg
-                  className="w-10 h-10 text-orange-600"
+                  className="w-12 h-12 text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -387,10 +387,10 @@ export default function Services() {
                   ></path>
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-green-600 transition-colors">
                 Fast Delivery
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-700 leading-relaxed">
                 Quick and reliable delivery service to get your materials to
                 your project site on time.
               </p>
