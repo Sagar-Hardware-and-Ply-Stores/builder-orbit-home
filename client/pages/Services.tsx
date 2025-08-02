@@ -51,8 +51,8 @@ export default function Services() {
         iconColor: "text-white",
         checkColor: "text-blue-600",
         borderColor: "border-blue-200",
-        shadowColor: "hover:shadow-blue-200/50"
-      }
+        shadowColor: "hover:shadow-blue-200/50",
+      },
     },
     {
       icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
@@ -73,8 +73,8 @@ export default function Services() {
         iconColor: "text-white",
         checkColor: "text-green-600",
         borderColor: "border-green-200",
-        shadowColor: "hover:shadow-green-200/50"
-      }
+        shadowColor: "hover:shadow-green-200/50",
+      },
     },
     {
       icon: "M13 10V3L4 14h7v7l9-11h-7z",
@@ -95,8 +95,8 @@ export default function Services() {
         iconColor: "text-white",
         checkColor: "text-yellow-600",
         borderColor: "border-yellow-200",
-        shadowColor: "hover:shadow-yellow-200/50"
-      }
+        shadowColor: "hover:shadow-yellow-200/50",
+      },
     },
     {
       icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10",
@@ -117,8 +117,8 @@ export default function Services() {
         iconColor: "text-white",
         checkColor: "text-red-600",
         borderColor: "border-red-200",
-        shadowColor: "hover:shadow-red-200/50"
-      }
+        shadowColor: "hover:shadow-red-200/50",
+      },
     },
     {
       icon: "M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4",
@@ -139,8 +139,8 @@ export default function Services() {
         iconColor: "text-white",
         checkColor: "text-cyan-600",
         borderColor: "border-cyan-200",
-        shadowColor: "hover:shadow-cyan-200/50"
-      }
+        shadowColor: "hover:shadow-cyan-200/50",
+      },
     },
     {
       icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
@@ -161,8 +161,8 @@ export default function Services() {
         iconColor: "text-white",
         checkColor: "text-purple-600",
         borderColor: "border-purple-200",
-        shadowColor: "hover:shadow-purple-200/50"
-      }
+        shadowColor: "hover:shadow-purple-200/50",
+      },
     },
   ];
 
@@ -266,7 +266,9 @@ export default function Services() {
               className={`${service.colorScheme.bg} rounded-xl shadow-lg p-8 transition-all duration-300 transform hover:scale-105 ${service.colorScheme.shadowColor} hover:shadow-2xl border-2 ${service.colorScheme.borderColor}`}
             >
               <div className="flex items-start space-x-4">
-                <div className={`w-20 h-20 ${service.colorScheme.iconBg} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-300`}>
+                <div
+                  className={`w-20 h-20 ${service.colorScheme.iconBg} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-300`}
+                >
                   <svg
                     className={`w-10 h-10 ${service.colorScheme.iconColor}`}
                     fill="none"
@@ -285,7 +287,9 @@ export default function Services() {
                   <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-gray-800">
                     {service.title}
                   </h3>
-                  <p className="text-gray-700 mb-6 leading-relaxed font-medium">{service.description}</p>
+                  <p className="text-gray-700 mb-6 leading-relaxed font-medium">
+                    {service.description}
+                  </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {service.features.map((feature, featureIndex) => (
                       <div
@@ -305,7 +309,9 @@ export default function Services() {
                             d="M5 13l4 4L19 7"
                           ></path>
                         </svg>
-                        <span className="text-sm font-semibold text-gray-800">{feature}</span>
+                        <span className="text-sm font-semibold text-gray-800">
+                          {feature}
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -429,7 +435,9 @@ export default function Services() {
                     ></path>
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold mb-3 group-hover:text-green-200 transition-colors">Certified Products</h3>
+                <h3 className="text-lg font-bold mb-3 group-hover:text-green-200 transition-colors">
+                  Certified Products
+                </h3>
                 <p className="text-sm opacity-90 leading-relaxed">
                   All products meet industry standards
                 </p>
@@ -451,7 +459,9 @@ export default function Services() {
                     ></path>
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold mb-3 group-hover:text-pink-200 transition-colors">Warranty</h3>
+                <h3 className="text-lg font-bold mb-3 group-hover:text-pink-200 transition-colors">
+                  Warranty
+                </h3>
                 <p className="text-sm opacity-90 leading-relaxed">
                   Comprehensive warranty coverage
                 </p>
@@ -473,7 +483,9 @@ export default function Services() {
                     ></path>
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold mb-3 group-hover:text-cyan-200 transition-colors">Expert Support</h3>
+                <h3 className="text-lg font-bold mb-3 group-hover:text-cyan-200 transition-colors">
+                  Expert Support
+                </h3>
                 <p className="text-sm opacity-90 leading-relaxed">
                   Professional guidance available
                 </p>
@@ -495,8 +507,12 @@ export default function Services() {
                     ></path>
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold mb-3 group-hover:text-yellow-200 transition-colors">Best Prices</h3>
-                <p className="text-sm opacity-90 leading-relaxed">Competitive and fair pricing</p>
+                <h3 className="text-lg font-bold mb-3 group-hover:text-yellow-200 transition-colors">
+                  Best Prices
+                </h3>
+                <p className="text-sm opacity-90 leading-relaxed">
+                  Competitive and fair pricing
+                </p>
               </div>
             </div>
           </div>
