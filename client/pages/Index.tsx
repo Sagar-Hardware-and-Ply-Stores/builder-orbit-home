@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getCurrentUser, clearCurrentUser, isLoggedIn } from "@/lib/auth";
 import useEmblaCarousel from "embla-carousel-react";
+import Footer from "@/components/Footer";
 
 const FeaturesCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -185,24 +186,24 @@ export default function Index() {
               >
                 NETWORK
               </Link>
-              <a
-                href="#about"
+              <Link
+                to="/about"
                 className="text-white hover:text-orange-100 font-medium transition-colors"
               >
                 ABOUT
-              </a>
-              <a
-                href="#services"
+              </Link>
+              <Link
+                to="/services"
                 className="text-white hover:text-orange-100 font-medium transition-colors"
               >
                 SERVICES
-              </a>
-              <a
-                href="#contact"
+              </Link>
+              <Link
+                to="/contact"
                 className="text-white hover:text-orange-100 font-medium transition-colors"
               >
                 CONTACT
-              </a>
+              </Link>
             </nav>
 
             <div className="flex items-center space-x-4">
@@ -368,15 +369,7 @@ export default function Index() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-white border-t border-orange-100 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col">
-          <div className="text-center text-gray-600"></div>
-          <p className="self-center">
-            &copy; 2025 Sagar Hardware &amp; Ply Stores. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
