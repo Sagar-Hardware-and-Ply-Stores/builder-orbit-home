@@ -97,6 +97,39 @@ export default function Register() {
           </div>
         </div>
 
+        {/* Benefits Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-slate-200 p-6">
+            <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center mb-4">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+              </svg>
+            </div>
+            <h3 className="text-lg font-bold text-slate-800 mb-2">Customer Benefits</h3>
+            <ul className="text-sm text-slate-600 space-y-1">
+              <li>• Exclusive wholesale pricing</li>
+              <li>• Priority order processing</li>
+              <li>• Dedicated account manager</li>
+              <li>• Special discounts & offers</li>
+            </ul>
+          </div>
+
+          <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-slate-200 p-6">
+            <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mb-4">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2V6"></path>
+              </svg>
+            </div>
+            <h3 className="text-lg font-bold text-slate-800 mb-2">Supplier Benefits</h3>
+            <ul className="text-sm text-slate-600 space-y-1">
+              <li>• Access to larger market</li>
+              <li>• Regular bulk orders</li>
+              <li>• Reliable partnership</li>
+              <li>• Growth opportunities</li>
+            </ul>
+          </div>
+        </div>
+
         {/* Registration Form */}
         <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-slate-200 p-10">
           {error && (
