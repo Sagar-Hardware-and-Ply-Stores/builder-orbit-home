@@ -361,7 +361,7 @@ export default function Contact() {
           {/* Contact Information */}
           <div className="space-y-8">
             {/* Store Information */}
-            <div className="bg-white rounded-xl shadow-lg p-8">
+            <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-xl border border-slate-200 p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 Visit Our Store
               </h2>
