@@ -111,6 +111,14 @@ export default function Services() {
         "Roofing Materials",
         "Waterproofing",
       ],
+      colorScheme: {
+        bg: "bg-gradient-to-br from-red-50 to-rose-100",
+        iconBg: "bg-gradient-to-r from-red-500 to-rose-600",
+        iconColor: "text-white",
+        checkColor: "text-red-600",
+        borderColor: "border-red-200",
+        shadowColor: "hover:shadow-red-200/50"
+      }
     },
     {
       icon: "M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4",
