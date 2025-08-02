@@ -186,19 +186,19 @@ export default function Services() {
             <nav className="hidden md:flex items-center space-x-8">
               <Link
                 to="/"
-                className="text-white hover:text-orange-100 font-medium transition-colors"
+                className="text-white hover:text-blue-200 font-medium transition-colors"
               >
                 HOME
               </Link>
               <Link
                 to="/register"
-                className="text-white hover:text-orange-100 font-medium transition-colors"
+                className="text-white hover:text-blue-200 font-medium transition-colors"
               >
                 NETWORK
               </Link>
               <Link
                 to="/about"
-                className="text-white hover:text-orange-100 font-medium transition-colors"
+                className="text-white hover:text-blue-200 font-medium transition-colors"
               >
                 ABOUT
               </Link>
@@ -210,7 +210,7 @@ export default function Services() {
               </Link>
               <Link
                 to="/contact"
-                className="text-white hover:text-orange-100 font-medium transition-colors"
+                className="text-white hover:text-blue-200 font-medium transition-colors"
               >
                 CONTACT
               </Link>
