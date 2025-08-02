@@ -397,9 +397,7 @@ export default function Register() {
                 disabled={isLoading}
                 className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-gradient-to-r from-slate-600 to-blue-700 hover:from-slate-700 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
-                {isLoading
-                  ? "Registering..."
-                  : `Register as ${formData.type === "customer" ? "Customer" : "Supplier"}`}
+                {isLoading ? "Registering..." : "Register"}
               </button>
             </form>
 
