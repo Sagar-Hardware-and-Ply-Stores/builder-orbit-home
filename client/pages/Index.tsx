@@ -266,7 +266,7 @@ export default function Index() {
         {/* Registration Section */}
         <div className="bg-gradient-to-r from-slate-700 via-blue-800 to-indigo-800 rounded-2xl shadow-2xl p-10 text-center text-white mb-16 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent"></div>
-          <div className="max-w-4xl mx-auto">
+          <div className="relative z-10 max-w-4xl mx-auto">
             <h3 className="text-3xl font-bold mb-4">Join Our Network</h3>
             <p className="text-lg mb-8 opacity-90">
               Register as a customer to get exclusive deals or become a supplier
