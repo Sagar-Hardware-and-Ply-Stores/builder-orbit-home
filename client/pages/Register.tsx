@@ -76,20 +76,25 @@ export default function Register() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-2xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-8">
-          <Link to="/" className="inline-block mb-6">
+        <div className="text-center mb-12">
+          <Link to="/" className="inline-block mb-8">
             <img
               src="https://cdn.builder.io/api/v1/image/assets%2F4fc264d2794b41bc8b3e094356cfa7f4%2F35ecaab49e544df4a62b1e71318bdbca?format=webp&width=800"
               alt="Sagar Hardware and Ply Stores Logo"
-              className="h-20 w-24 rounded-lg shadow-lg bg-white p-2 mx-auto object-contain"
+              className="h-24 w-28 rounded-xl shadow-xl bg-white p-3 mx-auto object-contain hover:shadow-2xl transition-shadow"
             />
           </Link>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Register with Sagar Hardware
-          </h1>
-          <p className="text-gray-600">
-            Join our network of customers and suppliers
-          </p>
+          <div className="bg-gradient-to-r from-slate-700 via-blue-800 to-indigo-800 rounded-2xl p-8 text-white relative overflow-hidden mb-8">
+            <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent"></div>
+            <div className="relative z-10">
+              <h1 className="text-4xl font-bold mb-3">
+                Join Our Professional Network
+              </h1>
+              <p className="text-xl opacity-90">
+                Connect with Sagar Hardware & Ply Stores as a customer or supplier partner
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Registration Form */}
