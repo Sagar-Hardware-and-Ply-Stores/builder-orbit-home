@@ -172,7 +172,7 @@ export default function About() {
             <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-slate-200 p-8 text-center hover:shadow-xl transition-all">
               <div className="w-16 h-16 bg-gradient-to-r from-slate-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <svg
-                  className="w-8 h-8 text-orange-600"
+                  className="w-8 h-8 text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -197,7 +197,7 @@ export default function About() {
             <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-slate-200 p-8 text-center hover:shadow-xl transition-all">
               <div className="w-16 h-16 bg-gradient-to-r from-slate-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <svg
-                  className="w-8 h-8 text-orange-600"
+                  className="w-8 h-8 text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -222,7 +222,7 @@ export default function About() {
             <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-slate-200 p-8 text-center hover:shadow-xl transition-all">
               <div className="w-16 h-16 bg-gradient-to-r from-slate-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <svg
-                  className="w-8 h-8 text-orange-600"
+                  className="w-8 h-8 text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
