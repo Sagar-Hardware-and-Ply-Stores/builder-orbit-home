@@ -263,12 +263,12 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow"
+              className={`${service.colorScheme.bg} rounded-xl shadow-lg p-8 transition-all duration-300 transform hover:scale-105 ${service.colorScheme.shadowColor} hover:shadow-2xl border-2 ${service.colorScheme.borderColor}`}
             >
               <div className="flex items-start space-x-4">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className={`w-20 h-20 ${service.colorScheme.iconBg} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-300`}>
                   <svg
-                    className="w-8 h-8 text-orange-600"
+                    className={`w-10 h-10 ${service.colorScheme.iconColor}`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -282,18 +282,18 @@ export default function Services() {
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-3">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-gray-800">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 mb-4">{service.description}</p>
-                  <div className="grid grid-cols-2 gap-2">
+                  <p className="text-gray-700 mb-6 leading-relaxed font-medium">{service.description}</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {service.features.map((feature, featureIndex) => (
                       <div
                         key={featureIndex}
-                        className="flex items-center space-x-2"
+                        className="flex items-center space-x-3 bg-white/60 backdrop-blur-sm rounded-lg p-2 hover:bg-white/80 transition-colors"
                       >
                         <svg
-                          className="w-4 h-4 text-orange-600 flex-shrink-0"
+                          className={`w-5 h-5 ${service.colorScheme.checkColor} flex-shrink-0`}
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -301,11 +301,11 @@ export default function Services() {
                           <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            strokeWidth="2"
+                            strokeWidth="2.5"
                             d="M5 13l4 4L19 7"
                           ></path>
                         </svg>
-                        <span className="text-sm text-gray-700">{feature}</span>
+                        <span className="text-sm font-semibold text-gray-800">{feature}</span>
                       </div>
                     ))}
                   </div>
