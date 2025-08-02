@@ -155,6 +155,14 @@ export default function Services() {
         "Brushes & Rollers",
         "Spray Equipment",
       ],
+      colorScheme: {
+        bg: "bg-gradient-to-br from-purple-50 to-violet-100",
+        iconBg: "bg-gradient-to-r from-purple-500 to-violet-600",
+        iconColor: "text-white",
+        checkColor: "text-purple-600",
+        borderColor: "border-purple-200",
+        shadowColor: "hover:shadow-purple-200/50"
+      }
     },
   ];
 
