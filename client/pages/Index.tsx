@@ -356,15 +356,15 @@ export default function Index() {
             Visit our store for expert advice and competitive prices on all your
             hardware and construction needs.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <div className="bg-gradient-to-r from-orange-600 to-amber-600 rounded-lg p-6">
-              <h4 className="font-semibold text-white mb-2">Store Hours</h4>
-              <p className="text-white">Sunday- Saturday: 8:00 AM - 8:00 PM</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="bg-gradient-to-br from-slate-600 to-blue-700 rounded-xl p-8 transform hover:scale-105 transition-all shadow-lg">
+              <h4 className="font-bold text-white mb-3 text-lg">Store Hours</h4>
+              <p className="text-blue-100">Sunday- Saturday: 8:00 AM - 8:00 PM</p>
             </div>
-            <div className="bg-gradient-to-r from-orange-600 to-amber-600 rounded-lg p-6">
-              <h4 className="font-semibold text-white mb-2">Contact Info</h4>
-              <p className="text-white">Phone: +977 9846078267</p>
-              <p className="text-white">Email: bhandarisagar512@gmail.com</p>
+            <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl p-8 transform hover:scale-105 transition-all shadow-lg">
+              <h4 className="font-bold text-white mb-3 text-lg">Contact Info</h4>
+              <p className="text-blue-100">Phone: +977 9846078267</p>
+              <p className="text-blue-100">Email: bhandarisagar512@gmail.com</p>
             </div>
           </div>
         </div>
