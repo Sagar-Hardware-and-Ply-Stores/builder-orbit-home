@@ -253,7 +253,7 @@ export default function About() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="bg-orange-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+              <div className="bg-gradient-to-r from-slate-600 to-blue-600 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <span className="text-2xl font-bold text-orange-600">15+</span>
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">
@@ -265,7 +265,7 @@ export default function About() {
             </div>
 
             <div className="text-center">
-              <div className="bg-orange-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+              <div className="bg-gradient-to-r from-slate-600 to-blue-600 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <span className="text-2xl font-bold text-orange-600">
                   1000+
                 </span>
@@ -277,7 +277,7 @@ export default function About() {
             </div>
 
             <div className="text-center">
-              <div className="bg-orange-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+              <div className="bg-gradient-to-r from-slate-600 to-blue-600 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <span className="text-2xl font-bold text-orange-600">24/7</span>
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Support</h3>
@@ -287,7 +287,7 @@ export default function About() {
             </div>
 
             <div className="text-center">
-              <div className="bg-orange-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+              <div className="bg-gradient-to-r from-slate-600 to-blue-600 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <span className="text-2xl font-bold text-orange-600">100%</span>
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Satisfaction</h3>
