@@ -169,7 +169,7 @@ export default function Contact() {
               </div>
               <button
                 onClick={handleLogout}
-                className="inline-flex items-center px-4 py-2 border border-white text-sm font-medium rounded-lg text-white hover:bg-white hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors"
+                className="inline-flex items-center px-4 py-2 border border-white text-sm font-medium rounded-lg text-white hover:bg-white hover:text-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors"
               >
                 Logout
               </button>
