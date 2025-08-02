@@ -368,7 +368,7 @@ export default function Contact() {
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <svg
-                    className="w-6 h-6 text-orange-600 mt-1"
+                    className="w-6 h-6 text-slate-600 mt-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -400,7 +400,7 @@ export default function Contact() {
 
                 <div className="flex items-start space-x-3">
                   <svg
-                    className="w-6 h-6 text-orange-600 mt-1"
+                    className="w-6 h-6 text-slate-600 mt-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -420,7 +420,7 @@ export default function Contact() {
 
                 <div className="flex items-start space-x-3">
                   <svg
-                    className="w-6 h-6 text-orange-600 mt-1"
+                    className="w-6 h-6 text-slate-600 mt-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -440,7 +440,7 @@ export default function Contact() {
 
                 <div className="flex items-start space-x-3">
                   <svg
-                    className="w-6 h-6 text-orange-600 mt-1"
+                    className="w-6 h-6 text-slate-600 mt-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
