@@ -133,6 +133,14 @@ export default function Services() {
         "Kitchen Sinks",
         "Water Pumps",
       ],
+      colorScheme: {
+        bg: "bg-gradient-to-br from-cyan-50 to-blue-100",
+        iconBg: "bg-gradient-to-r from-cyan-500 to-blue-600",
+        iconColor: "text-white",
+        checkColor: "text-cyan-600",
+        borderColor: "border-cyan-200",
+        shadowColor: "hover:shadow-cyan-200/50"
+      }
     },
     {
       icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
