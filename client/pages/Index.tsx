@@ -348,7 +348,7 @@ export default function Index() {
         </div>
 
         {/* CTA Section */}
-        <div className="bg-white rounded-xl shadow-lg p-8 text-center">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-slate-200 p-10 text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">
             Ready to Start Your Project?
           </h3>
