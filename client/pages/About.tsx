@@ -51,13 +51,13 @@ export default function About() {
             <nav className="hidden md:flex items-center space-x-8">
               <Link
                 to="/"
-                className="text-white hover:text-orange-100 font-medium transition-colors"
+                className="text-white hover:text-blue-200 font-medium transition-colors"
               >
                 HOME
               </Link>
               <Link
                 to="/register"
-                className="text-white hover:text-orange-100 font-medium transition-colors"
+                className="text-white hover:text-blue-200 font-medium transition-colors"
               >
                 NETWORK
               </Link>
@@ -69,13 +69,13 @@ export default function About() {
               </Link>
               <Link
                 to="/services"
-                className="text-white hover:text-orange-100 font-medium transition-colors"
+                className="text-white hover:text-blue-200 font-medium transition-colors"
               >
                 SERVICES
               </Link>
               <Link
                 to="/contact"
-                className="text-white hover:text-orange-100 font-medium transition-colors"
+                className="text-white hover:text-blue-200 font-medium transition-colors"
               >
                 CONTACT
               </Link>
