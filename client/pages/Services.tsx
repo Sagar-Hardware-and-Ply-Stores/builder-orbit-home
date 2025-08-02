@@ -89,6 +89,14 @@ export default function Services() {
         "Electrical Panels",
         "Conduits & Fittings",
       ],
+      colorScheme: {
+        bg: "bg-gradient-to-br from-yellow-50 to-amber-100",
+        iconBg: "bg-gradient-to-r from-yellow-500 to-amber-600",
+        iconColor: "text-white",
+        checkColor: "text-yellow-600",
+        borderColor: "border-yellow-200",
+        shadowColor: "hover:shadow-yellow-200/50"
+      }
     },
     {
       icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10",
