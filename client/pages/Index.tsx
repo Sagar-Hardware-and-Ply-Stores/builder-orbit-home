@@ -69,10 +69,10 @@ const FeaturesCarousel = () => {
                     ></path>
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-xl font-bold text-slate-800 mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <p className="text-slate-600">{feature.description}</p>
               </div>
             </div>
           ))}
