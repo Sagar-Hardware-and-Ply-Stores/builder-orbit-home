@@ -143,7 +143,7 @@ export default function About() {
               guided us from the beginning.
             </p>
           </div>
-          <div className="bg-gradient-to-br from-orange-100 to-amber-100 rounded-xl p-8">
+          <div className="bg-gradient-to-br from-slate-100 to-blue-100 rounded-xl p-8 border border-slate-200 shadow-lg">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Our Mission
             </h3>
