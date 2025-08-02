@@ -101,9 +101,9 @@ export default function Contact() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Header */}
-      <header className="bg-gradient-to-r from-orange-600 to-amber-600 shadow-sm border-b border-orange-100">
+      <header className="bg-gradient-to-r from-slate-800 via-blue-900 to-indigo-900 shadow-xl border-b border-slate-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-28 py-4">
             <div className="flex items-center space-x-6">
