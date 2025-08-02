@@ -215,7 +215,7 @@ export default function Footer() {
                 </svg>
                 <a
                   href="tel:+9779846078267"
-                  className="text-gray-300 hover:text-orange-400 transition-colors text-sm"
+                  className="text-gray-300 hover:text-blue-300 transition-colors text-sm"
                 >
                   +977 9846078267
                 </a>
@@ -237,7 +237,7 @@ export default function Footer() {
                 </svg>
                 <a
                   href="mailto:bhandarisagar512@gmail.com"
-                  className="text-gray-300 hover:text-orange-400 transition-colors text-sm"
+                  className="text-gray-300 hover:text-blue-300 transition-colors text-sm"
                 >
                   bhandarisagar512@gmail.com
                 </a>
