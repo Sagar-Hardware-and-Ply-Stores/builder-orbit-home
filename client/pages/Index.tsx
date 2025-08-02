@@ -261,7 +261,10 @@ export default function Index() {
         </div>
 
         {/* Features Carousel */}
-        <FeaturesCarousel />
+        <div className="mb-16">
+          <h2 className="text-4xl font-bold text-slate-800 text-center mb-12">Our Product Categories</h2>
+          <FeaturesCarousel />
+        </div>
 
         {/* Registration Section */}
         <div className="bg-gradient-to-r from-slate-700 via-blue-800 to-indigo-800 rounded-2xl shadow-2xl p-10 text-center text-white mb-16 relative overflow-hidden">
