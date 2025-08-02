@@ -262,7 +262,9 @@ export default function Index() {
 
         {/* Features Carousel */}
         <div className="mb-16">
-          <h2 className="text-4xl font-bold text-slate-800 text-center mb-12">Our Product Categories</h2>
+          <h2 className="text-4xl font-bold text-slate-800 text-center mb-12">
+            Our Product Categories
+          </h2>
           <FeaturesCarousel />
         </div>
 
@@ -362,10 +364,14 @@ export default function Index() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="bg-gradient-to-br from-slate-600 to-blue-700 rounded-xl p-8 transform hover:scale-105 transition-all shadow-lg">
               <h4 className="font-bold text-white mb-3 text-lg">Store Hours</h4>
-              <p className="text-blue-100">Sunday- Saturday: 8:00 AM - 8:00 PM</p>
+              <p className="text-blue-100">
+                Sunday- Saturday: 8:00 AM - 8:00 PM
+              </p>
             </div>
             <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl p-8 transform hover:scale-105 transition-all shadow-lg">
-              <h4 className="font-bold text-white mb-3 text-lg">Contact Info</h4>
+              <h4 className="font-bold text-white mb-3 text-lg">
+                Contact Info
+              </h4>
               <p className="text-blue-100">Phone: +977 9846078267</p>
               <p className="text-blue-100">Email: bhandarisagar512@gmail.com</p>
             </div>
