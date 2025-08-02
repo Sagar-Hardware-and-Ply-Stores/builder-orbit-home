@@ -545,7 +545,7 @@ export default function Contact() {
           </p>
           <a
             href="tel:+9779846078267"
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-orange-600 to-amber-600 text-white font-semibold rounded-lg hover:from-orange-700 hover:to-amber-700 transition-all shadow-lg"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-slate-600 to-blue-700 text-white font-semibold rounded-lg hover:from-slate-700 hover:to-blue-800 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
           >
             <svg
               className="w-5 h-5 mr-2"
