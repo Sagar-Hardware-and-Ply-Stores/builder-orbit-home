@@ -197,9 +197,9 @@ export default function Footer() {
                 </svg>
                 <div>
                   <p className="text-gray-300 text-sm">
-                    Main Market Road
+                    Galyang -03,Tallo Galyang
                     <br />
-                    Kathmandu, Nepal
+                    Syangja, Nepal
                   </p>
                 </div>
               </div>
