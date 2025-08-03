@@ -226,7 +226,7 @@ export default function Footer() {
                 </a>
               </div>
 
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-3 min-w-0">
                 <svg
                   className="w-5 h-5 text-blue-400 flex-shrink-0"
                   fill="none"
@@ -242,7 +242,7 @@ export default function Footer() {
                 </svg>
                 <a
                   href="mailto:sagarhardwareandplystores@gmail.com"
-                  className="text-gray-300 hover:text-blue-300 transition-colors text-sm break-all"
+                  className="text-gray-300 hover:text-blue-300 transition-colors text-sm break-all flex-1 min-w-0"
                 >
                   sagarhardwareandplystores@gmail.com
                 </a>
