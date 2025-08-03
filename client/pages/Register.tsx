@@ -426,6 +426,8 @@ export default function Register() {
           </div>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 }
