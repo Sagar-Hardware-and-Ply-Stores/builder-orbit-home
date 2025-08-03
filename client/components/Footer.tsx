@@ -170,7 +170,7 @@ export default function Footer() {
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div className="min-w-0">
             <h4 className="text-lg font-semibold text-white mb-4">
               Contact Info
             </h4>
