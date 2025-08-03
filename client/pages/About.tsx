@@ -16,10 +16,7 @@ export default function About() {
     setUser(getCurrentUser());
   }, [navigate]);
 
-  const handleLogout = () => {
-    clearCurrentUser();
-    navigate("/login");
-  };
+
 
   if (!user) {
     return (
