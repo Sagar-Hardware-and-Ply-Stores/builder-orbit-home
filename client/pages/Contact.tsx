@@ -31,8 +31,6 @@ export default function Contact() {
     setUser(getCurrentUser());
   }, [navigate]);
 
-
-
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement

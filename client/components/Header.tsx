@@ -7,7 +7,10 @@ interface HeaderProps {
   fixed?: boolean;
 }
 
-export default function Header({ transparent = false, fixed = false }: HeaderProps) {
+export default function Header({
+  transparent = false,
+  fixed = false,
+}: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const location = useLocation();
@@ -93,7 +96,9 @@ export default function Header({ transparent = false, fixed = false }: HeaderPro
                 {/* User Profile Dropdown */}
                 <div className="relative hidden md:block">
                   <button
-                    onClick={() => setIsProfileDropdownOpen(!isProfileDropdownOpen)}
+                    onClick={() =>
+                      setIsProfileDropdownOpen(!isProfileDropdownOpen)
+                    }
                     className="flex items-center space-x-2 text-white hover:text-blue-200 transition-colors p-2 rounded-lg hover:bg-white/10"
                   >
                     <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center">
@@ -133,8 +138,12 @@ export default function Header({ transparent = false, fixed = false }: HeaderPro
                   {isProfileDropdownOpen && (
                     <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
                       <div className="px-4 py-2 border-b border-gray-100">
-                        <p className="text-sm font-medium text-gray-900">{user.username}</p>
-                        <p className="text-xs text-gray-500">{user.email || "Member"}</p>
+                        <p className="text-sm font-medium text-gray-900">
+                          {user.username}
+                        </p>
+                        <p className="text-xs text-gray-500">
+                          {user.email || "Member"}
+                        </p>
                       </div>
                       <button
                         onClick={handleLogout}
@@ -249,7 +258,7 @@ export default function Header({ transparent = false, fixed = false }: HeaderPro
                   {item.label}
                 </Link>
               ))}
-              
+
               {userLoggedIn && user && (
                 <div className="border-t border-slate-700/50 pt-4 mt-4">
                   <div className="flex items-center space-x-3 px-4 py-2 text-white">

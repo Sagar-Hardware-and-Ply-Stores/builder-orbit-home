@@ -28,8 +28,6 @@ export default function Register() {
     setUser(getCurrentUser());
   }, [navigate]);
 
-
-
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
