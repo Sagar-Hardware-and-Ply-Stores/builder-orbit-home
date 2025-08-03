@@ -242,7 +242,7 @@ export default function Footer() {
                 </svg>
                 <a
                   href="mailto:sagarhardwareandplystores@gmail.com"
-                  className="text-gray-300 hover:text-blue-300 transition-colors text-sm"
+                  className="text-gray-300 hover:text-blue-300 transition-colors text-sm break-all"
                 >
                   sagarhardwareandplystores@gmail.com
                 </a>
