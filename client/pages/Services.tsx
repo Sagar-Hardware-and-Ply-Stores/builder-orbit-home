@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { getCurrentUser, clearCurrentUser, isLoggedIn } from "@/lib/auth";
+import { useNavigate } from "react-router-dom";
+import { getCurrentUser, isLoggedIn } from "@/lib/auth";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export default function Services() {
@@ -15,10 +16,7 @@ export default function Services() {
     setUser(getCurrentUser());
   }, [navigate]);
 
-  const handleLogout = () => {
-    clearCurrentUser();
-    navigate("/login");
-  };
+
 
   if (!user) {
     return (
