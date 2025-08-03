@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { getCurrentUser, clearCurrentUser, isLoggedIn } from "@/lib/auth";
+import { useNavigate } from "react-router-dom";
+import { getCurrentUser, isLoggedIn } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export default function Contact() {
@@ -30,10 +31,7 @@ export default function Contact() {
     setUser(getCurrentUser());
   }, [navigate]);
 
-  const handleLogout = () => {
-    clearCurrentUser();
-    navigate("/login");
-  };
+
 
   const handleInputChange = (
     e: React.ChangeEvent<
