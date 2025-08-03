@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { registerCustomerSupplier } from "@/lib/registration";
 import { getCurrentUser, isLoggedIn } from "@/lib/auth";
 import Header from "@/components/Header";
