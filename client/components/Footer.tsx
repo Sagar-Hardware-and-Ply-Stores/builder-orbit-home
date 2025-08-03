@@ -125,7 +125,9 @@ export default function Footer() {
                 <Link
                   to="/"
                   className="text-gray-300 hover:text-blue-300 transition-colors"
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
                 >
                   Home
                 </Link>
@@ -134,7 +136,9 @@ export default function Footer() {
                 <Link
                   to="/register"
                   className="text-gray-300 hover:text-blue-300 transition-colors"
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
                 >
                   Join Network
                 </Link>
@@ -143,7 +147,9 @@ export default function Footer() {
                 <Link
                   to="/about"
                   className="text-gray-300 hover:text-blue-300 transition-colors"
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
                 >
                   About Us
                 </Link>
@@ -152,7 +158,9 @@ export default function Footer() {
                 <Link
                   to="/services"
                   className="text-gray-300 hover:text-blue-300 transition-colors"
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
                 >
                   Our Services
                 </Link>
@@ -161,7 +169,9 @@ export default function Footer() {
                 <Link
                   to="/contact"
                   className="text-gray-300 hover:text-blue-300 transition-colors"
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
                 >
                   Contact Us
                 </Link>
