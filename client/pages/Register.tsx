@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { registerCustomerSupplier } from "@/lib/registration";
 import { getCurrentUser, clearCurrentUser, isLoggedIn } from "@/lib/auth";
+import Footer from "@/components/Footer";
 
 export default function Register() {
   const [user, setUser] = useState(getCurrentUser());
