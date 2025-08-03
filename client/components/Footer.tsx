@@ -132,6 +132,15 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  to="/register"
+                  className="text-gray-300 hover:text-blue-300 transition-colors"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                >
+                  Join Network
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/about"
                   className="text-gray-300 hover:text-blue-300 transition-colors"
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -155,15 +164,6 @@ export default function Footer() {
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 >
                   Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/register"
-                  className="text-gray-300 hover:text-blue-300 transition-colors"
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                >
-                  Join Network
                 </Link>
               </li>
             </ul>
