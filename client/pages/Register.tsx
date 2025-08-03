@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { registerCustomerSupplier } from "@/lib/registration";
-import { getCurrentUser, clearCurrentUser, isLoggedIn } from "@/lib/auth";
+import { getCurrentUser, isLoggedIn } from "@/lib/auth";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export default function Register() {
@@ -27,10 +28,7 @@ export default function Register() {
     setUser(getCurrentUser());
   }, [navigate]);
 
-  const handleLogout = () => {
-    clearCurrentUser();
-    navigate("/login");
-  };
+
 
   const handleInputChange = (
     e: React.ChangeEvent<
