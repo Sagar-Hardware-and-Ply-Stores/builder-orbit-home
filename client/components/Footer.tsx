@@ -241,10 +241,10 @@ export default function Footer() {
                   ></path>
                 </svg>
                 <a
-                  href="mailto:bhandarisagar512@gmail.com"
+                  href="mailto:sagarhardwareandplystores@gmail.com"
                   className="text-gray-300 hover:text-blue-300 transition-colors text-sm"
                 >
-                  bhandarisagar512@gmail.com
+                  sagarhardwareandplystores@gmail.com
                 </a>
               </div>
 
