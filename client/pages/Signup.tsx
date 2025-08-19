@@ -73,8 +73,8 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 flex items-center justify-center px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-10">
         {/* Logo and Header */}
         <div className="text-center">
           <img
@@ -91,8 +91,8 @@ export default function Signup() {
         </div>
 
         {/* Signup Form */}
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="bg-white rounded-xl shadow-lg p-8 space-y-6">
+        <form className="mt-10 space-y-8" onSubmit={handleSubmit}>
+          <div className="bg-white rounded-2xl shadow-2xl p-10 space-y-8">
             {error && (
               <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
                 {error}
