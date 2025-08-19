@@ -53,13 +53,13 @@ export default function Footer() {
                 href="https://www.instagram.com/sagarhardwareandplystores/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg hover:shadow-xl"
+                className="w-10 h-10 bg-gradient-to-r from-slate-600 via-blue-700 to-indigo-700 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg hover:shadow-xl p-0.5"
                 aria-label="Follow us on Instagram"
               >
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets%2F4fc264d2794b41bc8b3e094356cfa7f4%2F9f010bac7c7744bb9062bb581a810909?format=webp&width=800"
                   alt="Instagram"
-                  className="w-10 h-10 rounded-full object-cover"
+                  className="w-9 h-9 rounded-full object-cover"
                 />
               </a>
 
