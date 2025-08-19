@@ -9,12 +9,8 @@ export default function About() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isLoggedIn()) {
-      navigate("/login");
-      return;
-    }
     setUser(getCurrentUser());
-  }, [navigate]);
+  }, []);
 
   if (!user) {
     return (
