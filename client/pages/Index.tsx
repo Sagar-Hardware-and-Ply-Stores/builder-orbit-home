@@ -198,8 +198,8 @@ export default function Index() {
         </div>
 
         {/* Features Carousel */}
-        <div className="mb-16">
-          <h2 className="text-4xl font-bold text-slate-800 text-center mb-12">
+        <div className="mb-24 bg-gray-50 py-16 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 rounded-3xl">
+          <h2 className="text-4xl font-bold text-gray-900 text-center mb-16">
             Our Product Categories
           </h2>
           <FeaturesCarousel />
