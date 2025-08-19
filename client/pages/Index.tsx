@@ -155,11 +155,45 @@ export default function Index() {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Welcome to Sagar Hardware & Ply Stores
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
               Your one-stop destination for all hardware, construction materials
               and ply needs. Quality products, competitive prices, and
               exceptional service.
             </p>
+
+            {/* Login Button for non-authenticated users */}
+            {!user && (
+              <div className="mt-6">
+                <Link
+                  to="/login"
+                  className="inline-flex items-center px-6 py-3 text-sm bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg transform hover:scale-105"
+                >
+                  <svg
+                    className="w-4 h-4 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                    />
+                  </svg>
+                  Member Login
+                </Link>
+              </div>
+            )}
+
+            {/* Welcome message for authenticated users */}
+            {user && (
+              <div className="mt-6">
+                <p className="text-lg text-blue-600 font-medium">
+                  Welcome back, {user.username}!
+                </p>
+              </div>
+            )}
           </div>
         </div>
 
