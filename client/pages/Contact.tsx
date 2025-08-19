@@ -24,12 +24,8 @@ export default function Contact() {
   });
 
   useEffect(() => {
-    if (!isLoggedIn()) {
-      navigate("/login");
-      return;
-    }
     setUser(getCurrentUser());
-  }, [navigate]);
+  }, []);
 
   const handleInputChange = (
     e: React.ChangeEvent<
