@@ -9,12 +9,8 @@ export default function Services() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isLoggedIn()) {
-      navigate("/login");
-      return;
-    }
     setUser(getCurrentUser());
-  }, [navigate]);
+  }, []);
 
   if (!user) {
     return (
