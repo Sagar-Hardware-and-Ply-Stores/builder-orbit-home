@@ -53,16 +53,14 @@ export default function Footer() {
                 href="https://www.instagram.com/sagarhardwareandplystores/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors"
+                className="w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg hover:shadow-xl"
                 aria-label="Follow us on Instagram"
               >
-                <svg
-                  className="w-5 h-5 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987 6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.148-1.188C4.613 15.1 4.121 13.951 4.121 12.654s.49-2.448 1.188-3.148C6.007 8.806 7.156 8.314 8.453 8.314s2.448.49 3.148 1.188c.698.698 1.188 1.849 1.188 3.148s-.49 2.448-1.188 3.148c-.698.698-1.849 1.188-3.148 1.188zm7.718 0c-1.297 0-2.448-.49-3.148-1.188-.698-.698-1.188-1.849-1.188-3.148s.49-2.448 1.188-3.148c.698-.698 1.849-1.188 3.148-1.188s2.448.49 3.148 1.188c.698.698 1.188 1.849 1.188 3.148s-.49 2.448-1.188 3.148c-.698.698-1.849 1.188-3.148 1.188z" />
-                </svg>
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F4fc264d2794b41bc8b3e094356cfa7f4%2F9f010bac7c7744bb9062bb581a810909?format=webp&width=800"
+                  alt="Instagram"
+                  className="w-10 h-10 rounded-full object-cover"
+                />
               </a>
 
               <a
