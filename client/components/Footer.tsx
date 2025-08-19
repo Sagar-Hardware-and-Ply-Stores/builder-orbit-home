@@ -50,7 +50,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://instagram.com/sagarhardware"
+                href="https://www.instagram.com/sagarhardwareandplystores/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors"
