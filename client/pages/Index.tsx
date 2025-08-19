@@ -138,9 +138,9 @@ export default function Index() {
       <Header />
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Welcome Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-20">
           {/* Hero Image */}
           <div
             className="h-96 bg-cover bg-center bg-no-repeat rounded-xl mb-8 shadow-lg"
