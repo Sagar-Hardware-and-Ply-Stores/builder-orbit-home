@@ -96,14 +96,14 @@ export default function Register() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <div className="min-h-screen bg-white">
       <Header />
 
       {/* Main Content */}
-      <main className="py-12 px-4 sm:px-6 lg:px-8">
+      <main className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <Link to="/" className="inline-block mb-8">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F4fc264d2794b41bc8b3e094356cfa7f4%2F35ecaab49e544df4a62b1e71318bdbca?format=webp&width=800"
@@ -111,7 +111,7 @@ export default function Register() {
                 className="h-24 w-28 rounded-xl shadow-xl bg-white p-3 mx-auto object-contain hover:shadow-2xl transition-shadow"
               />
             </Link>
-            <div className="bg-gradient-to-r from-slate-700 via-blue-800 to-indigo-800 rounded-2xl p-8 text-white relative overflow-hidden mb-8">
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl p-10 text-white relative overflow-hidden mb-12">
               <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent"></div>
               <div className="relative z-10">
                 <h1 className="text-4xl font-bold mb-3">
