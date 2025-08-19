@@ -129,32 +129,9 @@ export default function Index() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Redirect to login if not authenticated
-    if (!isLoggedIn()) {
-      navigate("/login");
-      return;
-    }
-
-    // Update user state
+    // Update user state without redirecting
     setUser(getCurrentUser());
-  }, [navigate]);
-
-  const handleLogout = () => {
-    clearCurrentUser();
-    navigate("/login");
-  };
-
-  // Show loading or redirect if not logged in
-  if (!user) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 to-amber-50">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Redirecting...</p>
-        </div>
-      </div>
-    );
-  }
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
