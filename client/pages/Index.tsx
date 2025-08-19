@@ -152,10 +152,10 @@ export default function Index() {
 
           {/* Welcome Text */}
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
               Welcome to Sagar Hardware & Ply Stores
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
               Your one-stop destination for all hardware, construction materials
               and ply needs. Quality products, competitive prices, and
               exceptional service.
