@@ -143,7 +143,7 @@ export default function Index() {
         <div className="text-center mb-20">
           {/* Hero Image */}
           <div
-            className="h-96 bg-cover bg-center bg-no-repeat rounded-xl mb-8 shadow-lg"
+            className="h-96 bg-cover bg-center bg-no-repeat rounded-2xl mb-12 shadow-2xl"
             style={{
               backgroundImage:
                 "url(https://cdn.builder.io/api/v1/image/assets%2F4fc264d2794b41bc8b3e094356cfa7f4%2F09bd28e6a07a4535b5bec92ee45c891f?format=webp&width=800)",
