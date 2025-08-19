@@ -37,7 +37,7 @@ export default function Header({
 
   const headerClasses = `
     ${fixed ? "fixed top-0 left-0 right-0 z-50" : ""}
-    ${transparent ? "bg-transparent" : "bg-gradient-to-r from-slate-800 via-blue-900 to-indigo-900"}
+    ${transparent ? "bg-transparent" : "bg-gradient-to-r from-slate-600 via-blue-700 to-indigo-700"}
     shadow-xl border-b border-slate-700/50 backdrop-blur-sm
     transition-all duration-300
   `.trim();
