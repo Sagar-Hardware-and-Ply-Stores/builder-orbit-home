@@ -11,6 +11,13 @@ export interface SessionUser {
 
 const USERS_KEY = "sagar_hardware_users";
 const SESSION_KEY = "sagar_hardware_session";
+const ADMIN_SESSION_KEY = "sagar_hardware_admin_session";
+
+// Admin credentials - In production, these should be environment variables
+const ADMIN_CREDENTIALS = {
+  username: "admin",
+  password: "SagarAdmin2025!",
+};
 
 /**
  * Get all registered users from localStorage
