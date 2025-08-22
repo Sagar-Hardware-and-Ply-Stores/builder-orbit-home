@@ -221,9 +221,10 @@ export function updateCustomerSupplier(
 /**
  * Delete customer or supplier
  */
-export function deleteCustomerSupplier(
-  id: string,
-): { success: boolean; message: string } {
+export function deleteCustomerSupplier(id: string): {
+  success: boolean;
+  message: string;
+} {
   let customers = getStoredCustomers();
   let suppliers = getStoredSuppliers();
 
@@ -253,7 +254,11 @@ export function getCustomerSupplierById(id: string): CustomerSupplier | null {
   const customers = getStoredCustomers();
   const suppliers = getStoredSuppliers();
 
-  return customers.find((c) => c.id === id) || suppliers.find((s) => s.id === id) || null;
+  return (
+    customers.find((c) => c.id === id) ||
+    suppliers.find((s) => s.id === id) ||
+    null
+  );
 }
 
 /**

@@ -81,15 +81,18 @@ export default function Admin() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      
+
       {/* Admin Header */}
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
+              <h1 className="text-3xl font-bold text-gray-900">
+                Admin Dashboard
+              </h1>
               <p className="mt-1 text-sm text-gray-500">
-                Welcome back, {user.username}! Manage your hardware store operations.
+                Welcome back, {user.username}! Manage your hardware store
+                operations.
               </p>
             </div>
             <div className="flex items-center space-x-3">
@@ -122,10 +125,15 @@ export default function Admin() {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900">Total Customers</h3>
-                    <p className="text-3xl font-bold text-blue-600">{stats.totalCustomers}</p>
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      Total Customers
+                    </h3>
+                    <p className="text-3xl font-bold text-blue-600">
+                      {stats.totalCustomers}
+                    </p>
                     <p className="text-sm text-gray-500">
-                      {stats.activeCustomers} active, {stats.pendingCustomers} pending
+                      {stats.activeCustomers} active, {stats.pendingCustomers}{" "}
+                      pending
                     </p>
                   </div>
                 </div>
@@ -139,10 +147,15 @@ export default function Admin() {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900">Total Suppliers</h3>
-                    <p className="text-3xl font-bold text-green-600">{stats.totalSuppliers}</p>
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      Total Suppliers
+                    </h3>
+                    <p className="text-3xl font-bold text-green-600">
+                      {stats.totalSuppliers}
+                    </p>
                     <p className="text-sm text-gray-500">
-                      {stats.activeSuppliers} active, {stats.pendingSuppliers} pending
+                      {stats.activeSuppliers} active, {stats.pendingSuppliers}{" "}
+                      pending
                     </p>
                   </div>
                 </div>
@@ -156,7 +169,9 @@ export default function Admin() {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900">Pending Reviews</h3>
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      Pending Reviews
+                    </h3>
                     <p className="text-3xl font-bold text-orange-600">
                       {stats.pendingCustomers + stats.pendingSuppliers}
                     </p>
@@ -173,7 +188,9 @@ export default function Admin() {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900">Total Active</h3>
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      Total Active
+                    </h3>
                     <p className="text-3xl font-bold text-purple-600">
                       {stats.activeCustomers + stats.activeSuppliers}
                     </p>
@@ -185,7 +202,9 @@ export default function Admin() {
 
             {/* Quick Actions */}
             <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">Quick Actions</h2>
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                Quick Actions
+              </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <button
                   onClick={() => setActiveTab("customers")}
@@ -194,8 +213,12 @@ export default function Admin() {
                   <div className="flex items-center space-x-3">
                     <span className="text-2xl">🛒</span>
                     <div>
-                      <h3 className="font-medium text-gray-900">Manage Customers</h3>
-                      <p className="text-sm text-gray-500">View, edit, and manage customer accounts</p>
+                      <h3 className="font-medium text-gray-900">
+                        Manage Customers
+                      </h3>
+                      <p className="text-sm text-gray-500">
+                        View, edit, and manage customer accounts
+                      </p>
                     </div>
                   </div>
                 </button>
@@ -207,8 +230,12 @@ export default function Admin() {
                   <div className="flex items-center space-x-3">
                     <span className="text-2xl">🏭</span>
                     <div>
-                      <h3 className="font-medium text-gray-900">Manage Suppliers</h3>
-                      <p className="text-sm text-gray-500">View, edit, and manage supplier partnerships</p>
+                      <h3 className="font-medium text-gray-900">
+                        Manage Suppliers
+                      </h3>
+                      <p className="text-sm text-gray-500">
+                        View, edit, and manage supplier partnerships
+                      </p>
                     </div>
                   </div>
                 </button>
@@ -220,8 +247,12 @@ export default function Admin() {
                   <div className="flex items-center space-x-3">
                     <span className="text-2xl">👥</span>
                     <div>
-                      <h3 className="font-medium text-gray-900">Manage Users</h3>
-                      <p className="text-sm text-gray-500">Admin user account management</p>
+                      <h3 className="font-medium text-gray-900">
+                        Manage Users
+                      </h3>
+                      <p className="text-sm text-gray-500">
+                        Admin user account management
+                      </p>
                     </div>
                   </div>
                 </button>
@@ -230,13 +261,11 @@ export default function Admin() {
           </div>
         )}
 
-        {activeTab === "users" && (
-          <UserManagement onUpdate={refreshStats} />
-        )}
+        {activeTab === "users" && <UserManagement onUpdate={refreshStats} />}
 
         {(activeTab === "customers" || activeTab === "suppliers") && (
-          <CustomerSupplierManagement 
-            type={activeTab as "customers" | "suppliers"} 
+          <CustomerSupplierManagement
+            type={activeTab as "customers" | "suppliers"}
             onUpdate={refreshStats}
           />
         )}

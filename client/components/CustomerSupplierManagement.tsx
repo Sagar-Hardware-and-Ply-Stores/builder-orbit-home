@@ -21,7 +21,12 @@ interface EditModalProps {
   onSave: (id: string, updatedData: Partial<CustomerSupplier>) => void;
 }
 
-const EditRecordModal: React.FC<EditModalProps> = ({ record, isOpen, onClose, onSave }) => {
+const EditRecordModal: React.FC<EditModalProps> = ({
+  record,
+  isOpen,
+  onClose,
+  onSave,
+}) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -81,9 +86,13 @@ const EditRecordModal: React.FC<EditModalProps> = ({ record, isOpen, onClose, on
     }
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   if (!isOpen || !record) return null;
@@ -95,7 +104,7 @@ const EditRecordModal: React.FC<EditModalProps> = ({ record, isOpen, onClose, on
           <h3 className="text-lg font-semibold text-gray-900 mb-4">
             Edit {record.type === "customer" ? "Customer" : "Supplier"}
           </h3>
-          
+
           {error && (
             <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 rounded-md text-sm">
               {error}
@@ -219,7 +228,12 @@ interface DeleteModalProps {
   onConfirm: (id: string) => void;
 }
 
-const DeleteRecordModal: React.FC<DeleteModalProps> = ({ record, isOpen, onClose, onConfirm }) => {
+const DeleteRecordModal: React.FC<DeleteModalProps> = ({
+  record,
+  isOpen,
+  onClose,
+  onConfirm,
+}) => {
   if (!isOpen || !record) return null;
 
   return (
@@ -230,8 +244,8 @@ const DeleteRecordModal: React.FC<DeleteModalProps> = ({ record, isOpen, onClose
             Delete {record.type === "customer" ? "Customer" : "Supplier"}
           </h3>
           <p className="text-gray-600 mb-6">
-            Are you sure you want to delete <strong>{record.name}</strong>? 
-            This action cannot be undone.
+            Are you sure you want to delete <strong>{record.name}</strong>? This
+            action cannot be undone.
           </p>
           <div className="flex space-x-3">
             <button
@@ -253,13 +267,24 @@ const DeleteRecordModal: React.FC<DeleteModalProps> = ({ record, isOpen, onClose
   );
 };
 
-export default function CustomerSupplierManagement({ type, onUpdate }: CustomerSupplierManagementProps) {
+export default function CustomerSupplierManagement({
+  type,
+  onUpdate,
+}: CustomerSupplierManagementProps) {
   const [records, setRecords] = useState<CustomerSupplier[]>([]);
-  const [filteredRecords, setFilteredRecords] = useState<CustomerSupplier[]>([]);
+  const [filteredRecords, setFilteredRecords] = useState<CustomerSupplier[]>(
+    [],
+  );
   const [searchQuery, setSearchQuery] = useState("");
-  const [statusFilter, setStatusFilter] = useState<"all" | "active" | "pending">("all");
-  const [editingRecord, setEditingRecord] = useState<CustomerSupplier | null>(null);
-  const [deletingRecord, setDeletingRecord] = useState<CustomerSupplier | null>(null);
+  const [statusFilter, setStatusFilter] = useState<
+    "all" | "active" | "pending"
+  >("all");
+  const [editingRecord, setEditingRecord] = useState<CustomerSupplier | null>(
+    null,
+  );
+  const [deletingRecord, setDeletingRecord] = useState<CustomerSupplier | null>(
+    null,
+  );
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState<"success" | "error" | "">("");
 
@@ -272,7 +297,8 @@ export default function CustomerSupplierManagement({ type, onUpdate }: CustomerS
   }, [records, searchQuery, statusFilter]);
 
   const loadRecords = () => {
-    const data = type === "customers" ? getStoredCustomers() : getStoredSuppliers();
+    const data =
+      type === "customers" ? getStoredCustomers() : getStoredSuppliers();
     setRecords(data);
   };
 
@@ -280,11 +306,14 @@ export default function CustomerSupplierManagement({ type, onUpdate }: CustomerS
     let filtered = records;
 
     if (searchQuery.trim()) {
-      filtered = searchRegistrations(searchQuery, type === "customers" ? "customer" : "supplier");
+      filtered = searchRegistrations(
+        searchQuery,
+        type === "customers" ? "customer" : "supplier",
+      );
     }
 
     if (statusFilter !== "all") {
-      filtered = filtered.filter(record => record.status === statusFilter);
+      filtered = filtered.filter((record) => record.status === statusFilter);
     }
 
     setFilteredRecords(filtered);
@@ -299,7 +328,10 @@ export default function CustomerSupplierManagement({ type, onUpdate }: CustomerS
     }, 3000);
   };
 
-  const handleEditRecord = (id: string, updatedData: Partial<CustomerSupplier>) => {
+  const handleEditRecord = (
+    id: string,
+    updatedData: Partial<CustomerSupplier>,
+  ) => {
     const result = updateCustomerSupplier(id, updatedData);
     if (result.success) {
       showMessage(result.message, "success");
@@ -323,7 +355,10 @@ export default function CustomerSupplierManagement({ type, onUpdate }: CustomerS
     }
   };
 
-  const handleStatusToggle = (id: string, currentStatus: "active" | "pending") => {
+  const handleStatusToggle = (
+    id: string,
+    currentStatus: "active" | "pending",
+  ) => {
     const newStatus = currentStatus === "active" ? "pending" : "active";
     const result = updateStatus(id, newStatus);
     if (result.success) {
@@ -336,8 +371,8 @@ export default function CustomerSupplierManagement({ type, onUpdate }: CustomerS
   };
 
   const getStatusColor = (status: string) => {
-    return status === "active" 
-      ? "bg-green-100 text-green-800" 
+    return status === "active"
+      ? "bg-green-100 text-green-800"
       : "bg-yellow-100 text-yellow-800";
   };
 
@@ -361,11 +396,13 @@ export default function CustomerSupplierManagement({ type, onUpdate }: CustomerS
         </div>
 
         {message && (
-          <div className={`mx-6 mt-4 p-3 rounded-md text-sm ${
-            messageType === "success" 
-              ? "bg-green-50 border border-green-200 text-green-700"
-              : "bg-red-50 border border-red-200 text-red-700"
-          }`}>
+          <div
+            className={`mx-6 mt-4 p-3 rounded-md text-sm ${
+              messageType === "success"
+                ? "bg-green-50 border border-green-200 text-green-700"
+                : "bg-red-50 border border-red-200 text-red-700"
+            }`}
+          >
             {message}
           </div>
         )}
@@ -385,7 +422,11 @@ export default function CustomerSupplierManagement({ type, onUpdate }: CustomerS
             <div>
               <select
                 value={statusFilter}
-                onChange={(e) => setStatusFilter(e.target.value as "all" | "active" | "pending")}
+                onChange={(e) =>
+                  setStatusFilter(
+                    e.target.value as "all" | "active" | "pending",
+                  )
+                }
                 className="px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               >
                 <option value="all">All Status</option>
@@ -406,7 +447,9 @@ export default function CustomerSupplierManagement({ type, onUpdate }: CustomerS
                 No {type} found
               </h3>
               <p className="text-gray-500">
-                {searchQuery ? "No records match your search criteria." : `No ${type} are currently registered.`}
+                {searchQuery
+                  ? "No records match your search criteria."
+                  : `No ${type} are currently registered.`}
               </p>
             </div>
           ) : (
@@ -436,22 +479,34 @@ export default function CustomerSupplierManagement({ type, onUpdate }: CustomerS
                     <tr key={record.id} className="hover:bg-gray-50">
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div>
-                          <div className="text-sm font-medium text-gray-900">{record.name}</div>
-                          <div className="text-sm text-gray-500">{record.email}</div>
-                          <div className="text-sm text-gray-500">{record.phone}</div>
+                          <div className="text-sm font-medium text-gray-900">
+                            {record.name}
+                          </div>
+                          <div className="text-sm text-gray-500">
+                            {record.email}
+                          </div>
+                          <div className="text-sm text-gray-500">
+                            {record.phone}
+                          </div>
                         </div>
                       </td>
                       <td className="px-6 py-4">
                         <div>
                           {record.company && (
-                            <div className="text-sm font-medium text-gray-900">{record.company}</div>
+                            <div className="text-sm font-medium text-gray-900">
+                              {record.company}
+                            </div>
                           )}
-                          <div className="text-sm text-gray-500">{record.address}</div>
+                          <div className="text-sm text-gray-500">
+                            {record.address}
+                          </div>
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <button
-                          onClick={() => handleStatusToggle(record.id, record.status)}
+                          onClick={() =>
+                            handleStatusToggle(record.id, record.status)
+                          }
                           className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(record.status)} hover:opacity-80 transition-opacity`}
                         >
                           {record.status}

@@ -147,7 +147,10 @@ export function updateUserPassword(
   newPassword: string,
 ): { success: boolean; message: string } {
   if (!username.trim() || !newPassword.trim()) {
-    return { success: false, message: "Username and new password are required" };
+    return {
+      success: false,
+      message: "Username and new password are required",
+    };
   }
 
   const users = getStoredUsers();
@@ -173,7 +176,10 @@ export function updateUsername(
   newUsername: string,
 ): { success: boolean; message: string } {
   if (!oldUsername.trim() || !newUsername.trim()) {
-    return { success: false, message: "Both old and new usernames are required" };
+    return {
+      success: false,
+      message: "Both old and new usernames are required",
+    };
   }
 
   if (oldUsername.toLowerCase() === newUsername.toLowerCase()) {
@@ -198,7 +204,10 @@ export function updateUsername(
 
   // Update session if it's the current user
   const currentUser = getCurrentUser();
-  if (currentUser && currentUser.username.toLowerCase() === oldUsername.toLowerCase()) {
+  if (
+    currentUser &&
+    currentUser.username.toLowerCase() === oldUsername.toLowerCase()
+  ) {
     setCurrentUser({ username: newUsername.trim() });
   }
 
@@ -208,7 +217,10 @@ export function updateUsername(
 /**
  * Delete user account
  */
-export function deleteUser(username: string): { success: boolean; message: string } {
+export function deleteUser(username: string): {
+  success: boolean;
+  message: string;
+} {
   if (!username.trim()) {
     return { success: false, message: "Username is required" };
   }
@@ -227,7 +239,10 @@ export function deleteUser(username: string): { success: boolean; message: strin
 
   // Clear session if it's the current user being deleted
   const currentUser = getCurrentUser();
-  if (currentUser && currentUser.username.toLowerCase() === username.toLowerCase()) {
+  if (
+    currentUser &&
+    currentUser.username.toLowerCase() === username.toLowerCase()
+  ) {
     clearCurrentUser();
   }
 
@@ -239,5 +254,5 @@ export function deleteUser(username: string): { success: boolean; message: strin
  */
 export function getAllUsers(): { username: string }[] {
   const users = getStoredUsers();
-  return users.map(user => ({ username: user.username }));
+  return users.map((user) => ({ username: user.username }));
 }

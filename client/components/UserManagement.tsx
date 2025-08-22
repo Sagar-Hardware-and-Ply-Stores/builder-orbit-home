@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { getAllUsers, deleteUser, updateUsername, updateUserPassword, getCurrentUser } from "@/lib/auth";
+import {
+  getAllUsers,
+  deleteUser,
+  updateUsername,
+  updateUserPassword,
+  getCurrentUser,
+} from "@/lib/auth";
 
 interface User {
   username: string;
@@ -13,10 +19,19 @@ interface EditModalProps {
   user: User | null;
   isOpen: boolean;
   onClose: () => void;
-  onSave: (oldUsername: string, newUsername: string, newPassword: string) => void;
+  onSave: (
+    oldUsername: string,
+    newUsername: string,
+    newPassword: string,
+  ) => void;
 }
 
-const EditUserModal: React.FC<EditModalProps> = ({ user, isOpen, onClose, onSave }) => {
+const EditUserModal: React.FC<EditModalProps> = ({
+  user,
+  isOpen,
+  onClose,
+  onSave,
+}) => {
   const [newUsername, setNewUsername] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -61,8 +76,10 @@ const EditUserModal: React.FC<EditModalProps> = ({ user, isOpen, onClose, onSave
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg max-w-md w-full mx-4">
         <div className="p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Edit User</h3>
-          
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+            Edit User
+          </h3>
+
           {error && (
             <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 rounded-md text-sm">
               {error}
@@ -140,17 +157,24 @@ interface DeleteModalProps {
   onConfirm: (username: string) => void;
 }
 
-const DeleteUserModal: React.FC<DeleteModalProps> = ({ user, isOpen, onClose, onConfirm }) => {
+const DeleteUserModal: React.FC<DeleteModalProps> = ({
+  user,
+  isOpen,
+  onClose,
+  onConfirm,
+}) => {
   if (!isOpen || !user) return null;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg max-w-md w-full mx-4">
         <div className="p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Delete User</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+            Delete User
+          </h3>
           <p className="text-gray-600 mb-6">
-            Are you sure you want to delete the user <strong>{user.username}</strong>? 
-            This action cannot be undone.
+            Are you sure you want to delete the user{" "}
+            <strong>{user.username}</strong>? This action cannot be undone.
           </p>
           <div className="flex space-x-3">
             <button
@@ -197,7 +221,11 @@ export default function UserManagement({ onUpdate }: UserManagementProps) {
     }, 3000);
   };
 
-  const handleEditUser = (oldUsername: string, newUsername: string, newPassword: string) => {
+  const handleEditUser = (
+    oldUsername: string,
+    newUsername: string,
+    newPassword: string,
+  ) => {
     let result;
 
     // Update username if changed
@@ -211,7 +239,8 @@ export default function UserManagement({ onUpdate }: UserManagementProps) {
 
     // Update password if provided
     if (newPassword) {
-      const usernameToUpdate = oldUsername !== newUsername ? newUsername : oldUsername;
+      const usernameToUpdate =
+        oldUsername !== newUsername ? newUsername : oldUsername;
       result = updateUserPassword(usernameToUpdate, newPassword);
       if (!result.success) {
         showMessage(result.message, "error");
@@ -246,18 +275,22 @@ export default function UserManagement({ onUpdate }: UserManagementProps) {
     <div className="space-y-6">
       <div className="bg-white rounded-xl shadow-sm border border-gray-200">
         <div className="p-6 border-b border-gray-200">
-          <h2 className="text-xl font-semibold text-gray-900">User Management</h2>
+          <h2 className="text-xl font-semibold text-gray-900">
+            User Management
+          </h2>
           <p className="text-sm text-gray-500 mt-1">
             Manage admin user accounts and permissions
           </p>
         </div>
 
         {message && (
-          <div className={`mx-6 mt-4 p-3 rounded-md text-sm ${
-            messageType === "success" 
-              ? "bg-green-50 border border-green-200 text-green-700"
-              : "bg-red-50 border border-red-200 text-red-700"
-          }`}>
+          <div
+            className={`mx-6 mt-4 p-3 rounded-md text-sm ${
+              messageType === "success"
+                ? "bg-green-50 border border-green-200 text-green-700"
+                : "bg-red-50 border border-red-200 text-red-700"
+            }`}
+          >
             {message}
           </div>
         )}
@@ -266,8 +299,12 @@ export default function UserManagement({ onUpdate }: UserManagementProps) {
           {users.length === 0 ? (
             <div className="text-center py-8">
               <span className="text-4xl mb-4 block">👥</span>
-              <h3 className="text-lg font-medium text-gray-900 mb-2">No users found</h3>
-              <p className="text-gray-500">No admin users are currently registered.</p>
+              <h3 className="text-lg font-medium text-gray-900 mb-2">
+                No users found
+              </h3>
+              <p className="text-gray-500">
+                No admin users are currently registered.
+              </p>
             </div>
           ) : (
             <div className="overflow-x-auto">
@@ -298,11 +335,12 @@ export default function UserManagement({ onUpdate }: UserManagementProps) {
                           <div>
                             <div className="text-sm font-medium text-gray-900">
                               {user.username}
-                              {currentUser && currentUser.username === user.username && (
-                                <span className="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                                  Current User
-                                </span>
-                              )}
+                              {currentUser &&
+                                currentUser.username === user.username && (
+                                  <span className="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                    Current User
+                                  </span>
+                                )}
                             </div>
                           </div>
                         </div>
@@ -320,7 +358,8 @@ export default function UserManagement({ onUpdate }: UserManagementProps) {
                           >
                             Edit
                           </button>
-                          {(!currentUser || currentUser.username !== user.username) && (
+                          {(!currentUser ||
+                            currentUser.username !== user.username) && (
                             <button
                               onClick={() => setDeletingUser(user)}
                               className="text-red-600 hover:text-red-900 transition-colors"
