@@ -29,6 +29,7 @@ export default function Header({
     { label: "ABOUT", path: "/about" },
     { label: "SERVICES", path: "/services" },
     { label: "CONTACT", path: "/contact" },
+    ...(userLoggedIn ? [{ label: "ADMIN", path: "/admin" }] : []),
   ];
 
   const isActivePath = (path: string) => {
