@@ -309,9 +309,9 @@ export default function Contact() {
                     <p className="text-gray-600">
                       Sagar Hardware & Ply Stores
                       <br />
-                      Main Market Road
+                      Galyang-03
                       <br />
-                      Kathmandu, Nepal
+                      Syangja, Nepal
                     </p>
                   </div>
                 </div>
