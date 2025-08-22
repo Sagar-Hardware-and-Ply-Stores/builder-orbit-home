@@ -15,14 +15,8 @@ export default function Footer() {
                 alt="Sagar Hardware and Ply Stores Logo"
                 className="h-16 w-20 rounded-lg bg-white object-contain p-2"
               />
-              <div>
-                <h3 className="text-xl font-bold text-white">
-                  Sagar Hardware & Ply Stores
-                </h3>
-                <p className="text-gray-300 text-sm">
-                  Your trusted partner for quality hardware and construction
-                  materials
-                </p>
+              <div className="text-xl">
+                <h2>Sagar Hardware & Ply Stores</h2>
               </div>
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
