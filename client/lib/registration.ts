@@ -170,3 +170,124 @@ export function getRegistrationStats() {
     pendingSuppliers: suppliers.filter((s) => s.status === "pending").length,
   };
 }
+
+/**
+ * Update customer or supplier information
+ */
+export function updateCustomerSupplier(
+  id: string,
+  updatedData: Partial<Omit<CustomerSupplier, "id" | "registrationDate">>,
+): { success: boolean; message: string } {
+  const customers = getStoredCustomers();
+  const suppliers = getStoredSuppliers();
+
+  // Find in customers first
+  const customerIndex = customers.findIndex((c) => c.id === id);
+  if (customerIndex !== -1) {
+    const customer = customers[customerIndex];
+
+    // Validate email if it's being updated
+    if (updatedData.email && updatedData.email !== customer.email) {
+      if (emailExists(updatedData.email, "customer")) {
+        return { success: false, message: "Email already exists" };
+      }
+    }
+
+    customers[customerIndex] = { ...customer, ...updatedData };
+    storeCustomers(customers);
+    return { success: true, message: "Customer updated successfully" };
+  }
+
+  // Find in suppliers
+  const supplierIndex = suppliers.findIndex((s) => s.id === id);
+  if (supplierIndex !== -1) {
+    const supplier = suppliers[supplierIndex];
+
+    // Validate email if it's being updated
+    if (updatedData.email && updatedData.email !== supplier.email) {
+      if (emailExists(updatedData.email, "supplier")) {
+        return { success: false, message: "Email already exists" };
+      }
+    }
+
+    suppliers[supplierIndex] = { ...supplier, ...updatedData };
+    storeSuppliers(suppliers);
+    return { success: true, message: "Supplier updated successfully" };
+  }
+
+  return { success: false, message: "Record not found" };
+}
+
+/**
+ * Delete customer or supplier
+ */
+export function deleteCustomerSupplier(
+  id: string,
+): { success: boolean; message: string } {
+  let customers = getStoredCustomers();
+  let suppliers = getStoredSuppliers();
+
+  // Try to find and delete from customers
+  const customerIndex = customers.findIndex((c) => c.id === id);
+  if (customerIndex !== -1) {
+    customers.splice(customerIndex, 1);
+    storeCustomers(customers);
+    return { success: true, message: "Customer deleted successfully" };
+  }
+
+  // Try to find and delete from suppliers
+  const supplierIndex = suppliers.findIndex((s) => s.id === id);
+  if (supplierIndex !== -1) {
+    suppliers.splice(supplierIndex, 1);
+    storeSuppliers(suppliers);
+    return { success: true, message: "Supplier deleted successfully" };
+  }
+
+  return { success: false, message: "Record not found" };
+}
+
+/**
+ * Get customer or supplier by ID
+ */
+export function getCustomerSupplierById(id: string): CustomerSupplier | null {
+  const customers = getStoredCustomers();
+  const suppliers = getStoredSuppliers();
+
+  return customers.find((c) => c.id === id) || suppliers.find((s) => s.id === id) || null;
+}
+
+/**
+ * Update status of customer or supplier
+ */
+export function updateStatus(
+  id: string,
+  status: "active" | "pending",
+): { success: boolean; message: string } {
+  return updateCustomerSupplier(id, { status });
+}
+
+/**
+ * Search customers and suppliers
+ */
+export function searchRegistrations(
+  query: string,
+  type?: "customer" | "supplier",
+): CustomerSupplier[] {
+  const customers = type !== "supplier" ? getStoredCustomers() : [];
+  const suppliers = type !== "customer" ? getStoredSuppliers() : [];
+  const allRecords = [...customers, ...suppliers];
+
+  if (!query.trim()) {
+    return allRecords;
+  }
+
+  const searchQuery = query.toLowerCase();
+  return allRecords.filter(
+    (record) =>
+      record.name.toLowerCase().includes(searchQuery) ||
+      record.email.toLowerCase().includes(searchQuery) ||
+      record.phone.includes(searchQuery) ||
+      record.company?.toLowerCase().includes(searchQuery) ||
+      record.address.toLowerCase().includes(searchQuery),
+  );
+}
