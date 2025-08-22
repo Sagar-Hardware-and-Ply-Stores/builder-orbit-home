@@ -310,7 +310,7 @@ export default function Index() {
                 Contact Info
               </h4>
               <p className="text-blue-100">Phone: +977 9846078267</p>
-              <p className="text-blue-100">Email: bhandarisagar512@gmail.com</p>
+              <p className="text-blue-100">Email: sagarhardwareandplystores@gmail.com</p>
             </div>
           </div>
         </div>
