@@ -407,7 +407,9 @@ export default function Contact() {
                 </a>
 
                 <a
-                  href="mailto:bhandarisagar512@gmail.com"
+                  href="mailto:sagarhardwareandplystores@gmail.com?subject=Hardware%20Inquiry%20-%20Sagar%20Hardware%20%26%20Ply%20Stores"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center space-x-3 p-3 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
                 >
                   <svg
