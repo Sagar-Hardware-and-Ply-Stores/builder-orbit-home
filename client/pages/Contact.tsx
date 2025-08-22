@@ -352,7 +352,7 @@ export default function Contact() {
                   </svg>
                   <div>
                     <h3 className="font-semibold text-gray-900">Email</h3>
-                    <p className="text-gray-600">bhandarisagar512@gmail.com</p>
+                    <p className="text-gray-600">sagarhardwareandplystores@gmail.com</p>
                   </div>
                 </div>
 
