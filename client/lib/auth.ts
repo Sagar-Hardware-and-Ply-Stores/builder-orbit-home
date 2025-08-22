@@ -138,3 +138,106 @@ export function clearCurrentUser(): void {
 export function isLoggedIn(): boolean {
   return getCurrentUser() !== null;
 }
+
+/**
+ * Update user password
+ */
+export function updateUserPassword(
+  username: string,
+  newPassword: string,
+): { success: boolean; message: string } {
+  if (!username.trim() || !newPassword.trim()) {
+    return { success: false, message: "Username and new password are required" };
+  }
+
+  const users = getStoredUsers();
+  const userIndex = users.findIndex(
+    (u) => u.username.toLowerCase() === username.toLowerCase(),
+  );
+
+  if (userIndex === -1) {
+    return { success: false, message: "User not found" };
+  }
+
+  users[userIndex].password = newPassword;
+  storeUsers(users);
+
+  return { success: true, message: "Password updated successfully" };
+}
+
+/**
+ * Update username
+ */
+export function updateUsername(
+  oldUsername: string,
+  newUsername: string,
+): { success: boolean; message: string } {
+  if (!oldUsername.trim() || !newUsername.trim()) {
+    return { success: false, message: "Both old and new usernames are required" };
+  }
+
+  if (oldUsername.toLowerCase() === newUsername.toLowerCase()) {
+    return { success: false, message: "New username must be different" };
+  }
+
+  if (userExists(newUsername)) {
+    return { success: false, message: "New username already exists" };
+  }
+
+  const users = getStoredUsers();
+  const userIndex = users.findIndex(
+    (u) => u.username.toLowerCase() === oldUsername.toLowerCase(),
+  );
+
+  if (userIndex === -1) {
+    return { success: false, message: "User not found" };
+  }
+
+  users[userIndex].username = newUsername.trim();
+  storeUsers(users);
+
+  // Update session if it's the current user
+  const currentUser = getCurrentUser();
+  if (currentUser && currentUser.username.toLowerCase() === oldUsername.toLowerCase()) {
+    setCurrentUser({ username: newUsername.trim() });
+  }
+
+  return { success: true, message: "Username updated successfully" };
+}
+
+/**
+ * Delete user account
+ */
+export function deleteUser(username: string): { success: boolean; message: string } {
+  if (!username.trim()) {
+    return { success: false, message: "Username is required" };
+  }
+
+  const users = getStoredUsers();
+  const userIndex = users.findIndex(
+    (u) => u.username.toLowerCase() === username.toLowerCase(),
+  );
+
+  if (userIndex === -1) {
+    return { success: false, message: "User not found" };
+  }
+
+  users.splice(userIndex, 1);
+  storeUsers(users);
+
+  // Clear session if it's the current user being deleted
+  const currentUser = getCurrentUser();
+  if (currentUser && currentUser.username.toLowerCase() === username.toLowerCase()) {
+    clearCurrentUser();
+  }
+
+  return { success: true, message: "User account deleted successfully" };
+}
+
+/**
+ * Get all users (for admin purposes - without passwords)
+ */
+export function getAllUsers(): { username: string }[] {
+  const users = getStoredUsers();
+  return users.map(user => ({ username: user.username }));
+}
