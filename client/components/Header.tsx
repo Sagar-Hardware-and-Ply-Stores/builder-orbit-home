@@ -7,6 +7,8 @@ import {
   isAdmin,
   logoutAll,
 } from "@/lib/auth";
+import { getCartItemCount } from "@/lib/cart";
+import Cart from "@/components/Cart";
 
 interface HeaderProps {
   transparent?: boolean;
@@ -19,10 +21,16 @@ export default function Header({
 }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cartItemCount, setCartItemCount] = useState(getCartItemCount());
   const location = useLocation();
   const navigate = useNavigate();
   const user = getCurrentUser();
   const userLoggedIn = isLoggedIn();
+
+  const updateCartCount = () => {
+    setCartItemCount(getCartItemCount());
+  };
 
   const handleLogout = () => {
     logoutAll();
@@ -98,6 +106,30 @@ export default function Header({
 
           {/* User Actions */}
           <div className="flex items-center space-x-4">
+            {/* Cart Icon */}
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="relative p-2 text-white hover:text-blue-200 transition-colors rounded-lg hover:bg-white/10"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4m.6 0L6 11h12M7 13v6a1 1 0 001 1h8a1 1 0 001-1v-6M7 13l-4-8M7 13l1 8M10 17h4"
+                ></path>
+              </svg>
+              {cartItemCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">
+                  {cartItemCount > 99 ? '99+' : cartItemCount}
+                </span>
+              )}
+            </button>
             {userLoggedIn && user ? (
               <>
                 {/* User Profile Dropdown */}
@@ -311,6 +343,13 @@ export default function Header({
           </div>
         )}
       </div>
+
+      {/* Cart Component */}
+      <Cart
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+        onCartUpdate={updateCartCount}
+      />
 
       {/* Click outside to close dropdowns */}
       {(isMobileMenuOpen || isProfileDropdownOpen) && (
