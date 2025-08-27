@@ -10,6 +10,7 @@ import {
   Product,
   ProductCategory,
 } from "@/lib/products";
+import { autoInitializeSampleProducts } from "@/lib/sampleProducts";
 
 interface ProductManagementProps {
   onUpdate?: () => void;
@@ -44,6 +45,8 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
   };
 
   useEffect(() => {
+    // Auto-initialize sample products if none exist
+    autoInitializeSampleProducts();
     refreshData();
   }, []);
 
