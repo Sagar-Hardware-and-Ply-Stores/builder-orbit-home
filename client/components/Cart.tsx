@@ -143,10 +143,35 @@ export default function Cart({ isOpen, onClose, onCartUpdate }: CartProps) {
         <div className="flex flex-col h-full">
           {cart.items.length === 0 ? (
             /* Empty Cart */
-            <div className="flex-1 flex flex-col items-center justify-center p-6 text-center">
-              <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+            <div className="flex-1 flex flex-col items-center justify-center p-8 text-center">
+              <div className="w-32 h-32 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-full flex items-center justify-center mb-6 border border-blue-200">
                 <svg
-                  className="w-12 h-12 text-gray-400"
+                  className="w-16 h-16 text-blue-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4m.6 0L6 11h12M7 13v6a1 1 0 001 1h8a1 1 0 001-1v-6M7 13l-4-8M7 13l1 8M10 17h4"
+                  ></path>
+                </svg>
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-3">
+                Your cart is empty
+              </h3>
+              <p className="text-gray-600 mb-8 max-w-sm">
+                Discover our amazing products and add them to your cart to get started
+              </p>
+              <Link
+                to="/services"
+                onClick={onClose}
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+              >
+                <svg
+                  className="w-5 h-5 mr-2"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -155,22 +180,10 @@ export default function Cart({ isOpen, onClose, onCartUpdate }: CartProps) {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    d="M3 3h2l.4 2M7 13h10l4-8H5.4m.6 0L6 11h12M7 13v6a1 1 0 001 1h8a1 1 0 001-1v-6M7 13l-4-8M7 13l1 8M10 17h4"
+                    d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                   ></path>
                 </svg>
-              </div>
-              <h3 className="text-lg font-medium text-gray-900 mb-2">
-                Your cart is empty
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Add some products to get started
-              </p>
-              <Link
-                to="/services"
-                onClick={onClose}
-                className="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
-              >
-                Continue Shopping
+                Start Shopping
               </Link>
             </div>
           ) : (
