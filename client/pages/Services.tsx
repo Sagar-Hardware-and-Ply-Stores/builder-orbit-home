@@ -6,6 +6,7 @@ import {
   getActiveProducts,
   getProductsByCategory,
 } from "@/lib/products";
+import { addToCart } from "@/lib/cart";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -162,6 +163,40 @@ export default function Services() {
     ...category,
     products: getProductsByCategory(category.id),
   }));
+
+  const handleAddToCart = (product: any, category: any) => {
+    if (!product.price) {
+      alert("This item is not available for purchase.");
+      return;
+    }
+
+    const result = addToCart({
+      id: product.id,
+      name: product.name,
+      description: product.description,
+      price: product.price,
+      image: product.image,
+      category: category.id,
+    });
+
+    if (result.success) {
+      // Show success message with better styling
+      const toast = document.createElement('div');
+      toast.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform transition-transform duration-300';
+      toast.textContent = result.message;
+      document.body.appendChild(toast);
+
+      // Remove toast after 3 seconds
+      setTimeout(() => {
+        toast.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+          document.body.removeChild(toast);
+        }, 300);
+      }, 3000);
+    } else {
+      alert(result.message);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white">
