@@ -181,14 +181,15 @@ export default function Services() {
 
     if (result.success) {
       // Show success message with better styling
-      const toast = document.createElement('div');
-      toast.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform transition-transform duration-300';
+      const toast = document.createElement("div");
+      toast.className =
+        "fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform transition-transform duration-300";
       toast.textContent = result.message;
       document.body.appendChild(toast);
 
       // Remove toast after 3 seconds
       setTimeout(() => {
-        toast.style.transform = 'translateX(100%)';
+        toast.style.transform = "translateX(100%)";
         setTimeout(() => {
           document.body.removeChild(toast);
         }, 300);
@@ -263,9 +264,15 @@ export default function Services() {
                               key={product.id}
                               onClick={() => handleAddToCart(product, category)}
                               className={`flex items-center space-x-3 bg-white/60 backdrop-blur-sm rounded-lg p-2 hover:bg-white/80 transition-colors ${
-                                product.price ? 'cursor-pointer hover:shadow-md transform hover:scale-105' : 'cursor-default'
+                                product.price
+                                  ? "cursor-pointer hover:shadow-md transform hover:scale-105"
+                                  : "cursor-default"
                               }`}
-                              title={product.price ? `Click to add ${product.name} to cart` : 'Price not available'}
+                              title={
+                                product.price
+                                  ? `Click to add ${product.name} to cart`
+                                  : "Price not available"
+                              }
                             >
                               <svg
                                 className={`w-5 h-5 ${category.colorScheme.checkColor} flex-shrink-0`}

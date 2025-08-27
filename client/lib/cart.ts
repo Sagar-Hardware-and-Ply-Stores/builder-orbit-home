@@ -62,29 +62,40 @@ export function saveCart(cart: Cart): void {
 /**
  * Calculate cart totals
  */
-function calculateCartTotals(items: CartItem[]): { totalItems: number; totalAmount: number } {
+function calculateCartTotals(items: CartItem[]): {
+  totalItems: number;
+  totalAmount: number;
+} {
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
-  const totalAmount = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const totalAmount = items.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0,
+  );
   return { totalItems, totalAmount };
 }
 
 /**
  * Add item to cart
  */
-export function addToCart(product: {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  image?: string;
-  category: string;
-}, quantity: number = 1): { success: boolean; message: string; cart: Cart } {
+export function addToCart(
+  product: {
+    id: string;
+    name: string;
+    description: string;
+    price: number;
+    image?: string;
+    category: string;
+  },
+  quantity: number = 1,
+): { success: boolean; message: string; cart: Cart } {
   try {
     const cart = getCart();
-    
+
     // Check if item already exists in cart
-    const existingItemIndex = cart.items.findIndex(item => item.productId === product.id);
-    
+    const existingItemIndex = cart.items.findIndex(
+      (item) => item.productId === product.id,
+    );
+
     if (existingItemIndex >= 0) {
       // Update quantity if item exists
       cart.items[existingItemIndex].quantity += quantity;
@@ -103,25 +114,25 @@ export function addToCart(product: {
       };
       cart.items.push(cartItem);
     }
-    
+
     // Recalculate totals
     const totals = calculateCartTotals(cart.items);
     cart.totalItems = totals.totalItems;
     cart.totalAmount = totals.totalAmount;
-    
+
     saveCart(cart);
-    
+
     return {
       success: true,
       message: `${product.name} added to cart`,
-      cart: cart
+      cart: cart,
     };
   } catch (error) {
     console.error("Error adding to cart:", error);
     return {
       success: false,
       message: "Failed to add item to cart",
-      cart: getCart()
+      cart: getCart(),
     };
   }
 }
@@ -129,40 +140,44 @@ export function addToCart(product: {
 /**
  * Remove item from cart
  */
-export function removeFromCart(cartItemId: string): { success: boolean; message: string; cart: Cart } {
+export function removeFromCart(cartItemId: string): {
+  success: boolean;
+  message: string;
+  cart: Cart;
+} {
   try {
     const cart = getCart();
-    const itemIndex = cart.items.findIndex(item => item.id === cartItemId);
-    
+    const itemIndex = cart.items.findIndex((item) => item.id === cartItemId);
+
     if (itemIndex === -1) {
       return {
         success: false,
         message: "Item not found in cart",
-        cart: cart
+        cart: cart,
       };
     }
-    
+
     const removedItem = cart.items[itemIndex];
     cart.items.splice(itemIndex, 1);
-    
+
     // Recalculate totals
     const totals = calculateCartTotals(cart.items);
     cart.totalItems = totals.totalItems;
     cart.totalAmount = totals.totalAmount;
-    
+
     saveCart(cart);
-    
+
     return {
       success: true,
       message: `${removedItem.name} removed from cart`,
-      cart: cart
+      cart: cart,
     };
   } catch (error) {
     console.error("Error removing from cart:", error);
     return {
       success: false,
       message: "Failed to remove item from cart",
-      cart: getCart()
+      cart: getCart(),
     };
   }
 }
@@ -170,43 +185,46 @@ export function removeFromCart(cartItemId: string): { success: boolean; message:
 /**
  * Update item quantity in cart
  */
-export function updateCartItemQuantity(cartItemId: string, quantity: number): { success: boolean; message: string; cart: Cart } {
+export function updateCartItemQuantity(
+  cartItemId: string,
+  quantity: number,
+): { success: boolean; message: string; cart: Cart } {
   try {
     if (quantity < 1) {
       return removeFromCart(cartItemId);
     }
-    
+
     const cart = getCart();
-    const itemIndex = cart.items.findIndex(item => item.id === cartItemId);
-    
+    const itemIndex = cart.items.findIndex((item) => item.id === cartItemId);
+
     if (itemIndex === -1) {
       return {
         success: false,
         message: "Item not found in cart",
-        cart: cart
+        cart: cart,
       };
     }
-    
+
     cart.items[itemIndex].quantity = quantity;
-    
+
     // Recalculate totals
     const totals = calculateCartTotals(cart.items);
     cart.totalItems = totals.totalItems;
     cart.totalAmount = totals.totalAmount;
-    
+
     saveCart(cart);
-    
+
     return {
       success: true,
       message: "Cart updated",
-      cart: cart
+      cart: cart,
     };
   } catch (error) {
     console.error("Error updating cart item quantity:", error);
     return {
       success: false,
       message: "Failed to update cart",
-      cart: getCart()
+      cart: getCart(),
     };
   }
 }
@@ -222,20 +240,20 @@ export function clearCart(): { success: boolean; message: string; cart: Cart } {
       totalAmount: 0,
       updatedAt: new Date().toISOString(),
     };
-    
+
     saveCart(emptyCart);
-    
+
     return {
       success: true,
       message: "Cart cleared",
-      cart: emptyCart
+      cart: emptyCart,
     };
   } catch (error) {
     console.error("Error clearing cart:", error);
     return {
       success: false,
       message: "Failed to clear cart",
-      cart: getCart()
+      cart: getCart(),
     };
   }
 }
@@ -261,7 +279,7 @@ export function getCartTotal(): number {
  */
 export function isProductInCart(productId: string): boolean {
   const cart = getCart();
-  return cart.items.some(item => item.productId === productId);
+  return cart.items.some((item) => item.productId === productId);
 }
 
 /**
@@ -269,7 +287,7 @@ export function isProductInCart(productId: string): boolean {
  */
 export function getCartItemByProductId(productId: string): CartItem | null {
   const cart = getCart();
-  return cart.items.find(item => item.productId === productId) || null;
+  return cart.items.find((item) => item.productId === productId) || null;
 }
 
 /**

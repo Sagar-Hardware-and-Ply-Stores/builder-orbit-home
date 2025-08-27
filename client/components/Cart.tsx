@@ -28,7 +28,10 @@ export default function Cart({ isOpen, onClose, onCartUpdate }: CartProps) {
     refreshCart();
   }, [isOpen]);
 
-  const handleQuantityChange = async (cartItemId: string, newQuantity: number) => {
+  const handleQuantityChange = async (
+    cartItemId: string,
+    newQuantity: number,
+  ) => {
     setIsLoading(true);
     const result = updateCartItemQuantity(cartItemId, newQuantity);
     if (result.success) {
@@ -269,7 +272,7 @@ export default function Cart({ isOpen, onClose, onCartUpdate }: CartProps) {
                   >
                     Proceed to Checkout
                   </button>
-                  
+
                   <div className="flex space-x-3">
                     <Link
                       to="/services"

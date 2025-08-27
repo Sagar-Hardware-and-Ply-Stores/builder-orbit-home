@@ -36,7 +36,7 @@ const ProductsCarousel = () => {
       return;
     }
 
-    const category = categories.find(c => c.id === product.category);
+    const category = categories.find((c) => c.id === product.category);
     const result = addToCart({
       id: product.id,
       name: product.name,
@@ -48,14 +48,15 @@ const ProductsCarousel = () => {
 
     if (result.success) {
       // Show success message with better styling
-      const toast = document.createElement('div');
-      toast.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform transition-transform duration-300';
+      const toast = document.createElement("div");
+      toast.className =
+        "fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform transition-transform duration-300";
       toast.textContent = result.message;
       document.body.appendChild(toast);
 
       // Remove toast after 3 seconds
       setTimeout(() => {
-        toast.style.transform = 'translateX(100%)';
+        toast.style.transform = "translateX(100%)";
         setTimeout(() => {
           document.body.removeChild(toast);
         }, 300);
@@ -82,9 +83,13 @@ const ProductsCarousel = () => {
                     <div
                       onClick={() => handleAddToCart(product)}
                       className={`bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-slate-200 p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 h-full ${
-                        product.price ? 'cursor-pointer' : 'cursor-default'
+                        product.price ? "cursor-pointer" : "cursor-default"
                       }`}
-                      title={product.price ? `Click to add ${product.name} to cart` : 'Price not available'}
+                      title={
+                        product.price
+                          ? `Click to add ${product.name} to cart`
+                          : "Price not available"
+                      }
                     >
                       {product.image ? (
                         <div className="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden border-4 border-slate-200">
@@ -145,7 +150,9 @@ const ProductsCarousel = () => {
                         )}
                       </div>
                       {product.price && (
-                        <p className="text-xs text-gray-500 mt-2">Click to add to cart</p>
+                        <p className="text-xs text-gray-500 mt-2">
+                          Click to add to cart
+                        </p>
                       )}
                     </div>
                   </div>
