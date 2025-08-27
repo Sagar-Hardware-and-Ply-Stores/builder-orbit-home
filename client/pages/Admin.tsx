@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getCurrentUser, isLoggedIn } from "@/lib/auth";
+import { getCurrentUser, isLoggedIn, isAdmin } from "@/lib/auth";
 import { getRegistrationStats } from "@/lib/registration";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import UserManagement from "@/components/UserManagement";
 import CustomerSupplierManagement from "@/components/CustomerSupplierManagement";
+import ProductManagement from "@/components/ProductManagement";
 
 interface TabProps {
   activeTab: string;
@@ -15,6 +16,7 @@ interface TabProps {
 const TabNavigation: React.FC<TabProps> = ({ activeTab, setActiveTab }) => {
   const tabs = [
     { id: "overview", label: "Overview", icon: "📊" },
+    { id: "products", label: "Products", icon: "📦" },
     { id: "users", label: "Users", icon: "👥" },
     { id: "customers", label: "Customers", icon: "🛒" },
     { id: "suppliers", label: "Suppliers", icon: "🏭" },
@@ -51,7 +53,7 @@ export default function Admin() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isLoggedIn()) {
+    if (!isLoggedIn() || !isAdmin()) {
       navigate("/login");
       return;
     }
@@ -207,6 +209,23 @@ export default function Admin() {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <button
+                  onClick={() => setActiveTab("products")}
+                  className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 text-left transition-colors"
+                >
+                  <div className="flex items-center space-x-3">
+                    <span className="text-2xl">📦</span>
+                    <div>
+                      <h3 className="font-medium text-gray-900">
+                        Manage Products
+                      </h3>
+                      <p className="text-sm text-gray-500">
+                        Add, edit, and manage store products
+                      </p>
+                    </div>
+                  </div>
+                </button>
+
+                <button
                   onClick={() => setActiveTab("customers")}
                   className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 text-left transition-colors"
                 >
@@ -260,6 +279,8 @@ export default function Admin() {
             </div>
           </div>
         )}
+
+        {activeTab === "products" && <ProductManagement onUpdate={refreshStats} />}
 
         {activeTab === "users" && <UserManagement onUpdate={refreshStats} />}
 
