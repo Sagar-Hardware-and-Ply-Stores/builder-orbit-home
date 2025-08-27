@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { getCurrentUser, clearCurrentUser, isLoggedIn } from "@/lib/auth";
+import { getCurrentUser, clearCurrentUser, isLoggedIn, isAdmin } from "@/lib/auth";
 
 interface HeaderProps {
   transparent?: boolean;
@@ -29,7 +29,7 @@ export default function Header({
     { label: "ABOUT", path: "/about" },
     { label: "SERVICES", path: "/services" },
     { label: "CONTACT", path: "/contact" },
-    ...(userLoggedIn ? [{ label: "ADMIN", path: "/admin" }] : []),
+    ...(userLoggedIn && isAdmin() ? [{ label: "ADMIN", path: "/admin" }] : []),
   ];
 
   const isActivePath = (path: string) => {
