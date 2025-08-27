@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { authenticateUser, setCurrentUser, isLoggedIn } from "@/lib/auth";
+import { authenticateUser, setCurrentUser, isLoggedIn, authenticateAdmin, setAdminSession } from "@/lib/auth";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -28,15 +28,25 @@ export default function Login() {
       return;
     }
 
-    // Authenticate user
-    const result = authenticateUser(username, password);
+    // Check if admin credentials first
+    const adminResult = authenticateAdmin(username, password);
 
-    if (result.success) {
-      // Set session and redirect
+    if (adminResult.success) {
+      // Admin login
       setCurrentUser({ username: username.trim() });
-      navigate("/");
+      setAdminSession();
+      navigate("/admin");
     } else {
-      setError(result.message);
+      // Regular user authentication
+      const result = authenticateUser(username, password);
+
+      if (result.success) {
+        // Set session and redirect
+        setCurrentUser({ username: username.trim() });
+        navigate("/");
+      } else {
+        setError("Invalid username or password");
+      }
     }
 
     setIsLoading(false);
