@@ -56,12 +56,25 @@ export default function Cart({ isOpen, onClose, onCartUpdate }: CartProps) {
   };
 
   const handleClearCart = async () => {
-    if (window.confirm("Are you sure you want to clear your cart?")) {
+    if (window.confirm("Are you sure you want to clear your cart? This action cannot be undone.")) {
       setIsLoading(true);
       const result = clearCart();
       if (result.success) {
         setCart(result.cart);
         onCartUpdate?.();
+        // Show success toast
+        const toast = document.createElement('div');
+        toast.className = 'fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform transition-transform duration-300';
+        toast.textContent = 'Cart cleared successfully';
+        document.body.appendChild(toast);
+        setTimeout(() => {
+          toast.style.transform = 'translateX(100%)';
+          setTimeout(() => {
+            if (document.body.contains(toast)) {
+              document.body.removeChild(toast);
+            }
+          }, 300);
+        }, 2000);
       } else {
         alert(result.message);
       }
@@ -75,12 +88,12 @@ export default function Cart({ isOpen, onClose, onCartUpdate }: CartProps) {
     <>
       {/* Overlay */}
       <div
-        className="fixed inset-0 bg-black bg-opacity-50 z-40"
+        className="fixed inset-0 bg-black bg-opacity-60 z-40 backdrop-blur-sm"
         onClick={onClose}
       ></div>
 
       {/* Cart Sidebar */}
-      <div className="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out">
+      <div className="fixed right-0 top-0 h-full w-full max-w-lg bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out border-l border-gray-100">
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <h2 className="text-xl font-bold text-gray-900">Shopping Cart</h2>
