@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { getCurrentUser, clearCurrentUser, isLoggedIn, isAdmin } from "@/lib/auth";
+import { getCurrentUser, clearCurrentUser, isLoggedIn, isAdmin, logoutAll } from "@/lib/auth";
 
 interface HeaderProps {
   transparent?: boolean;
@@ -19,7 +19,7 @@ export default function Header({
   const userLoggedIn = isLoggedIn();
 
   const handleLogout = () => {
-    clearCurrentUser();
+    logoutAll();
     navigate("/login");
   };
 
