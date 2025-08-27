@@ -263,3 +263,72 @@ export function getAllUsers(): { username: string }[] {
   const users = getStoredUsers();
   return users.map((user) => ({ username: user.username }));
 }
+
+/**
+ * Authenticate admin credentials
+ */
+export function authenticateAdmin(username: string, password: string): { success: boolean; message: string } {
+  if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
+    return { success: true, message: "Admin authentication successful" };
+  }
+  return { success: false, message: "Invalid admin credentials" };
+}
+
+/**
+ * Set admin session
+ */
+export function setAdminSession(): void {
+  try {
+    const adminSession = {
+      isAdmin: true,
+      timestamp: Date.now(),
+    };
+    localStorage.setItem(ADMIN_SESSION_KEY, JSON.stringify(adminSession));
+  } catch (error) {
+    console.error("Error storing admin session:", error);
+  }
+}
+
+/**
+ * Clear admin session
+ */
+export function clearAdminSession(): void {
+  try {
+    localStorage.removeItem(ADMIN_SESSION_KEY);
+  } catch (error) {
+    console.error("Error clearing admin session:", error);
+  }
+}
+
+/**
+ * Check if current user is admin
+ */
+export function isAdmin(): boolean {
+  try {
+    const adminSession = localStorage.getItem(ADMIN_SESSION_KEY);
+    if (!adminSession) return false;
+
+    const session = JSON.parse(adminSession);
+    // Admin session expires after 24 hours for security
+    const sessionAge = Date.now() - session.timestamp;
+    const maxAge = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+
+    if (sessionAge > maxAge) {
+      clearAdminSession();
+      return false;
+    }
+
+    return session.isAdmin === true;
+  } catch (error) {
+    console.error("Error checking admin session:", error);
+    return false;
+  }
+}
+
+/**
+ * Logout all sessions (user and admin)
+ */
+export function logoutAll(): void {
+  clearCurrentUser();
+  clearAdminSession();
+}
