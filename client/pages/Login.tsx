@@ -126,7 +126,7 @@ export default function Login() {
             </button>
           </div>
 
-          <div className="text-center">
+          <div className="text-center space-y-4">
             <p className="text-sm text-gray-600">
               Don't have an account?{" "}
               <Link
@@ -136,6 +136,14 @@ export default function Login() {
                 Sign up here
               </Link>
             </p>
+
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <p className="text-xs text-blue-800 font-medium mb-2">Admin Access:</p>
+              <p className="text-xs text-blue-700">
+                Username: <span className="font-mono bg-blue-100 px-1 rounded">admin</span><br/>
+                Password: <span className="font-mono bg-blue-100 px-1 rounded">SagarAdmin2025!</span>
+              </p>
+            </div>
           </div>
         </form>
       </div>
