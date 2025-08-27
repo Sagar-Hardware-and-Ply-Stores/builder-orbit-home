@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getCurrentUser, isLoggedIn } from "@/lib/auth";
+import { getStoredCategories, getActiveProducts, getProductsByCategory } from "@/lib/products";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export default function Services() {
   const [user, setUser] = useState(getCurrentUser());
+  const [categories, setCategories] = useState(getStoredCategories());
+  const [products, setProducts] = useState(getActiveProducts());
   const navigate = useNavigate();
 
   useEffect(() => {
     setUser(getCurrentUser());
+    setCategories(getStoredCategories());
+    setProducts(getActiveProducts());
   }, []);
 
-  const services = [
+  // Fallback services for when no products are available
+  const defaultServices = [
     {
       icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 7.172V5L8 4z",
       title: "Hardware Tools & Equipment",
@@ -147,6 +153,12 @@ export default function Services() {
     },
   ];
 
+  // Get products organized by category
+  const categoriesWithProducts = categories.map(category => ({
+    ...category,
+    products: getProductsByCategory(category.id)
+  }));
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -165,67 +177,113 @@ export default function Services() {
           </p>
         </div>
 
-        {/* Services Grid */}
+        {/* Services/Products Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className={`${service.colorScheme.bg} rounded-xl shadow-lg p-8 transition-all duration-300 transform hover:scale-105 ${service.colorScheme.shadowColor} hover:shadow-2xl border-2 ${service.colorScheme.borderColor}`}
-            >
-              <div className="flex items-start space-x-4">
-                <div
-                  className={`w-20 h-20 ${service.colorScheme.iconBg} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-300`}
-                >
-                  <svg
-                    className={`w-10 h-10 ${service.colorScheme.iconColor}`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+          {categoriesWithProducts.map((category, index) => {
+            const categoryProducts = category.products || [];
+            const displayItems = categoryProducts.length > 0
+              ? categoryProducts.slice(0, 6)
+              : defaultServices.find(s => s.title === category.name)?.features || [];
+
+            return (
+              <div
+                key={category.id}
+                className={`${category.colorScheme.bg} rounded-xl shadow-lg p-8 transition-all duration-300 transform hover:scale-105 ${category.colorScheme.shadowColor} hover:shadow-2xl border-2 ${category.colorScheme.borderColor}`}
+              >
+                <div className="flex items-start space-x-4">
+                  <div
+                    className={`w-20 h-20 ${category.colorScheme.iconBg} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-300`}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d={service.icon}
-                    ></path>
-                  </svg>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-gray-800">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-700 mb-6 leading-relaxed font-medium">
-                    {service.description}
-                  </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {service.features.map((feature, featureIndex) => (
-                      <div
-                        key={featureIndex}
-                        className="flex items-center space-x-3 bg-white/60 backdrop-blur-sm rounded-lg p-2 hover:bg-white/80 transition-colors"
-                      >
-                        <svg
-                          className={`w-5 h-5 ${service.colorScheme.checkColor} flex-shrink-0`}
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2.5"
-                            d="M5 13l4 4L19 7"
-                          ></path>
-                        </svg>
-                        <span className="text-sm font-semibold text-gray-800">
-                          {feature}
+                    <svg
+                      className={`w-10 h-10 ${category.colorScheme.iconColor}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d={category.icon}
+                      ></path>
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-gray-800">
+                      {category.name}
+                    </h3>
+                    <p className="text-gray-700 mb-6 leading-relaxed font-medium">
+                      {category.description}
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {categoryProducts.length > 0 ? (
+                        categoryProducts.slice(0, 6).map((product) => (
+                          <div
+                            key={product.id}
+                            className="flex items-center space-x-3 bg-white/60 backdrop-blur-sm rounded-lg p-2 hover:bg-white/80 transition-colors"
+                          >
+                            <svg
+                              className={`w-5 h-5 ${category.colorScheme.checkColor} flex-shrink-0`}
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2.5"
+                                d="M5 13l4 4L19 7"
+                              ></path>
+                            </svg>
+                            <span className="text-sm font-semibold text-gray-800">
+                              {product.name}
+                              {product.price && (
+                                <span className="text-xs text-gray-600 ml-1">
+                                  ₹{product.price.toFixed(2)}
+                                </span>
+                              )}
+                            </span>
+                          </div>
+                        ))
+                      ) : (
+                        // Fallback to default features if no products in category
+                        (defaultServices.find(s => s.title === category.name)?.features || []).map((feature, featureIndex) => (
+                          <div
+                            key={featureIndex}
+                            className="flex items-center space-x-3 bg-white/60 backdrop-blur-sm rounded-lg p-2 hover:bg-white/80 transition-colors"
+                          >
+                            <svg
+                              className={`w-5 h-5 ${category.colorScheme.checkColor} flex-shrink-0`}
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2.5"
+                                d="M5 13l4 4L19 7"
+                              ></path>
+                            </svg>
+                            <span className="text-sm font-semibold text-gray-800">
+                              {feature}
+                            </span>
+                          </div>
+                        ))
+                      )}
+                    </div>
+                    {categoryProducts.length > 6 && (
+                      <div className="mt-4 text-center">
+                        <span className="text-sm text-gray-600 bg-white/40 px-3 py-1 rounded-full">
+                          +{categoryProducts.length - 6} more products
                         </span>
                       </div>
-                    ))}
+                    )}
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Additional Services */}
