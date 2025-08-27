@@ -79,7 +79,13 @@ const ProductsCarousel = () => {
                     key={product.id}
                     className="embla__slide flex-none w-full md:w-1/2 lg:w-1/3 pl-4 first:pl-0"
                   >
-                    <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-slate-200 p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 h-full">
+                    <div
+                      onClick={() => handleAddToCart(product)}
+                      className={`bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-slate-200 p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 h-full ${
+                        product.price ? 'cursor-pointer' : 'cursor-default'
+                      }`}
+                      title={product.price ? `Click to add ${product.name} to cart` : 'Price not available'}
+                    >
                       {product.image ? (
                         <div className="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden border-4 border-slate-200">
                           <img
@@ -116,10 +122,30 @@ const ProductsCarousel = () => {
                       <p className="text-slate-600 mb-3">
                         {product.description}
                       </p>
+                      <div className="flex items-center justify-center gap-2">
+                        {product.price && (
+                          <p className="text-lg font-semibold text-blue-600">
+                            ₹{product.price.toFixed(2)}
+                          </p>
+                        )}
+                        {product.price && (
+                          <svg
+                            className="w-5 h-5 text-green-500"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                            ></path>
+                          </svg>
+                        )}
+                      </div>
                       {product.price && (
-                        <p className="text-lg font-semibold text-blue-600">
-                          ₹{product.price.toFixed(2)}
-                        </p>
+                        <p className="text-xs text-gray-500 mt-2">Click to add to cart</p>
                       )}
                     </div>
                   </div>
