@@ -7,6 +7,7 @@ import {
   getProductsByCategory,
 } from "@/lib/products";
 import { addToCart } from "@/lib/cart";
+import { toast } from "@/lib/toast";
 import useEmblaCarousel from "embla-carousel-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -47,22 +48,9 @@ const ProductsCarousel = () => {
     });
 
     if (result.success) {
-      // Show success message with better styling
-      const toast = document.createElement("div");
-      toast.className =
-        "fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform transition-transform duration-300";
-      toast.textContent = result.message;
-      document.body.appendChild(toast);
-
-      // Remove toast after 3 seconds
-      setTimeout(() => {
-        toast.style.transform = "translateX(100%)";
-        setTimeout(() => {
-          document.body.removeChild(toast);
-        }, 300);
-      }, 3000);
+      toast.success(result.message);
     } else {
-      alert(result.message);
+      toast.error(result.message);
     }
   };
 
