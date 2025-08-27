@@ -261,7 +261,11 @@ export default function Services() {
                         ? categoryProducts.slice(0, 6).map((product) => (
                             <div
                               key={product.id}
-                              className="flex items-center space-x-3 bg-white/60 backdrop-blur-sm rounded-lg p-2 hover:bg-white/80 transition-colors"
+                              onClick={() => handleAddToCart(product, category)}
+                              className={`flex items-center space-x-3 bg-white/60 backdrop-blur-sm rounded-lg p-2 hover:bg-white/80 transition-colors ${
+                                product.price ? 'cursor-pointer hover:shadow-md transform hover:scale-105' : 'cursor-default'
+                              }`}
+                              title={product.price ? `Click to add ${product.name} to cart` : 'Price not available'}
                             >
                               <svg
                                 className={`w-5 h-5 ${category.colorScheme.checkColor} flex-shrink-0`}
@@ -276,14 +280,31 @@ export default function Services() {
                                   d="M5 13l4 4L19 7"
                                 ></path>
                               </svg>
-                              <span className="text-sm font-semibold text-gray-800">
-                                {product.name}
+                              <div className="flex-1 min-w-0">
+                                <span className="text-sm font-semibold text-gray-800 block truncate">
+                                  {product.name}
+                                </span>
                                 {product.price && (
-                                  <span className="text-xs text-gray-600 ml-1">
+                                  <span className="text-xs text-green-600 font-medium">
                                     ₹{product.price.toFixed(2)}
                                   </span>
                                 )}
-                              </span>
+                              </div>
+                              {product.price && (
+                                <svg
+                                  className="w-4 h-4 text-blue-500 flex-shrink-0"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                                  ></path>
+                                </svg>
+                              )}
                             </div>
                           ))
                         : // Fallback to default features if no products in category
