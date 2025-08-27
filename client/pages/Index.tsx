@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getCurrentUser, clearCurrentUser, isLoggedIn } from "@/lib/auth";
+import { getStoredCategories, getActiveProducts, getProductsByCategory } from "@/lib/products";
 import useEmblaCarousel from "embla-carousel-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const FeaturesCarousel = () => {
+const ProductsCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     slidesToScroll: 1,
@@ -18,65 +19,94 @@ const FeaturesCarousel = () => {
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
-  const features = [
-    {
-      icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 7.172V5L8 4z",
-      title: "Quality Tools",
-      description:
-        "Professional-grade tools and equipment for all your projects.",
-    },
-    {
-      icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
-      title: "Ply & Timber",
-      description:
-        "Premium quality plywood and timber for construction and furniture.",
-    },
-    {
-      icon: "M13 10V3L4 14h7v7l9-11h-7z",
-      title: "Electrical Supplies",
-      description:
-        "Complete range of electrical components and wiring solutions.",
-    },
-    {
-      icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10",
-      title: "Construction Materials",
-      description:
-        "High-quality cement, bricks, steel, and building materials for all construction needs.",
-    },
-  ];
+  const categories = getStoredCategories();
+  const activeProducts = getActiveProducts();
+
+  // Get featured products (limit to first 6 for carousel)
+  const featuredProducts = activeProducts.slice(0, 6);
 
   return (
     <div className="relative mb-12">
       <div className="embla overflow-hidden" ref={emblaRef}>
         <div className="embla__container flex">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="embla__slide flex-none w-full md:w-1/2 lg:w-1/3 pl-4 first:pl-0"
-            >
-              <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-slate-200 p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 h-full">
-                <div className="w-16 h-16 bg-gradient-to-r from-slate-600 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg
-                    className="w-8 h-8 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d={feature.icon}
-                    ></path>
-                  </svg>
+          {featuredProducts.length > 0 ? (
+            featuredProducts.map((product, index) => {
+              const category = categories.find(c => c.id === product.category);
+              return (
+                <div
+                  key={product.id}
+                  className="embla__slide flex-none w-full md:w-1/2 lg:w-1/3 pl-4 first:pl-0"
+                >
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-slate-200 p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 h-full">
+                    {product.image ? (
+                      <div className="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden border-4 border-slate-200">
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div className={`w-16 h-16 ${category?.colorScheme.iconBg || 'bg-gradient-to-r from-slate-600 to-blue-600'} rounded-full flex items-center justify-center mx-auto mb-4`}>
+                        <svg
+                          className="w-8 h-8 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d={category?.icon || "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"}
+                          ></path>
+                        </svg>
+                      </div>
+                    )}
+                    <h3 className="text-xl font-bold text-slate-800 mb-2">
+                      {product.name}
+                    </h3>
+                    <p className="text-slate-600 mb-3">{product.description}</p>
+                    {product.price && (
+                      <p className="text-lg font-semibold text-blue-600">
+                        ₹{product.price.toFixed(2)}
+                      </p>
+                    )}
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-slate-600">{feature.description}</p>
+              );
+            })
+          ) : (
+            // Fallback to default categories if no products
+            categories.slice(0, 4).map((category, index) => (
+              <div
+                key={category.id}
+                className="embla__slide flex-none w-full md:w-1/2 lg:w-1/3 pl-4 first:pl-0"
+              >
+                <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-slate-200 p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 h-full">
+                  <div className={`w-16 h-16 ${category.colorScheme.iconBg} rounded-full flex items-center justify-center mx-auto mb-4`}>
+                    <svg
+                      className="w-8 h-8 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d={category.icon}
+                      ></path>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-800 mb-2">
+                    {category.name}
+                  </h3>
+                  <p className="text-slate-600">{category.description}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
 
@@ -197,12 +227,12 @@ export default function Index() {
           </div>
         </div>
 
-        {/* Features Carousel */}
+        {/* Products Carousel */}
         <div className="mb-24 bg-gray-50 py-16 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 rounded-3xl">
           <h2 className="text-4xl font-bold text-gray-900 text-center mb-16">
-            Our Product Categories
+            {getActiveProducts().length > 0 ? "Featured Products" : "Our Product Categories"}
           </h2>
-          <FeaturesCarousel />
+          <ProductsCarousel />
         </div>
 
         {/* Registration Section */}
