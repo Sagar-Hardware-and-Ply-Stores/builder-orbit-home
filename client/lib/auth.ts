@@ -267,8 +267,14 @@ export function getAllUsers(): { username: string }[] {
 /**
  * Authenticate admin credentials
  */
-export function authenticateAdmin(username: string, password: string): { success: boolean; message: string } {
-  if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
+export function authenticateAdmin(
+  username: string,
+  password: string,
+): { success: boolean; message: string } {
+  if (
+    username === ADMIN_CREDENTIALS.username &&
+    password === ADMIN_CREDENTIALS.password
+  ) {
     return { success: true, message: "Admin authentication successful" };
   }
   return { success: false, message: "Invalid admin credentials" };

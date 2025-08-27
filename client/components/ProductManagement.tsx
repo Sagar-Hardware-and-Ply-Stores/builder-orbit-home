@@ -16,7 +16,9 @@ interface ProductManagementProps {
   onUpdate?: () => void;
 }
 
-export default function ProductManagement({ onUpdate }: ProductManagementProps) {
+export default function ProductManagement({
+  onUpdate,
+}: ProductManagementProps) {
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<ProductCategory[]>([]);
   const [stats, setStats] = useState(getProductStats());
@@ -24,7 +26,9 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterCategory, setFilterCategory] = useState("");
-  const [filterStatus, setFilterStatus] = useState<"all" | "active" | "inactive">("all");
+  const [filterStatus, setFilterStatus] = useState<
+    "all" | "active" | "inactive"
+  >("all");
 
   // Form state
   const [formData, setFormData] = useState({
@@ -66,8 +70,12 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!formData.name.trim() || !formData.description.trim() || !formData.category) {
+
+    if (
+      !formData.name.trim() ||
+      !formData.description.trim() ||
+      !formData.category
+    ) {
       alert("Please fill in all required fields");
       return;
     }
@@ -78,7 +86,12 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
       category: formData.category,
       price: formData.price ? parseFloat(formData.price) : undefined,
       image: formData.image.trim() || undefined,
-      features: formData.features.trim() ? formData.features.split(',').map(f => f.trim()).filter(Boolean) : [],
+      features: formData.features.trim()
+        ? formData.features
+            .split(",")
+            .map((f) => f.trim())
+            .filter(Boolean)
+        : [],
       isActive: formData.isActive,
     };
 
@@ -107,7 +120,7 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
       category: product.category,
       price: product.price?.toString() || "",
       image: product.image || "",
-      features: product.features?.join(', ') || "",
+      features: product.features?.join(", ") || "",
       isActive: product.isActive,
     });
     setShowAddForm(true);
@@ -132,14 +145,17 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
   };
 
   // Filter products
-  const filteredProducts = products.filter(product => {
-    const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         product.description.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = !filterCategory || product.category === filterCategory;
-    const matchesStatus = filterStatus === "all" || 
-                         (filterStatus === "active" && product.isActive) ||
-                         (filterStatus === "inactive" && !product.isActive);
-    
+  const filteredProducts = products.filter((product) => {
+    const matchesSearch =
+      product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory =
+      !filterCategory || product.category === filterCategory;
+    const matchesStatus =
+      filterStatus === "all" ||
+      (filterStatus === "active" && product.isActive) ||
+      (filterStatus === "inactive" && !product.isActive);
+
     return matchesSearch && matchesCategory && matchesStatus;
   });
 
@@ -155,8 +171,12 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
               </div>
             </div>
             <div className="ml-4">
-              <h3 className="text-lg font-semibold text-gray-900">Total Products</h3>
-              <p className="text-3xl font-bold text-blue-600">{stats.totalProducts}</p>
+              <h3 className="text-lg font-semibold text-gray-900">
+                Total Products
+              </h3>
+              <p className="text-3xl font-bold text-blue-600">
+                {stats.totalProducts}
+              </p>
             </div>
           </div>
         </div>
@@ -169,8 +189,12 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
               </div>
             </div>
             <div className="ml-4">
-              <h3 className="text-lg font-semibold text-gray-900">Active Products</h3>
-              <p className="text-3xl font-bold text-green-600">{stats.activeProducts}</p>
+              <h3 className="text-lg font-semibold text-gray-900">
+                Active Products
+              </h3>
+              <p className="text-3xl font-bold text-green-600">
+                {stats.activeProducts}
+              </p>
             </div>
           </div>
         </div>
@@ -183,8 +207,12 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
               </div>
             </div>
             <div className="ml-4">
-              <h3 className="text-lg font-semibold text-gray-900">Inactive Products</h3>
-              <p className="text-3xl font-bold text-red-600">{stats.inactiveProducts}</p>
+              <h3 className="text-lg font-semibold text-gray-900">
+                Inactive Products
+              </h3>
+              <p className="text-3xl font-bold text-red-600">
+                {stats.inactiveProducts}
+              </p>
             </div>
           </div>
         </div>
@@ -197,8 +225,12 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
               </div>
             </div>
             <div className="ml-4">
-              <h3 className="text-lg font-semibold text-gray-900">Categories</h3>
-              <p className="text-3xl font-bold text-purple-600">{stats.totalCategories}</p>
+              <h3 className="text-lg font-semibold text-gray-900">
+                Categories
+              </h3>
+              <p className="text-3xl font-bold text-purple-600">
+                {stats.totalCategories}
+              </p>
             </div>
           </div>
         </div>
@@ -215,7 +247,7 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
               onChange={(e) => setSearchTerm(e.target.value)}
               className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
-            
+
             <select
               value={filterCategory}
               onChange={(e) => setFilterCategory(e.target.value)}
@@ -231,7 +263,9 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
 
             <select
               value={filterStatus}
-              onChange={(e) => setFilterStatus(e.target.value as "all" | "active" | "inactive")}
+              onChange={(e) =>
+                setFilterStatus(e.target.value as "all" | "active" | "inactive")
+              }
               className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
               <option value="all">All Status</option>
@@ -244,8 +278,18 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
             onClick={() => setShowAddForm(true)}
             className="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
           >
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+            <svg
+              className="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+              ></path>
             </svg>
             Add Product
           </button>
@@ -258,7 +302,7 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
           <h3 className="text-xl font-semibold text-gray-900 mb-4">
             {editingProduct ? "Edit Product" : "Add New Product"}
           </h3>
-          
+
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -268,7 +312,9 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
                 <input
                   type="text"
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   required
                 />
@@ -280,7 +326,9 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
                 </label>
                 <select
                   value={formData.category}
-                  onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, category: e.target.value })
+                  }
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   required
                 >
@@ -301,7 +349,9 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
                   type="number"
                   step="0.01"
                   value={formData.price}
-                  onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, price: e.target.value })
+                  }
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="0.00"
                 />
@@ -314,7 +364,9 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
                 <input
                   type="url"
                   value={formData.image}
-                  onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, image: e.target.value })
+                  }
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="https://example.com/image.jpg"
                 />
@@ -327,7 +379,9 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
               </label>
               <textarea
                 value={formData.description}
-                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, description: e.target.value })
+                }
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 rows={3}
                 required
@@ -340,7 +394,9 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
               </label>
               <textarea
                 value={formData.features}
-                onChange={(e) => setFormData({ ...formData, features: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, features: e.target.value })
+                }
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 rows={2}
                 placeholder="Feature 1, Feature 2, Feature 3"
@@ -352,10 +408,15 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
                 type="checkbox"
                 id="isActive"
                 checked={formData.isActive}
-                onChange={(e) => setFormData({ ...formData, isActive: e.target.checked })}
+                onChange={(e) =>
+                  setFormData({ ...formData, isActive: e.target.checked })
+                }
                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
               />
-              <label htmlFor="isActive" className="ml-2 block text-sm text-gray-900">
+              <label
+                htmlFor="isActive"
+                className="ml-2 block text-sm text-gray-900"
+              >
                 Active (visible on website)
               </label>
             </div>
@@ -410,7 +471,9 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               {filteredProducts.map((product) => {
-                const category = categories.find(c => c.id === product.category);
+                const category = categories.find(
+                  (c) => c.id === product.category,
+                );
                 return (
                   <tr key={product.id} className="hover:bg-gray-50">
                     <td className="px-6 py-4 whitespace-nowrap">
@@ -463,7 +526,9 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
                       <button
                         onClick={() => handleToggleStatus(product.id)}
                         className={`${
-                          product.isActive ? "text-red-600 hover:text-red-900" : "text-green-600 hover:text-green-900"
+                          product.isActive
+                            ? "text-red-600 hover:text-red-900"
+                            : "text-green-600 hover:text-green-900"
                         }`}
                       >
                         {product.isActive ? "Deactivate" : "Activate"}
@@ -484,12 +549,13 @@ export default function ProductManagement({ onUpdate }: ProductManagementProps) 
           {filteredProducts.length === 0 && (
             <div className="text-center py-12">
               <div className="text-gray-400 text-6xl mb-4">📦</div>
-              <h3 className="text-lg font-medium text-gray-900 mb-2">No products found</h3>
+              <h3 className="text-lg font-medium text-gray-900 mb-2">
+                No products found
+              </h3>
               <p className="text-gray-500">
-                {products.length === 0 
+                {products.length === 0
                   ? "Get started by adding your first product."
-                  : "Try adjusting your search or filter criteria."
-                }
+                  : "Try adjusting your search or filter criteria."}
               </p>
             </div>
           )}

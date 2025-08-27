@@ -280,7 +280,9 @@ export default function Admin() {
           </div>
         )}
 
-        {activeTab === "products" && <ProductManagement onUpdate={refreshStats} />}
+        {activeTab === "products" && (
+          <ProductManagement onUpdate={refreshStats} />
+        )}
 
         {activeTab === "users" && <UserManagement onUpdate={refreshStats} />}
 

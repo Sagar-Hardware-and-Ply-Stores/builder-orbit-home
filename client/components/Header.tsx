@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { getCurrentUser, clearCurrentUser, isLoggedIn, isAdmin, logoutAll } from "@/lib/auth";
+import {
+  getCurrentUser,
+  clearCurrentUser,
+  isLoggedIn,
+  isAdmin,
+  logoutAll,
+} from "@/lib/auth";
 
 interface HeaderProps {
   transparent?: boolean;

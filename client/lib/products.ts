@@ -37,7 +37,8 @@ const DEFAULT_CATEGORIES: ProductCategory[] = [
   {
     id: "hardware-tools",
     name: "Hardware Tools & Equipment",
-    description: "Professional-grade tools and equipment for all your construction and maintenance needs.",
+    description:
+      "Professional-grade tools and equipment for all your construction and maintenance needs.",
     icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 7.172V5L8 4z",
     colorScheme: {
       bg: "bg-gradient-to-br from-blue-50 to-indigo-100",
@@ -51,7 +52,8 @@ const DEFAULT_CATEGORIES: ProductCategory[] = [
   {
     id: "plywood-timber",
     name: "Plywood & Timber",
-    description: "Premium quality plywood, timber, and wood products for construction and furniture making.",
+    description:
+      "Premium quality plywood, timber, and wood products for construction and furniture making.",
     icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
     colorScheme: {
       bg: "bg-gradient-to-br from-green-50 to-emerald-100",
@@ -65,7 +67,8 @@ const DEFAULT_CATEGORIES: ProductCategory[] = [
   {
     id: "electrical-supplies",
     name: "Electrical Supplies",
-    description: "Complete range of electrical components, wiring solutions, and lighting fixtures.",
+    description:
+      "Complete range of electrical components, wiring solutions, and lighting fixtures.",
     icon: "M13 10V3L4 14h7v7l9-11h-7z",
     colorScheme: {
       bg: "bg-gradient-to-br from-yellow-50 to-amber-100",
@@ -79,7 +82,8 @@ const DEFAULT_CATEGORIES: ProductCategory[] = [
   {
     id: "construction-materials",
     name: "Construction Materials",
-    description: "High-quality cement, bricks, steel, and other essential building materials.",
+    description:
+      "High-quality cement, bricks, steel, and other essential building materials.",
     icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10",
     colorScheme: {
       bg: "bg-gradient-to-br from-red-50 to-rose-100",
@@ -93,7 +97,8 @@ const DEFAULT_CATEGORIES: ProductCategory[] = [
   {
     id: "plumbing-sanitation",
     name: "Plumbing & Sanitation",
-    description: "Complete plumbing solutions including pipes, fittings, and sanitary fixtures.",
+    description:
+      "Complete plumbing solutions including pipes, fittings, and sanitary fixtures.",
     icon: "M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4",
     colorScheme: {
       bg: "bg-gradient-to-br from-cyan-50 to-blue-100",
@@ -107,7 +112,8 @@ const DEFAULT_CATEGORIES: ProductCategory[] = [
   {
     id: "paint-finishing",
     name: "Paint & Finishing",
-    description: "Quality paints, primers, and finishing materials for interior and exterior applications.",
+    description:
+      "Quality paints, primers, and finishing materials for interior and exterior applications.",
     icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
     colorScheme: {
       bg: "bg-gradient-to-br from-purple-50 to-violet-100",
@@ -177,23 +183,27 @@ export function storeCategories(categories: ProductCategory[]): void {
  * Get active products only
  */
 export function getActiveProducts(): Product[] {
-  return getStoredProducts().filter(product => product.isActive);
+  return getStoredProducts().filter((product) => product.isActive);
 }
 
 /**
  * Get products by category
  */
 export function getProductsByCategory(categoryId: string): Product[] {
-  return getActiveProducts().filter(product => product.category === categoryId);
+  return getActiveProducts().filter(
+    (product) => product.category === categoryId,
+  );
 }
 
 /**
  * Add a new product
  */
-export function addProduct(productData: Omit<Product, 'id' | 'createdAt' | 'updatedAt'>): { success: boolean; message: string; product?: Product } {
+export function addProduct(
+  productData: Omit<Product, "id" | "createdAt" | "updatedAt">,
+): { success: boolean; message: string; product?: Product } {
   try {
     const products = getStoredProducts();
-    
+
     const newProduct: Product = {
       ...productData,
       id: generateProductId(),
@@ -204,7 +214,11 @@ export function addProduct(productData: Omit<Product, 'id' | 'createdAt' | 'upda
     products.push(newProduct);
     storeProducts(products);
 
-    return { success: true, message: "Product added successfully", product: newProduct };
+    return {
+      success: true,
+      message: "Product added successfully",
+      product: newProduct,
+    };
   } catch (error) {
     console.error("Error adding product:", error);
     return { success: false, message: "Failed to add product" };
@@ -214,10 +228,13 @@ export function addProduct(productData: Omit<Product, 'id' | 'createdAt' | 'upda
 /**
  * Update an existing product
  */
-export function updateProduct(productId: string, updates: Partial<Omit<Product, 'id' | 'createdAt'>>): { success: boolean; message: string } {
+export function updateProduct(
+  productId: string,
+  updates: Partial<Omit<Product, "id" | "createdAt">>,
+): { success: boolean; message: string } {
   try {
     const products = getStoredProducts();
-    const productIndex = products.findIndex(p => p.id === productId);
+    const productIndex = products.findIndex((p) => p.id === productId);
 
     if (productIndex === -1) {
       return { success: false, message: "Product not found" };
@@ -240,10 +257,13 @@ export function updateProduct(productId: string, updates: Partial<Omit<Product, 
 /**
  * Delete a product
  */
-export function deleteProduct(productId: string): { success: boolean; message: string } {
+export function deleteProduct(productId: string): {
+  success: boolean;
+  message: string;
+} {
   try {
     const products = getStoredProducts();
-    const filteredProducts = products.filter(p => p.id !== productId);
+    const filteredProducts = products.filter((p) => p.id !== productId);
 
     if (filteredProducts.length === products.length) {
       return { success: false, message: "Product not found" };
@@ -260,10 +280,13 @@ export function deleteProduct(productId: string): { success: boolean; message: s
 /**
  * Toggle product active status
  */
-export function toggleProductStatus(productId: string): { success: boolean; message: string } {
+export function toggleProductStatus(productId: string): {
+  success: boolean;
+  message: string;
+} {
   try {
     const products = getStoredProducts();
-    const productIndex = products.findIndex(p => p.id === productId);
+    const productIndex = products.findIndex((p) => p.id === productId);
 
     if (productIndex === -1) {
       return { success: false, message: "Product not found" };
@@ -273,9 +296,9 @@ export function toggleProductStatus(productId: string): { success: boolean; mess
     products[productIndex].updatedAt = new Date().toISOString();
 
     storeProducts(products);
-    return { 
-      success: true, 
-      message: `Product ${products[productIndex].isActive ? 'activated' : 'deactivated'} successfully` 
+    return {
+      success: true,
+      message: `Product ${products[productIndex].isActive ? "activated" : "deactivated"} successfully`,
     };
   } catch (error) {
     console.error("Error toggling product status:", error);
@@ -288,7 +311,7 @@ export function toggleProductStatus(productId: string): { success: boolean; mess
  */
 export function getProductById(productId: string): Product | null {
   const products = getStoredProducts();
-  return products.find(p => p.id === productId) || null;
+  return products.find((p) => p.id === productId) || null;
 }
 
 /**
@@ -296,7 +319,7 @@ export function getProductById(productId: string): Product | null {
  */
 export function getCategoryById(categoryId: string): ProductCategory | null {
   const categories = getStoredCategories();
-  return categories.find(c => c.id === categoryId) || null;
+  return categories.find((c) => c.id === categoryId) || null;
 }
 
 /**
@@ -311,14 +334,15 @@ function generateProductId(): string {
  */
 export function getProductStats() {
   const products = getStoredProducts();
-  const activeProducts = products.filter(p => p.isActive);
+  const activeProducts = products.filter((p) => p.isActive);
   const categories = getStoredCategories();
 
-  const categoryStats = categories.map(category => ({
+  const categoryStats = categories.map((category) => ({
     categoryId: category.id,
     categoryName: category.name,
-    totalProducts: products.filter(p => p.category === category.id).length,
-    activeProducts: activeProducts.filter(p => p.category === category.id).length,
+    totalProducts: products.filter((p) => p.category === category.id).length,
+    activeProducts: activeProducts.filter((p) => p.category === category.id)
+      .length,
   }));
 
   return {
@@ -336,13 +360,18 @@ export function getProductStats() {
 export function searchProducts(query: string): Product[] {
   const products = getActiveProducts();
   const searchTerm = query.toLowerCase().trim();
-  
+
   if (!searchTerm) return products;
 
-  return products.filter(product => 
-    product.name.toLowerCase().includes(searchTerm) ||
-    product.description.toLowerCase().includes(searchTerm) ||
-    product.features?.some(feature => feature.toLowerCase().includes(searchTerm)) ||
-    getCategoryById(product.category)?.name.toLowerCase().includes(searchTerm)
+  return products.filter(
+    (product) =>
+      product.name.toLowerCase().includes(searchTerm) ||
+      product.description.toLowerCase().includes(searchTerm) ||
+      product.features?.some((feature) =>
+        feature.toLowerCase().includes(searchTerm),
+      ) ||
+      getCategoryById(product.category)
+        ?.name.toLowerCase()
+        .includes(searchTerm),
   );
 }

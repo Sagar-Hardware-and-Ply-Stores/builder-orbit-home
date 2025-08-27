@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { authenticateUser, setCurrentUser, isLoggedIn, authenticateAdmin, setAdminSession } from "@/lib/auth";
+import {
+  authenticateUser,
+  setCurrentUser,
+  isLoggedIn,
+  authenticateAdmin,
+  setAdminSession,
+} from "@/lib/auth";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -138,10 +144,19 @@ export default function Login() {
             </p>
 
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <p className="text-xs text-blue-800 font-medium mb-2">Admin Access:</p>
+              <p className="text-xs text-blue-800 font-medium mb-2">
+                Admin Access:
+              </p>
               <p className="text-xs text-blue-700">
-                Username: <span className="font-mono bg-blue-100 px-1 rounded">admin</span><br/>
-                Password: <span className="font-mono bg-blue-100 px-1 rounded">SagarAdmin2025!</span>
+                Username:{" "}
+                <span className="font-mono bg-blue-100 px-1 rounded">
+                  admin
+                </span>
+                <br />
+                Password:{" "}
+                <span className="font-mono bg-blue-100 px-1 rounded">
+                  SagarAdmin2025!
+                </span>
               </p>
             </div>
           </div>

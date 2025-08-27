@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getCurrentUser, isLoggedIn } from "@/lib/auth";
-import { getStoredCategories, getActiveProducts, getProductsByCategory } from "@/lib/products";
+import {
+  getStoredCategories,
+  getActiveProducts,
+  getProductsByCategory,
+} from "@/lib/products";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -154,9 +158,9 @@ export default function Services() {
   ];
 
   // Get products organized by category
-  const categoriesWithProducts = categories.map(category => ({
+  const categoriesWithProducts = categories.map((category) => ({
     ...category,
-    products: getProductsByCategory(category.id)
+    products: getProductsByCategory(category.id),
   }));
 
   return (
@@ -181,9 +185,11 @@ export default function Services() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {categoriesWithProducts.map((category, index) => {
             const categoryProducts = category.products || [];
-            const displayItems = categoryProducts.length > 0
-              ? categoryProducts.slice(0, 6)
-              : defaultServices.find(s => s.title === category.name)?.features || [];
+            const displayItems =
+              categoryProducts.length > 0
+                ? categoryProducts.slice(0, 6)
+                : defaultServices.find((s) => s.title === category.name)
+                    ?.features || [];
 
             return (
               <div
@@ -216,61 +222,63 @@ export default function Services() {
                       {category.description}
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {categoryProducts.length > 0 ? (
-                        categoryProducts.slice(0, 6).map((product) => (
-                          <div
-                            key={product.id}
-                            className="flex items-center space-x-3 bg-white/60 backdrop-blur-sm rounded-lg p-2 hover:bg-white/80 transition-colors"
-                          >
-                            <svg
-                              className={`w-5 h-5 ${category.colorScheme.checkColor} flex-shrink-0`}
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
+                      {categoryProducts.length > 0
+                        ? categoryProducts.slice(0, 6).map((product) => (
+                            <div
+                              key={product.id}
+                              className="flex items-center space-x-3 bg-white/60 backdrop-blur-sm rounded-lg p-2 hover:bg-white/80 transition-colors"
                             >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2.5"
-                                d="M5 13l4 4L19 7"
-                              ></path>
-                            </svg>
-                            <span className="text-sm font-semibold text-gray-800">
-                              {product.name}
-                              {product.price && (
-                                <span className="text-xs text-gray-600 ml-1">
-                                  ₹{product.price.toFixed(2)}
-                                </span>
-                              )}
-                            </span>
-                          </div>
-                        ))
-                      ) : (
-                        // Fallback to default features if no products in category
-                        (defaultServices.find(s => s.title === category.name)?.features || []).map((feature, featureIndex) => (
-                          <div
-                            key={featureIndex}
-                            className="flex items-center space-x-3 bg-white/60 backdrop-blur-sm rounded-lg p-2 hover:bg-white/80 transition-colors"
-                          >
-                            <svg
-                              className={`w-5 h-5 ${category.colorScheme.checkColor} flex-shrink-0`}
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
+                              <svg
+                                className={`w-5 h-5 ${category.colorScheme.checkColor} flex-shrink-0`}
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2.5"
+                                  d="M5 13l4 4L19 7"
+                                ></path>
+                              </svg>
+                              <span className="text-sm font-semibold text-gray-800">
+                                {product.name}
+                                {product.price && (
+                                  <span className="text-xs text-gray-600 ml-1">
+                                    ₹{product.price.toFixed(2)}
+                                  </span>
+                                )}
+                              </span>
+                            </div>
+                          ))
+                        : // Fallback to default features if no products in category
+                          (
+                            defaultServices.find(
+                              (s) => s.title === category.name,
+                            )?.features || []
+                          ).map((feature, featureIndex) => (
+                            <div
+                              key={featureIndex}
+                              className="flex items-center space-x-3 bg-white/60 backdrop-blur-sm rounded-lg p-2 hover:bg-white/80 transition-colors"
                             >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2.5"
-                                d="M5 13l4 4L19 7"
-                              ></path>
-                            </svg>
-                            <span className="text-sm font-semibold text-gray-800">
-                              {feature}
-                            </span>
-                          </div>
-                        ))
-                      )}
+                              <svg
+                                className={`w-5 h-5 ${category.colorScheme.checkColor} flex-shrink-0`}
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2.5"
+                                  d="M5 13l4 4L19 7"
+                                ></path>
+                              </svg>
+                              <span className="text-sm font-semibold text-gray-800">
+                                {feature}
+                              </span>
+                            </div>
+                          ))}
                     </div>
                     {categoryProducts.length > 6 && (
                       <div className="mt-4 text-center">

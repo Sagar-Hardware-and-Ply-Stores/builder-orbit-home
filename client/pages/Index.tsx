@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getCurrentUser, clearCurrentUser, isLoggedIn } from "@/lib/auth";
-import { getStoredCategories, getActiveProducts, getProductsByCategory } from "@/lib/products";
+import {
+  getStoredCategories,
+  getActiveProducts,
+  getProductsByCategory,
+} from "@/lib/products";
 import useEmblaCarousel from "embla-carousel-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -29,84 +33,93 @@ const ProductsCarousel = () => {
     <div className="relative mb-12">
       <div className="embla overflow-hidden" ref={emblaRef}>
         <div className="embla__container flex">
-          {featuredProducts.length > 0 ? (
-            featuredProducts.map((product, index) => {
-              const category = categories.find(c => c.id === product.category);
-              return (
+          {featuredProducts.length > 0
+            ? featuredProducts.map((product, index) => {
+                const category = categories.find(
+                  (c) => c.id === product.category,
+                );
+                return (
+                  <div
+                    key={product.id}
+                    className="embla__slide flex-none w-full md:w-1/2 lg:w-1/3 pl-4 first:pl-0"
+                  >
+                    <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-slate-200 p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 h-full">
+                      {product.image ? (
+                        <div className="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden border-4 border-slate-200">
+                          <img
+                            src={product.image}
+                            alt={product.name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      ) : (
+                        <div
+                          className={`w-16 h-16 ${category?.colorScheme.iconBg || "bg-gradient-to-r from-slate-600 to-blue-600"} rounded-full flex items-center justify-center mx-auto mb-4`}
+                        >
+                          <svg
+                            className="w-8 h-8 text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d={
+                                category?.icon ||
+                                "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                              }
+                            ></path>
+                          </svg>
+                        </div>
+                      )}
+                      <h3 className="text-xl font-bold text-slate-800 mb-2">
+                        {product.name}
+                      </h3>
+                      <p className="text-slate-600 mb-3">
+                        {product.description}
+                      </p>
+                      {product.price && (
+                        <p className="text-lg font-semibold text-blue-600">
+                          ₹{product.price.toFixed(2)}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                );
+              })
+            : // Fallback to default categories if no products
+              categories.slice(0, 4).map((category, index) => (
                 <div
-                  key={product.id}
+                  key={category.id}
                   className="embla__slide flex-none w-full md:w-1/2 lg:w-1/3 pl-4 first:pl-0"
                 >
                   <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-slate-200 p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 h-full">
-                    {product.image ? (
-                      <div className="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden border-4 border-slate-200">
-                        <img
-                          src={product.image}
-                          alt={product.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    ) : (
-                      <div className={`w-16 h-16 ${category?.colorScheme.iconBg || 'bg-gradient-to-r from-slate-600 to-blue-600'} rounded-full flex items-center justify-center mx-auto mb-4`}>
-                        <svg
-                          className="w-8 h-8 text-white"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d={category?.icon || "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"}
-                          ></path>
-                        </svg>
-                      </div>
-                    )}
-                    <h3 className="text-xl font-bold text-slate-800 mb-2">
-                      {product.name}
-                    </h3>
-                    <p className="text-slate-600 mb-3">{product.description}</p>
-                    {product.price && (
-                      <p className="text-lg font-semibold text-blue-600">
-                        ₹{product.price.toFixed(2)}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              );
-            })
-          ) : (
-            // Fallback to default categories if no products
-            categories.slice(0, 4).map((category, index) => (
-              <div
-                key={category.id}
-                className="embla__slide flex-none w-full md:w-1/2 lg:w-1/3 pl-4 first:pl-0"
-              >
-                <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-slate-200 p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 h-full">
-                  <div className={`w-16 h-16 ${category.colorScheme.iconBg} rounded-full flex items-center justify-center mx-auto mb-4`}>
-                    <svg
-                      className="w-8 h-8 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+                    <div
+                      className={`w-16 h-16 ${category.colorScheme.iconBg} rounded-full flex items-center justify-center mx-auto mb-4`}
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d={category.icon}
-                      ></path>
-                    </svg>
+                      <svg
+                        className="w-8 h-8 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d={category.icon}
+                        ></path>
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-800 mb-2">
+                      {category.name}
+                    </h3>
+                    <p className="text-slate-600">{category.description}</p>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-2">
-                    {category.name}
-                  </h3>
-                  <p className="text-slate-600">{category.description}</p>
                 </div>
-              </div>
-            ))
-          )}
+              ))}
         </div>
       </div>
 
@@ -230,7 +243,9 @@ export default function Index() {
         {/* Products Carousel */}
         <div className="mb-24 bg-gray-50 py-16 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 rounded-3xl">
           <h2 className="text-4xl font-bold text-gray-900 text-center mb-16">
-            {getActiveProducts().length > 0 ? "Featured Products" : "Our Product Categories"}
+            {getActiveProducts().length > 0
+              ? "Featured Products"
+              : "Our Product Categories"}
           </h2>
           <ProductsCarousel />
         </div>
@@ -340,7 +355,9 @@ export default function Index() {
                 Contact Info
               </h4>
               <p className="text-blue-100">Phone: +977 9846078267</p>
-              <p className="text-blue-100">Email: sagarhardwareandplystores@gmail.com</p>
+              <p className="text-blue-100">
+                Email: sagarhardwareandplystores@gmail.com
+              </p>
             </div>
           </div>
         </div>
