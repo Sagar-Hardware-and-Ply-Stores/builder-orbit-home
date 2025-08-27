@@ -57,13 +57,17 @@ export default function Cart({ isOpen, onClose, onCartUpdate }: CartProps) {
   };
 
   const handleClearCart = async () => {
-    if (window.confirm("Are you sure you want to clear your cart? This action cannot be undone.")) {
+    if (
+      window.confirm(
+        "Are you sure you want to clear your cart? This action cannot be undone.",
+      )
+    ) {
       setIsLoading(true);
       const result = clearCart();
       if (result.success) {
         setCart(result.cart);
         onCartUpdate?.();
-        toast.success('Cart cleared successfully');
+        toast.success("Cart cleared successfully");
       } else {
         toast.error(result.message);
       }
@@ -104,7 +108,7 @@ export default function Cart({ isOpen, onClose, onCartUpdate }: CartProps) {
             <div>
               <h2 className="text-xl font-bold text-gray-900">Shopping Cart</h2>
               <p className="text-sm text-gray-600">
-                {cart.items.length} {cart.items.length === 1 ? 'item' : 'items'}
+                {cart.items.length} {cart.items.length === 1 ? "item" : "items"}
               </p>
             </div>
           </div>
@@ -152,7 +156,8 @@ export default function Cart({ isOpen, onClose, onCartUpdate }: CartProps) {
                 Your cart is empty
               </h3>
               <p className="text-gray-600 mb-8 max-w-sm">
-                Discover our amazing products and add them to your cart to get started
+                Discover our amazing products and add them to your cart to get
+                started
               </p>
               <Link
                 to="/services"
@@ -225,7 +230,9 @@ export default function Cart({ isOpen, onClose, onCartUpdate }: CartProps) {
 
                       {/* Quantity Controls */}
                       <div className="flex items-center space-x-3">
-                        <span className="text-sm font-medium text-gray-700">Qty:</span>
+                        <span className="text-sm font-medium text-gray-700">
+                          Qty:
+                        </span>
                         <div className="flex items-center border border-gray-200 rounded-lg overflow-hidden">
                           <button
                             onClick={() =>
@@ -317,8 +324,13 @@ export default function Cart({ isOpen, onClose, onCartUpdate }: CartProps) {
                 <div className="bg-white rounded-xl p-4 border border-gray-100">
                   <div className="space-y-3">
                     <div className="flex justify-between text-sm text-gray-600">
-                      <span>Subtotal ({cart.totalItems} {cart.totalItems === 1 ? 'item' : 'items'})</span>
-                      <span className="font-medium">₹{cart.totalAmount.toFixed(2)}</span>
+                      <span>
+                        Subtotal ({cart.totalItems}{" "}
+                        {cart.totalItems === 1 ? "item" : "items"})
+                      </span>
+                      <span className="font-medium">
+                        ₹{cart.totalAmount.toFixed(2)}
+                      </span>
                     </div>
                     <div className="flex justify-between text-sm text-gray-600">
                       <span>Shipping</span>
@@ -327,7 +339,9 @@ export default function Cart({ isOpen, onClose, onCartUpdate }: CartProps) {
                     <div className="border-t border-gray-200 pt-3">
                       <div className="flex justify-between text-lg font-bold text-gray-900">
                         <span>Total</span>
-                        <span className="text-xl">₹{cart.totalAmount.toFixed(2)}</span>
+                        <span className="text-xl">
+                          ₹{cart.totalAmount.toFixed(2)}
+                        </span>
                       </div>
                     </div>
                   </div>
