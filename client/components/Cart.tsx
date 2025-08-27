@@ -288,15 +288,33 @@ export default function Cart({ isOpen, onClose, onCartUpdate }: CartProps) {
                     </div>
 
                     {/* Item Total & Remove */}
-                    <div className="flex flex-col items-end space-y-2">
-                      <p className="text-sm font-semibold text-gray-900">
-                        ₹{(item.price * item.quantity).toFixed(2)}
-                      </p>
+                    <div className="flex flex-col items-end space-y-3">
+                      <div className="text-right">
+                        <p className="text-lg font-bold text-gray-900">
+                          ₹{(item.price * item.quantity).toFixed(2)}
+                        </p>
+                        <p className="text-xs text-gray-500">
+                          {item.quantity} × ₹{item.price.toFixed(2)}
+                        </p>
+                      </div>
                       <button
                         onClick={() => handleRemoveItem(item.id)}
                         disabled={isLoading}
-                        className="text-red-600 hover:text-red-800 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="inline-flex items-center px-3 py-1.5 border border-red-200 text-red-600 hover:text-red-700 hover:bg-red-50 text-sm font-medium rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
                       >
+                        <svg
+                          className="w-4 h-4 mr-1"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                          ></path>
+                        </svg>
                         Remove
                       </button>
                     </div>
