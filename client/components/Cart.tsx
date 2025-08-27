@@ -199,15 +199,17 @@ export default function Cart({ isOpen, onClose, onCartUpdate }: CartProps) {
                     {/* Product Image */}
                     <div className="flex-shrink-0">
                       {item.image ? (
-                        <img
-                          src={item.image}
-                          alt={item.name}
-                          className="w-16 h-16 rounded-lg object-cover"
-                        />
+                        <div className="w-18 h-18 rounded-xl overflow-hidden border-2 border-gray-200">
+                          <img
+                            src={item.image}
+                            alt={item.name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
                       ) : (
-                        <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
+                        <div className="w-18 h-18 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-md">
                           <svg
-                            className="w-8 h-8 text-white"
+                            className="w-10 h-10 text-white"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
