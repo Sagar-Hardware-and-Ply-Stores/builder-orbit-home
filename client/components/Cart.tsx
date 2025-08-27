@@ -8,6 +8,7 @@ import {
   Cart as CartType,
   CartItem,
 } from "@/lib/cart";
+import { toast } from "@/lib/toast";
 
 interface CartProps {
   isOpen: boolean;
@@ -62,21 +63,9 @@ export default function Cart({ isOpen, onClose, onCartUpdate }: CartProps) {
       if (result.success) {
         setCart(result.cart);
         onCartUpdate?.();
-        // Show success toast
-        const toast = document.createElement('div');
-        toast.className = 'fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform transition-transform duration-300';
-        toast.textContent = 'Cart cleared successfully';
-        document.body.appendChild(toast);
-        setTimeout(() => {
-          toast.style.transform = 'translateX(100%)';
-          setTimeout(() => {
-            if (document.body.contains(toast)) {
-              document.body.removeChild(toast);
-            }
-          }, 300);
-        }, 2000);
+        toast.success('Cart cleared successfully');
       } else {
-        alert(result.message);
+        toast.error(result.message);
       }
       setIsLoading(false);
     }
