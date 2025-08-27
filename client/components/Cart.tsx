@@ -323,44 +323,89 @@ export default function Cart({ isOpen, onClose, onCartUpdate }: CartProps) {
               </div>
 
               {/* Cart Footer */}
-              <div className="border-t border-gray-200 p-6 space-y-4">
+              <div className="border-t border-gray-200 bg-gray-50 p-6 space-y-6">
                 {/* Cart Summary */}
-                <div className="space-y-2">
-                  <div className="flex justify-between text-sm text-gray-600">
-                    <span>Items ({cart.totalItems})</span>
-                    <span>₹{cart.totalAmount.toFixed(2)}</span>
-                  </div>
-                  <div className="flex justify-between text-lg font-semibold text-gray-900">
-                    <span>Total</span>
-                    <span>₹{cart.totalAmount.toFixed(2)}</span>
+                <div className="bg-white rounded-xl p-4 border border-gray-100">
+                  <div className="space-y-3">
+                    <div className="flex justify-between text-sm text-gray-600">
+                      <span>Subtotal ({cart.totalItems} {cart.totalItems === 1 ? 'item' : 'items'})</span>
+                      <span className="font-medium">₹{cart.totalAmount.toFixed(2)}</span>
+                    </div>
+                    <div className="flex justify-between text-sm text-gray-600">
+                      <span>Shipping</span>
+                      <span className="font-medium text-green-600">Free</span>
+                    </div>
+                    <div className="border-t border-gray-200 pt-3">
+                      <div className="flex justify-between text-lg font-bold text-gray-900">
+                        <span>Total</span>
+                        <span className="text-xl">₹{cart.totalAmount.toFixed(2)}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
                 {/* Action Buttons */}
-                <div className="space-y-3">
+                <div className="space-y-4">
                   <button
                     disabled={isLoading}
-                    className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 px-6 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center space-x-2"
                   >
-                    Proceed to Checkout
+                    {isLoading ? (
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    ) : (
+                      <>
+                        <svg
+                          className="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                          ></path>
+                        </svg>
+                        <span>Secure Checkout</span>
+                      </>
+                    )}
                   </button>
 
-                  <div className="flex space-x-3">
+                  <div className="grid grid-cols-2 gap-3">
                     <Link
                       to="/services"
                       onClick={onClose}
-                      className="flex-1 text-center py-2 px-4 border border-gray-300 rounded-lg font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+                      className="text-center py-3 px-4 border-2 border-gray-200 rounded-xl font-medium text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200"
                     >
                       Continue Shopping
                     </Link>
                     <button
                       onClick={handleClearCart}
                       disabled={isLoading}
-                      className="flex-1 py-2 px-4 border border-red-300 rounded-lg font-medium text-red-600 hover:bg-red-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="py-3 px-4 border-2 border-red-200 rounded-xl font-medium text-red-600 hover:bg-red-50 hover:border-red-300 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       Clear Cart
                     </button>
                   </div>
+                </div>
+
+                {/* Security Badge */}
+                <div className="flex items-center justify-center space-x-2 text-xs text-gray-500">
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                    ></path>
+                  </svg>
+                  <span>Secure SSL Encryption</span>
                 </div>
               </div>
             </>
