@@ -189,11 +189,12 @@ export default function Cart({ isOpen, onClose, onCartUpdate }: CartProps) {
           ) : (
             <>
               {/* Cart Items */}
-              <div className="flex-1 overflow-y-auto p-6 space-y-4">
-                {cart.items.map((item) => (
+              <div className="flex-1 overflow-y-auto p-6 space-y-3">
+                {cart.items.map((item, index) => (
                   <div
                     key={item.id}
-                    className="flex items-center space-x-4 bg-gray-50 rounded-lg p-4"
+                    className="flex items-center space-x-4 bg-white rounded-xl p-4 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-200"
+                    style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     {/* Product Image */}
                     <div className="flex-shrink-0">
