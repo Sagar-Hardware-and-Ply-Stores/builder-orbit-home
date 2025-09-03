@@ -167,7 +167,7 @@ export default function Services() {
 
   const handleAddToCart = (product: any, category: any) => {
     if (!product.price) {
-      alert("This item is not available for purchase.");
+      toast.error("This item is not available for purchase.");
       return;
     }
 
