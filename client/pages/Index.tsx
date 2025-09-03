@@ -33,7 +33,7 @@ const ProductsCarousel = () => {
 
   const handleAddToCart = (product: any) => {
     if (!product.price) {
-      alert("This item is not available for purchase.");
+      toast.error("This item is not available for purchase.");
       return;
     }
 
