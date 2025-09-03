@@ -51,8 +51,9 @@ export default function Cart({ isOpen, onClose, onCartUpdate }: CartProps) {
     if (result.success) {
       setCart(result.cart);
       onCartUpdate?.();
+      toast.success(result.message);
     } else {
-      alert(result.message);
+      toast.error(result.message);
     }
     setIsLoading(false);
   };
