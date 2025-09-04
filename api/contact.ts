@@ -1,4 +1,4 @@
-import { VercelRequest, VercelResponse } from '@vercel/node';
+import { VercelRequest, VercelResponse } from "@vercel/node";
 
 interface ContactFormData {
   name: string;
@@ -13,13 +13,15 @@ interface ContactFormData {
 // Function to sanitize input data
 const sanitizeContactData = (data: any): ContactFormData => {
   return {
-    name: String(data.name || '').trim(),
-    email: String(data.email || '').trim().toLowerCase(),
+    name: String(data.name || "").trim(),
+    email: String(data.email || "")
+      .trim()
+      .toLowerCase(),
     phone: data.phone ? String(data.phone).trim() : undefined,
-    subject: String(data.subject || '').trim(),
-    message: String(data.message || '').trim(),
+    subject: String(data.subject || "").trim(),
+    message: String(data.message || "").trim(),
     projectType: data.projectType ? String(data.projectType).trim() : undefined,
-    urgency: String(data.urgency || 'medium').trim(),
+    urgency: String(data.urgency || "medium").trim(),
   };
 };
 
@@ -27,21 +29,21 @@ const sanitizeContactData = (data: any): ContactFormData => {
 const validateContactData = (data: ContactFormData): string[] => {
   const errors: string[] = [];
 
-  if (!data.name) errors.push('Name is required');
-  if (!data.email) errors.push('Email is required');
-  if (!data.subject) errors.push('Subject is required');
-  if (!data.message) errors.push('Message is required');
+  if (!data.name) errors.push("Name is required");
+  if (!data.email) errors.push("Email is required");
+  if (!data.subject) errors.push("Subject is required");
+  if (!data.message) errors.push("Message is required");
 
   if (data.name && data.name.length < 2)
-    errors.push('Name must be at least 2 characters');
+    errors.push("Name must be at least 2 characters");
   if (data.subject && data.subject.length < 5)
-    errors.push('Subject must be at least 5 characters');
+    errors.push("Subject must be at least 5 characters");
   if (data.message && data.message.length < 10)
-    errors.push('Message must be at least 10 characters');
+    errors.push("Message must be at least 10 characters");
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (data.email && !emailRegex.test(data.email)) {
-    errors.push('Invalid email format');
+    errors.push("Invalid email format");
   }
 
   return errors;
@@ -49,18 +51,18 @@ const validateContactData = (data: ContactFormData): string[] => {
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Enable CORS
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
   // Handle preflight
-  if (req.method === 'OPTIONS') {
+  if (req.method === "OPTIONS") {
     res.status(200).end();
     return;
   }
 
-  if (req.method !== 'POST') {
-    res.status(405).json({ error: 'Method not allowed' });
+  if (req.method !== "POST") {
+    res.status(405).json({ error: "Method not allowed" });
     return;
   }
 
@@ -70,7 +72,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     if (validationErrors.length > 0) {
       return res.status(400).json({
-        error: 'Validation failed',
+        error: "Validation failed",
         details: validationErrors,
       });
     }
@@ -83,8 +85,8 @@ New Contact Form Submission from Sagar Hardware & Ply Stores Website
 Contact Details:
 - Name: ${formData.name}
 - Email: ${formData.email}
-- Phone: ${formData.phone || 'Not provided'}
-- Project Type: ${formData.projectType || 'Not specified'}
+- Phone: ${formData.phone || "Not provided"}
+- Project Type: ${formData.projectType || "Not specified"}
 - Urgency: ${formData.urgency}
 
 Subject: ${formData.subject}
@@ -106,11 +108,11 @@ Reply directly to this email to respond to the customer.
     // For now, we'll simulate the email sending process
     // and log the details (in production, replace this with actual email sending)
 
-    console.log('=== CONTACT FORM SUBMISSION ===');
-    console.log('To: bhandarisagar512@gmail.com');
-    console.log('Subject:', emailSubject);
-    console.log('Body:', emailBody);
-    console.log('============================');
+    console.log("=== CONTACT FORM SUBMISSION ===");
+    console.log("To: bhandarisagar512@gmail.com");
+    console.log("Subject:", emailSubject);
+    console.log("Body:", emailBody);
+    console.log("============================");
 
     // Simulate email sending delay
     await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -122,11 +124,11 @@ Reply directly to this email to respond to the customer.
       submissionId: `CONTACT_${Date.now()}`, // Generate a unique ID for tracking
     });
   } catch (error) {
-    console.error('Contact form error:', error);
+    console.error("Contact form error:", error);
     res.status(500).json({
-      error: 'Internal server error',
+      error: "Internal server error",
       message:
-        'Sorry, there was an error processing your request. Please try again or contact us directly.',
+        "Sorry, there was an error processing your request. Please try again or contact us directly.",
     });
   }
 }

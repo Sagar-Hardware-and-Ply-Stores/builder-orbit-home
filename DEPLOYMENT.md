@@ -12,21 +12,25 @@ This project is now ready for deployment on Vercel. Follow these steps to deploy
 ### Method 1: Vercel CLI (Recommended)
 
 1. **Install Vercel CLI**:
+
    ```bash
    npm i -g vercel
    ```
 
 2. **Login to Vercel**:
+
    ```bash
    vercel login
    ```
 
 3. **Deploy from your project directory**:
+
    ```bash
    vercel
    ```
 
 4. **Follow the prompts**:
+
    - Set up and deploy? `Y`
    - Which scope? Select your account
    - Link to existing project? `N` (for first deployment)
@@ -41,11 +45,13 @@ This project is now ready for deployment on Vercel. Follow these steps to deploy
 ### Method 2: Vercel Dashboard
 
 1. **Connect Repository**:
+
    - Go to [vercel.com/dashboard](https://vercel.com/dashboard)
    - Click "New Project"
    - Import your Git repository
 
 2. **Configure Project**:
+
    - **Framework Preset**: Vite
    - **Root Directory**: `./` (default)
    - **Build Command**: `npm run vercel-build`
@@ -59,18 +65,23 @@ This project is now ready for deployment on Vercel. Follow these steps to deploy
 ## Configuration Details
 
 ### Build Settings
+
 - **Build Command**: `npm run vercel-build`
 - **Output Directory**: `dist/spa`
 - **Node.js Version**: 18.x (default)
 
 ### API Routes
+
 The following API endpoints will be available:
+
 - `/api/ping` - Health check endpoint
 - `/api/demo` - Demo endpoint
 - `/api/contact` - Contact form handler
 
 ### Environment Variables (Optional)
+
 If you need environment variables, add them in the Vercel dashboard:
+
 1. Go to your project settings
 2. Navigate to "Environment Variables"
 3. Add variables like:
@@ -108,6 +119,7 @@ If you need environment variables, add them in the Vercel dashboard:
 ## Automatic Deployments
 
 Once connected to a Git repository, Vercel will automatically:
+
 - Deploy on every push to the main branch (production)
 - Create preview deployments for pull requests
 - Provide deployment previews with unique URLs
@@ -122,16 +134,19 @@ Once connected to a Git repository, Vercel will automatically:
 ## Troubleshooting
 
 ### Build Fails
+
 - Check that all dependencies are in `package.json`
 - Ensure TypeScript types are correct
 - Verify the build runs locally with `npm run vercel-build`
 
 ### API Routes Not Working
+
 - Check that API files are in the `/api` directory
 - Verify function exports are correct
 - Check Vercel function logs in the dashboard
 
 ### Routing Issues
+
 - Ensure `vercel.json` routing configuration is correct
 - Check that React Router is properly configured
 
